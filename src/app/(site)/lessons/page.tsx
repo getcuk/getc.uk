@@ -8,19 +8,23 @@ export default function LessonsPage() {
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
       <div className="mb-8">
-        <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-950">
+        <Link
+          href="/"
+          className="text-sm text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+        >
           ← Home
         </Link>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight">Lessons</h1>
-        <p className="mt-2 text-zinc-600">
-          Coding tutorials will appear here as content is added.
+        <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+          Lessons
+        </h1>
+        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+          Setup guides and K&amp;R Chapter 1 exercises — more series coming soon.
         </p>
       </div>
 
       {lessons.length === 0 ? (
-        <p className="rounded-lg border border-dashed border-zinc-300 p-8 text-sm text-zinc-500">
-          No lessons yet. Add content under <code>content/lessons</code> and
-          wire loaders in <code>src/lib/content</code>.
+        <p className="rounded-lg border border-dashed border-zinc-300 p-8 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+          No lessons yet.
         </p>
       ) : (
         <ul className="grid gap-4 sm:grid-cols-2">

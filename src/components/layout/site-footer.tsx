@@ -1,10 +1,11 @@
-import { SITE_NAME } from "@/lib/constants";
+import { Logo } from "@/components/logo";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-zinc-200">
-      <div className="mx-auto flex h-14 w-full max-w-5xl items-center px-4 text-sm text-zinc-500">
-        © {new Date().getFullYear()} {SITE_NAME}
+    <footer className="mt-auto border-t border-zinc-200/80 dark:border-zinc-800/80">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 text-sm text-zinc-500 xl:px-6 dark:text-zinc-400">
+        <Logo size={40} />
+        <span>© {new Date().getFullYear()}</span>
       </div>
     </footer>
   );
