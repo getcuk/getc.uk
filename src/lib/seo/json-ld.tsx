@@ -17,6 +17,17 @@ export function lessonCoverUrl(lesson: Lesson): string | undefined {
   return absoluteUrl(`/lessons/${lesson.slug}/images/${lesson.coverImage}`);
 }
 
+/** Prefer solid OG asset when present (transparent covers fail on many social platforms). */
+export function lessonCoverOgUrl(lesson: Lesson): string | undefined {
+  const file = lesson.coverImageOg ?? lesson.coverImage;
+  if (!file) return undefined;
+  return absoluteUrl(`/lessons/${lesson.slug}/images/${file}`);
+}
+
+export function lessonCoverAlt(lesson: Lesson): string {
+  return lesson.coverImageAlt ?? lesson.title;
+}
+
 export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -48,7 +59,19 @@ export function organizationJsonLd() {
 
 export function lessonJsonLd(lesson: Lesson) {
   const url = absoluteUrl(`/lessons/${lesson.slug}`);
-  const image = lessonCoverUrl(lesson) ?? absoluteUrl("/brand/og-image.png");
+  const cover = lessonCoverOgUrl(lesson);
+  const coverAlt = lessonCoverAlt(lesson);
+  const image = cover
+    ? {
+        "@type": "ImageObject",
+        url: cover,
+        contentUrl: cover,
+        caption: coverAlt,
+        description: coverAlt,
+        width: 1200,
+        height: 630,
+      }
+    : absoluteUrl("/brand/og-image.png");
 
   return {
     "@context": "https://schema.org",

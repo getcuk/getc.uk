@@ -1,4 +1,5 @@
 import type { Components } from "react-markdown";
+import type { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { LessonSegment } from "@/lib/content/lesson-body";
@@ -6,27 +7,71 @@ import { extractYoutubeId } from "@/lib/content/lesson-body";
 import { GistEmbed } from "@/components/lessons/gist-embed";
 import { YoutubeEmbed } from "@/components/lessons/youtube-embed";
 
+function plainText(node: ReactNode): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(plainText).join("");
+  if (typeof node === "object" && "props" in node) {
+    const props = (node as { props?: { children?: ReactNode } }).props;
+    return plainText(props?.children);
+  }
+  return "";
+}
+
+function slugifyHeading(children: ReactNode): string {
+  return plainText(children)
+    .toLowerCase()
+    .trim()
+    .replace(/[`*_~]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 const components: Components = {
-  h1: ({ children }) => (
-    <h2 className="mt-10 mb-3 font-display text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-      {children}
-    </h2>
-  ),
-  h2: ({ children }) => (
-    <h2 className="mt-10 mb-3 font-display text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-      {children}
-    </h2>
-  ),
-  h3: ({ children }) => (
-    <h3 className="mt-8 mb-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-      {children}
-    </h3>
-  ),
-  h4: ({ children }) => (
-    <h4 className="mt-6 mb-2 text-base font-semibold text-zinc-900 dark:text-zinc-100">
-      {children}
-    </h4>
-  ),
+  h1: ({ children }) => {
+    const id = slugifyHeading(children);
+    return (
+      <h2
+        id={id}
+        className="mt-10 mb-3 scroll-mt-24 font-display text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50"
+      >
+        {children}
+      </h2>
+    );
+  },
+  h2: ({ children }) => {
+    const id = slugifyHeading(children);
+    return (
+      <h2
+        id={id}
+        className="mt-10 mb-3 scroll-mt-24 font-display text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50"
+      >
+        {children}
+      </h2>
+    );
+  },
+  h3: ({ children }) => {
+    const id = slugifyHeading(children);
+    return (
+      <h3
+        id={id}
+        className="mt-8 mb-2 scroll-mt-24 font-mono text-base font-semibold text-zinc-900 dark:text-zinc-100"
+      >
+        {children}
+      </h3>
+    );
+  },
+  h4: ({ children }) => {
+    const id = slugifyHeading(children);
+    return (
+      <h4
+        id={id}
+        className="mt-6 mb-2 scroll-mt-24 text-base font-semibold text-zinc-900 dark:text-zinc-100"
+      >
+        {children}
+      </h4>
+    );
+  },
   p: ({ children }) => {
     // Bare YouTube URL left inside markdown → promote to embed.
     if (

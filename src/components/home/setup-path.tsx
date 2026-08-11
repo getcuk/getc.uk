@@ -16,8 +16,8 @@ export function SetupPath({ lessons }: SetupPathProps) {
           Get your machine ready
         </h2>
         <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
-          Four steps before the exercises — mindset, Terminal, macOS toolchain,
-          then CS50.
+          Five steps before the exercises — mindset, Terminal (navigate then
+          files), macOS toolchain, then CS50.
         </p>
       </div>
 

@@ -41,7 +41,7 @@ export default function Home() {
               </h1>
               <p className="mt-4 max-w-md text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
                 AI can write code. C teaches you memory, pointers, and how
-                software really runs — so you can audit, debug, and build from
+                software really runs — so you can review, debug, and build from
                 the metal up. Free K&amp;R exercises and challenges by Krishan.
               </p>
               <p className="mt-3 max-w-md font-mono text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">

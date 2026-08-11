@@ -6,28 +6,75 @@ import type { Lesson } from "@/lib/types/lesson";
  */
 const setupLessons: Lesson[] = [
   {
-    slug: "why-learn-basics-of-coding",
+    slug: "why-learn-basics",
     title: "Why learn the basics?",
     summary:
-      "Why fundamentals matter — and how “real” programmers differ from copy-paste patching.",
+      "AI can write code. Fundamentals teach you why it works — so you can review, debug, and invent solutions yourself.",
     difficulty: "beginner",
     badge: "01",
     seriesSlug: "setup",
     publishedAt: "2019-02-12",
-    updatedAt: "2019-05-29",
-    coverImage: "basics.jpg",
+    updatedAt: "2026-08-11",
+    coverImage: "why-learn-basics-camel-rider.webp",
+    coverImageOg: "why-learn-basics-camel-rider-og.jpg",
+    coverImageAlt:
+      "Sepia ink wash of a rider on a galloping camel across a desert — featured painting for Why learn the basics?",
   },
   {
-    slug: "learn-your-tools-solid-foundation-in-command-line",
+    slug: "command-line",
     title: "Solid foundation in the command line",
     summary:
-      "Get comfortable talking to the computer with Terminal — the tool every C learner needs.",
+      "I thought Terminal was only for sysadmins — then C forced me to learn it. Open it, see the file tree, and walk around with pwd, ls, and cd.",
     difficulty: "beginner",
     badge: "02",
     seriesSlug: "setup",
     publishedAt: "2019-06-11",
-    updatedAt: "2025-02-23",
-    coverImage: "foundation-960x323-v3.png",
+    updatedAt: "2026-08-11",
+    coverImage: "command-line-foundation-painting.webp",
+    coverImageOg: "command-line-foundation-painting-og.jpg",
+    coverImageAlt:
+      "Abstract foundation painting — featured image for the command line navigation lesson on getc.uk",
+    layout: "docs",
+    docsNav: [
+      { id: "why-this-matters", label: "Why this matters" },
+      { id: "a-few-words-you-will-hear", label: "Terminology" },
+      { id: "opening-terminal", label: "Open Terminal" },
+      { id: "how-the-disk-is-organised", label: "File system" },
+      { id: "pwd", label: "pwd", command: true },
+      { id: "ls", label: "ls", command: true },
+      { id: "cd", label: "cd", command: true },
+      { id: "clear", label: "clear", command: true },
+      { id: "addresses-absolute-and-relative", label: "Pathnames" },
+      { id: "next", label: "Next" },
+    ],
+  },
+  {
+    slug: "command-line-files",
+    title: "Command line: files and folders",
+    summary:
+      "The acidic commands: create a sandbox, then mkdir, cp, mv, and rm without burning the house down. Part 2 of the command line.",
+    difficulty: "beginner",
+    badge: "03",
+    seriesSlug: "setup",
+    publishedAt: "2019-06-11",
+    updatedAt: "2026-08-11",
+    coverImage: "command-line-files-painting.webp",
+    coverImageOg: "command-line-files-painting-og.jpg",
+    coverImageAlt:
+      "Abstract foundation painting — featured image for the command line files lesson on getc.uk",
+    layout: "docs",
+    docsNav: [
+      { id: "man", label: "man", command: true },
+      { id: "less", label: "less", command: true },
+      { id: "ls", label: "ls -la", command: true },
+      { id: "mkdir", label: "mkdir", command: true },
+      { id: "touch", label: "touch", command: true },
+      { id: "open", label: "open", command: true },
+      { id: "cp", label: "cp", command: true },
+      { id: "mv", label: "mv", command: true },
+      { id: "rm", label: "rm", command: true },
+      { id: "next", label: "Next" },
+    ],
   },
   {
     slug: "getting-your-macos-ready-for-c",
@@ -35,7 +82,7 @@ const setupLessons: Lesson[] = [
     summary:
       "Install Clang and the macOS command-line tools so you can write and compile C locally.",
     difficulty: "beginner",
-    badge: "03",
+    badge: "04",
     seriesSlug: "setup",
     publishedAt: "2019-07-16",
     updatedAt: "2025-02-23",
@@ -47,7 +94,7 @@ const setupLessons: Lesson[] = [
     summary:
       "Set up cs50.h on macOS so helpers like get_string() work in your local programs.",
     difficulty: "beginner",
-    badge: "04",
+    badge: "05",
     seriesSlug: "setup",
     publishedAt: "2019-07-17",
     updatedAt: "2025-02-16",
@@ -210,4 +257,17 @@ export function getKrLessons(): Lesson[] {
 
 export function getLessonBySlug(slug: string): Lesson | undefined {
   return lessons.find((lesson) => lesson.slug === slug);
+}
+
+/** Next lesson in the same series (setup, kr, …), or undefined if last / no series. */
+export function getNextLessonInSeries(slug: string): Lesson | undefined {
+  const current = getLessonBySlug(slug);
+  if (!current?.seriesSlug) return undefined;
+
+  const series = lessons.filter(
+    (lesson) => lesson.seriesSlug === current.seriesSlug,
+  );
+  const index = series.findIndex((lesson) => lesson.slug === slug);
+  if (index < 0 || index >= series.length - 1) return undefined;
+  return series[index + 1];
 }

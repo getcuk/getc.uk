@@ -16,4 +16,19 @@ export type Lesson = {
   updatedAt?: string;
   /** Filename under public/lessons/{slug}/images/ */
   coverImage?: string;
+  /** Optional solid-background image for Open Graph / social cards */
+  coverImageOg?: string;
+  /** Accessible / SEO description for the cover (falls back to title) */
+  coverImageAlt?: string;
+  /** "docs" = sticky sidebar TOC (command-line style pages) */
+  layout?: "article" | "docs";
+  /** Sidebar / chip nav for docs layout */
+  docsNav?: LessonDocsNavItem[];
+};
+
+export type LessonDocsNavItem = {
+  id: string;
+  label: string;
+  /** Monospace styling for command names */
+  command?: boolean;
 };

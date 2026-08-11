@@ -4,7 +4,7 @@ type YoutubeEmbedProps = {
 
 export function YoutubeEmbed({ id }: YoutubeEmbedProps) {
   return (
-    <div className="my-6 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
+    <div className="my-4 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
       <div className="relative aspect-video w-full bg-zinc-950">
         <iframe
           src={`https://www.youtube.com/embed/${id}`}
