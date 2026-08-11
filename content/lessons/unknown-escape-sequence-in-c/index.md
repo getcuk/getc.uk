@@ -15,7 +15,11 @@ Q. Experiment to find out what happens when printf's argument string contains \\
 
 Well, unicorns do not exist in real life but horses do. C provides escape sequences such as \\n for newline character, \\t for tab, \\b for backspace, \\" for double quote and \\\\ for backslash character and **\\c** escape sequence does not exist so we are going to get error as shown below:
 
-<script src="https://gist.github.com/krishanthecoder/934ca34b5fb56ee04061c60b79e33562.js"></script>
+
+
+<!-- gist:krishanthecoder/934ca34b5fb56ee04061c60b79e33562 -->
+
+
 
 gcc escape-sequence-nonexistent.c -o escape-sequence-nonexistent
 

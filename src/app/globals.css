@@ -33,6 +33,29 @@ body {
   font-family: var(--font-syne), var(--font-geist-sans), system-ui, sans-serif;
 }
 
+/* Hand cursor on clickable controls (desktop / fine pointers only) */
+@media (hover: hover) and (pointer: fine) {
+  a[href],
+  button:not(:disabled):not([aria-disabled="true"]),
+  [role="button"]:not([aria-disabled="true"]),
+  summary,
+  input[type="button"]:not(:disabled),
+  input[type="submit"]:not(:disabled),
+  input[type="reset"]:not(:disabled),
+  input[type="image"]:not(:disabled),
+  label[for],
+  select:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"],
+  input:disabled,
+  select:disabled {
+    cursor: not-allowed;
+  }
+}
+
 /* —— Home hero —— */
 .hero-stage {
   background:
@@ -226,6 +249,20 @@ body {
   animation: hero-blink 1.05s steps(1, end) infinite;
 }
 
+.hero-bulb {
+  animation: hero-bulb-float 8s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes hero-bulb-float {
+  from {
+    transform: translateY(0) rotate(-2deg);
+  }
+  to {
+    transform: translateY(10px) rotate(2deg);
+  }
+}
+
 @keyframes hero-rise {
   from {
     opacity: 0;
@@ -263,7 +300,8 @@ body {
   .hero-atmosphere,
   .hero-copy,
   .hero-visual,
-  .hero-cursor {
+  .hero-cursor,
+  .hero-bulb {
     animation: none !important;
   }
 

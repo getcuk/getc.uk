@@ -44,7 +44,11 @@ If we enter the values from 0 ℉ to 300 ℉ with increment of 20 ℉; we get th
 
 * * *
 
-<script src="https://gist.github.com/krishanthecoder/b403f006fb290ec9a4a5471ace14bf31.js"></script>
+
+
+<!-- gist:krishanthecoder/b403f006fb290ec9a4a5471ace14bf31 -->
+
+
 
 gcc fahr-to-celsius.c -o fahr-to-celsius
 

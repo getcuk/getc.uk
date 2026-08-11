@@ -17,7 +17,11 @@ Counting something manually takes time and it is error prone. However; computers
 
 Following program counts blanks, tabs and newlines in a paragraph.
 
-<script src="https://gist.github.com/krishanthecoder/b642309a79b30a14467a4a8e2fa01086.js"></script>
+
+
+<!-- gist:krishanthecoder/b642309a79b30a14467a4a8e2fa01086 -->
+
+
 
 gcc count-blanks-tabs-newlines.c -o count-blanks-tabs-newlines
 
@@ -38,4 +42,4 @@ You have entered 11 blanks, 3 tabs and 2 newlines.
 
 * * *
 
-![](images/count-your-blessings.gif)
+![](/lessons/how-to-count-blanks-tabs-and-newlines-in-c/images/count-your-blessings.gif)

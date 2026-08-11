@@ -4,7 +4,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-zinc-200/80 dark:border-zinc-800/80">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 text-sm text-zinc-500 xl:px-6 dark:text-zinc-400">
-        <Logo size={40} />
+        <Logo size={1.55} />
         <span>© {new Date().getFullYear()}</span>
       </div>
     </footer>

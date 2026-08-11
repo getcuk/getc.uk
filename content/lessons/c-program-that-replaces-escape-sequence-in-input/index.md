@@ -15,21 +15,21 @@ Write a program to copy its input to its output, replacing each tab by \\t, back
 
 Well... this program has been quite tricky. Nevertheless; I have managed to solve it. One of the problems is that it is not possible to simulate backspace in terminal input. When you press backspace, the terminal just deletes the last character instead of registering it as \\b character. One workaround is that we use character 'b' for backslash such as below:
 
-<script src="https://gist.github.com/krishanthecoder/548bdfaa55d238f1966b66b00c602658.js"></script>
+
+
+<!-- gist:krishanthecoder/548bdfaa55d238f1966b66b00c602658 -->
+
+
 
 I got the suggestion from [GitHub Copilot](https://github.com/features/copilot). I asked it if it knows how to simulate backspace character in terminal:
 
-<figure>
 
-![](images/github-copilot-1200x930-1.png)
 
-<figcaption>
+![](/lessons/c-program-that-replaces-escape-sequence-in-input/images/github-copilot-1200x930-1.png)
 
-Screenshot of GitHub Copilot in Visual Studio Code
+*Screenshot of GitHub Copilot in Visual Studio Code*
 
-</figcaption>
 
-</figure>
 
 Test the input and output:
 

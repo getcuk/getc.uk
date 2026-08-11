@@ -16,9 +16,13 @@ If you want to prove something is true, you can start by trying to prove counter
 
 Following is our program:
 
-![](images/wink-385px.gif)
+![](/lessons/how-would-you-test-the-word-count-program-what-kinds-of-input-are-most-likely-to-uncover-the-bugs-if-there-are-any/images/wink-385px.gif)
 
-<script src="https://gist.github.com/krishanthecoder/f3db45535e83c23d24a3571e203c8b6a.js"></script>
+
+
+<!-- gist:krishanthecoder/f3db45535e83c23d24a3571e203c8b6a -->
+
+
 
 I will give it text as input with special characters, blanks, newline character and tabs to test it.
 

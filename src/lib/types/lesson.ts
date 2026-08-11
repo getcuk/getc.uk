@@ -10,5 +10,10 @@ export type Lesson = {
   /** Short label when not an exercise, e.g. "01" or "Guide" */
   badge?: string;
   seriesSlug?: string;
+  /** ISO date YYYY-MM-DD */
   publishedAt?: string;
+  /** ISO date YYYY-MM-DD */
+  updatedAt?: string;
+  /** Filename under public/lessons/{slug}/images/ */
+  coverImage?: string;
 };

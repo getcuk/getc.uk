@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "parentId": null,
+    "author": "alex",
+    "date": "2019-11-15",
+    "content": "man i can't say how  thankful i am for these videos you helped me out a lot"
+  },
+  {
+    "id": 2,
+    "parentId": 1,
+    "author": "Krishan",
+    "date": "2019-11-15",
+    "content": "It's my pleasure, Alex."
+  },
+  {
+    "id": 3,
+    "parentId": null,
+    "author": "Nicholas Daisuke Miyasato",
+    "date": "2020-06-24",
+    "content": "Hello, i'm having an issue even after following all 4 steps:\n\nclang -Wall -Wextra -Werror -pedantic -std=c11    hello.c  -lcs50 -o hello\nhello.c:17:2: error: no newline at end of file [-Werror,-Wnewline-eof]\n\nCan you please help me?"
+  },
+  {
+    "id": 4,
+    "parentId": 3,
+    "author": "Krishan",
+    "date": "2020-06-25",
+    "content": "Hi Nicholas, \n\nPlease enter a newline (empty line) after the last line of code. This will fix your error.  \n\nThanks"
+  },
+  {
+    "id": 5,
+    "parentId": null,
+    "author": "Sergio",
+    "date": "2020-09-01",
+    "content": "Thanks so much! that was so helpful! I just have one more question. Do I have to copy the Makefile in every folder to use make? or how can I fix that? thanks again"
+  },
+  {
+    "id": 6,
+    "parentId": 5,
+    "author": "Krishan",
+    "date": "2020-09-01",
+    "content": "You are welcome Sergio!! Yes; you have to copy Makefile in every folder to use make command following the above steps. Unfortunately; I could not figure out how to configure make utility with -lcs50 without the need of creating a Makefile."
+  },
+  {
+    "id": 14,
+    "parentId": null,
+    "author": "Kevin",
+    "date": "2022-03-18",
+    "content": "I got this error when I tried to configure with the make command:\nclang -Wall -Wextra -Werror -pedantic -std=c11    hello.c  -lcs50 -o hello\nhello.c:8:2: error: no newline at end of file [-Werror,-Wnewline-eof]\n}\n ^\n1 error generated.\nmake: *** [hello] Error 1"
+  },
+  {
+    "id": 15,
+    "parentId": 14,
+    "author": "Krishan",
+    "date": "2022-04-05",
+    "content": "Hi Kevin, \nYou can easily fix this error by literally adding a new line by pressing Enter key on your keyboard at the end of file. You can save the file and run make command again and it will execute fine.\nThe reason you get this error is because compiler is nit-picky in following C standards as described at https://gcc.gnu.org/legacy-ml/gcc/2003-11/msg01568.html. \nThanks"
+  },
+  {
+    "id": 17,
+    "parentId": null,
+    "author": "Wojtek",
+    "date": "2022-05-01",
+    "content": "Hi,\nI tried following all your instructions. I get an error:\n\nStarting build...\n/usr/bin/gcc -fdiagnostics-color=always -g /Users/ws/howareu.c -o /Users/ws/howareu\nUndefined symbols for architecture arm64:\n  \"_get_string\", referenced from:\n      _main in howareu-90e59f.o\nld: symbol(s) not found for architecture arm64\nclang: error: linker command failed with exit code 1 (use -v to see invocation)\n\nBuild finished with error(s).\n\nI don't know what I'm doing wrong."
+  },
+  {
+    "id": 18,
+    "parentId": null,
+    "author": "Scott",
+    "date": "2022-05-16",
+    "content": "Thank you for the tutorial! What is the \"sandbox\" that you have in the command line? That threw me off when everything else was working just fine."
+  },
+  {
+    "id": 19,
+    "parentId": 17,
+    "author": "Krishan",
+    "date": "2022-06-01",
+    "content": "Hello Wojtek, \nCan I ask what Operating System (OS) are you using to look into the issue ?\nThanks"
+  },
+  {
+    "id": 20,
+    "parentId": 18,
+    "author": "Krishan",
+    "date": "2022-06-01",
+    "content": "Hi Scott, \nI have named the folder \"sandbox\" in which I saved source code and executable files. Sandbox is an isolated play area where we can experiment and test code. It is an actual concept in software development as someone has already explained on  stack overflow .\nThanks"
+  },
+  {
+    "id": 21,
+    "parentId": null,
+    "author": "M1",
+    "date": "2022-06-26",
+    "content": "Hey, thank you for the tutorial! \nI got this error (I'm using Macbook Pro M1 Pro):\n\nUndefined symbols for architecture arm64:\n  \"_get_string\", referenced from:\n      _main in first-059bb8.o\nld: symbol(s) not found for architecture arm64\nclang: error: linker command failed with exit code 1 (use -v to see invocation)"
+  },
+  {
+    "id": 22,
+    "parentId": null,
+    "author": "Rifki Ardiansyah",
+    "date": "2022-06-26",
+    "content": "Best sollution eva"
+  },
+  {
+    "id": 34,
+    "parentId": 15,
+    "author": "juan pablo",
+    "date": "2022-11-17",
+    "content": "i have the same error i have mac os the last version"
+  },
+  {
+    "id": 36,
+    "parentId": null,
+    "author": "Diego",
+    "date": "2023-04-10",
+    "content": "Hi im getting an error:\n\n/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h:103:10: fatal error: '__stddef_max_align_t.h' file not found\n#include \"__stddef_max_align_t.h\"\n         ^~~~~~~~~~~~~~~~~~~~~~~~"
+  },
+  {
+    "id": 37,
+    "parentId": null,
+    "author": "Diego",
+    "date": "2023-04-10",
+    "content": "Help Please"
+  },
+  {
+    "id": 40,
+    "parentId": null,
+    "author": "50รับ100 ทํา300ถอนได้หมด",
+    "date": "2024-02-28",
+    "content": "I very delighted to find this internet site on bing, just what I was searching for as well saved to fav"
+  },
+  {
+    "id": 41,
+    "parentId": null,
+    "author": "โปรฝาก50รับ100 wallet",
+    "date": "2024-02-28",
+    "content": "very informative articles or reviews at this time."
+  },
+  {
+    "id": 44,
+    "parentId": null,
+    "author": "ufabet911",
+    "date": "2024-04-02",
+    "content": "This was beautiful Admin. Thank you for your reflections."
+  },
+  {
+    "id": 46,
+    "parentId": null,
+    "author": "ufabet911 ทางเข้า",
+    "date": "2024-04-04",
+    "content": "I like the efforts you have put in this, regards for all the great content."
+  },
+  {
+    "id": 150,
+    "parentId": null,
+    "author": "แทงบอลauto",
+    "date": "2024-06-03",
+    "content": "Good post! We will be linking to this particularly great post on our site. Keep up the great writing"
+  },
+  {
+    "id": 154,
+    "parentId": null,
+    "author": "ipro999",
+    "date": "2024-06-05",
+    "content": "Pretty! This has been a really wonderful post. Many thanks for providing these details."
+  },
+  {
+    "id": 170,
+    "parentId": null,
+    "author": "Armando Mclaughlin",
+    "date": "2024-06-05",
+    "content": "For the reason that the admin of this site is working, no uncertainty very quickly it will be renowned, due to its quality contents."
+  },
+  {
+    "id": 326,
+    "parentId": null,
+    "author": "Spain Euro 2024",
+    "date": "2024-07-21",
+    "content": "You’re so awesome! I don’t believe I have read a single thing like that before. So great to find someone with some original thoughts on this topic. Really.. thank you for starting this up. This website is something that is needed on the internet, someone with a little originality!"
+  }
+]

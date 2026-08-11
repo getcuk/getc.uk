@@ -17,7 +17,7 @@ As society became industrialised, precise calculations were required. They were 
 
 **℉ = (9 / 5) × ℃ + 32**
 
-I have also written a post with program that converts [Fahrenheit to Celsius](https://krishanthecoder.io/fahrenheit-to-celsius-in-c/). We are going to plug in following values of Celsius to get the corresponding values of Fahrenheit.
+I have also written a post with program that converts [Fahrenheit to Celsius](/lessons/fahrenheit-to-celsius-in-c). We are going to plug in following values of Celsius to get the corresponding values of Fahrenheit.
 
 | Celsius | Fahrenheit |
 | --- | --- |
@@ -44,7 +44,11 @@ I have also written a post with program that converts [Fahrenheit to Celsius](ht
 
 * * *
 
-<script src="https://gist.github.com/krishanthecoder/c235c7821f79c0221a58941a89439ff0.js"></script>
+
+
+<!-- gist:krishanthecoder/c235c7821f79c0221a58941a89439ff0 -->
+
+
 
 gcc celsius-to-fahrenheit.c -o celsius-to-fahrenheit
 

@@ -26,4 +26,4 @@ C is one of the oldest languages that gives access to the concepts that do not e
 
 For learning coding fundamentals; I enrolled into free online course from Harvard University available from edx at [https://www.edx.org/course/cs50s-introduction-computer-science-harvardx-cs50x](https://www.edx.org/course/cs50s-introduction-computer-science-harvardx-cs50x)  
 
-This course is quite rigorous. It has problem sets for every lecture and I am explaining how I solve each problem set. To learn more; click [here](https://krishanthecoder.io/cs50-psets/).
+This course is quite rigorous. It has problem sets for every lecture and I am explaining how I solve each problem set. To learn more; click here.

@@ -15,11 +15,19 @@ Q. Modify the temperature conversion program to print the table in reverse order
 
 Programming is both an art and science. One problem can be solved in many different ways. What approach one uses comes down to the amount of experience one has with this thing called c programming and problem-solving in general.
 
-<script src="https://gist.github.com/krishanthecoder/aaee7de95854de82cd0d28e69c00d4a0.js"></script>
+
+
+<!-- gist:krishanthecoder/aaee7de95854de82cd0d28e69c00d4a0 -->
+
+
 
 Above program does the job but notice; it has magic numbers like 0, 20 and 300 hard-coded in it. It is a bad practice to hard-code numbers in a program. They convey no information to the reader and it is difficult to change them in a systematic way. Numbers always should have meaningful names and declared either as variables or constants as in this instance. Better version of the program is shown below:
 
-<script src="https://gist.github.com/krishanthecoder/8c81c0f95916d02ecd843ba44ea15ff7.js"></script>
+
+
+<!-- gist:krishanthecoder/8c81c0f95916d02ecd843ba44ea15ff7 -->
+
+
 
 * * *
 

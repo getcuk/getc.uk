@@ -16,9 +16,9 @@ export function ChallengeShell({
 }: ChallengeShellProps) {
   return (
     <div className="flex h-dvh flex-col overflow-hidden bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-100">
-      <header className="flex h-14 shrink-0 items-center justify-between border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-950">
+      <header className="flex h-16 shrink-0 items-center justify-between border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex min-w-0 items-center gap-3">
-          <Logo size={36} />
+          <Logo size={1.55} />
           <span className="hidden text-zinc-400 sm:inline dark:text-zinc-600">
             /
           </span>

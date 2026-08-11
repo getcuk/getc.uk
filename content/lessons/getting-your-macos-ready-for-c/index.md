@@ -21,7 +21,7 @@ Clang is an open source compiler available to download and install for free for 
 
 You will get search results like following and you can download and install it from there:
 
-![](images/apple-command-line-tools-196kb-1024x681.jpg)
+![](/lessons/getting-your-macos-ready-for-c/images/apple-command-line-tools-196kb-1024x681.jpg)
 
 ## Alternative and better way to install command line tools
 

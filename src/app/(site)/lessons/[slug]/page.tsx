@@ -1,6 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { GiscusComments } from "@/components/lessons/giscus-comments";
+import { LegacyComments } from "@/components/lessons/legacy-comments";
+import { LessonBody } from "@/components/lessons/lesson-body";
+import { getCommentsForSlug } from "@/lib/content/comments";
+import { getLessonBody } from "@/lib/content/lesson-body";
 import { getAllLessons, getLessonBySlug } from "@/lib/content/lessons";
+import { SITE_AUTHOR_FULL } from "@/lib/constants";
+import { formatLessonDate } from "@/lib/format-lesson-date";
 
 type LessonPageProps = {
   params: Promise<{ slug: string }>;
@@ -17,6 +24,7 @@ export async function generateMetadata({ params }: LessonPageProps) {
   return {
     title: lesson.title,
     description: lesson.summary,
+    authors: [{ name: SITE_AUTHOR_FULL }],
   };
 }
 
@@ -24,6 +32,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const { slug } = await params;
   const lesson = getLessonBySlug(slug);
   if (!lesson) notFound();
+
+  const [segments, comments] = await Promise.all([
+    getLessonBody(slug),
+    getCommentsForSlug(slug),
+  ]);
+  const coverSrc = lesson.coverImage
+    ? `/lessons/${lesson.slug}/images/${lesson.coverImage}`
+    : null;
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12">
@@ -46,11 +62,41 @@ export default async function LessonPage({ params }: LessonPageProps) {
       <p className="mt-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
         {lesson.summary}
       </p>
-      <p className="mt-8 rounded-lg border border-dashed border-zinc-300 p-5 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
-        Full walkthrough coming next — the source lesson is already imported
-        under <code className="font-mono text-xs">content/lessons/{lesson.slug}</code>.
-      </p>
-      <div className="mt-8">
+
+      <div className="mt-5 space-y-1 text-sm text-zinc-500 dark:text-zinc-400">
+        {lesson.publishedAt ? (
+          <p>{formatLessonDate(lesson.publishedAt)}</p>
+        ) : null}
+        {lesson.updatedAt ? (
+          <p className="text-[#ff8a1f]">
+            Last updated on {formatLessonDate(lesson.updatedAt)}
+          </p>
+        ) : null}
+        <p>
+          Author:{" "}
+          <span className="text-zinc-700 dark:text-zinc-300">
+            {SITE_AUTHOR_FULL}
+          </span>
+        </p>
+      </div>
+
+      {coverSrc ? (
+        <div className="mt-8 -mx-4 sm:mx-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={coverSrc}
+            alt=""
+            className="h-auto w-full object-cover"
+          />
+        </div>
+      ) : null}
+
+      <LessonBody segments={segments} />
+
+      <LegacyComments comments={comments} />
+      <GiscusComments />
+
+      <div className="mt-10 border-t border-zinc-200 pt-8 dark:border-zinc-800">
         <Link href="/challenge/1" className="hero-cta-primary">
           Try a related challenge
         </Link>

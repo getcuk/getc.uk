@@ -14,6 +14,8 @@ const setupLessons: Lesson[] = [
     badge: "01",
     seriesSlug: "setup",
     publishedAt: "2019-02-12",
+    updatedAt: "2019-05-29",
+    coverImage: "basics.jpg",
   },
   {
     slug: "learn-your-tools-solid-foundation-in-command-line",
@@ -24,6 +26,8 @@ const setupLessons: Lesson[] = [
     badge: "02",
     seriesSlug: "setup",
     publishedAt: "2019-06-11",
+    updatedAt: "2025-02-23",
+    coverImage: "foundation-960x323-v3.png",
   },
   {
     slug: "getting-your-macos-ready-for-c",
@@ -34,6 +38,8 @@ const setupLessons: Lesson[] = [
     badge: "03",
     seriesSlug: "setup",
     publishedAt: "2019-07-16",
+    updatedAt: "2025-02-23",
+    coverImage: "Kiss-1600x240-v1.png",
   },
   {
     slug: "installing-cs50-library-locally-on-macos",
@@ -44,6 +50,8 @@ const setupLessons: Lesson[] = [
     badge: "04",
     seriesSlug: "setup",
     publishedAt: "2019-07-17",
+    updatedAt: "2025-02-16",
+    coverImage: "cs50-lib-handdrawn-v2.png",
   },
 ];
 
@@ -62,6 +70,8 @@ const krLessons: Lesson[] = [
     exercise: "1-1",
     seriesSlug: "kr",
     publishedAt: "2022-05-13",
+    updatedAt: "2025-02-07",
+    coverImage: "hello-world-v2.png",
   },
   {
     slug: "unknown-escape-sequence-in-c",
@@ -72,6 +82,8 @@ const krLessons: Lesson[] = [
     exercise: "1-2",
     seriesSlug: "kr",
     publishedAt: "2022-05-13",
+    updatedAt: "2025-02-05",
+    coverImage: "unicorn-960-738.png",
   },
   {
     slug: "fahrenheit-to-celsius-in-c",
@@ -82,6 +94,8 @@ const krLessons: Lesson[] = [
     exercise: "1-3",
     seriesSlug: "kr",
     publishedAt: "2022-05-13",
+    updatedAt: "2025-02-05",
+    coverImage: "fahrenheit-to-celsius-960x508-1.jpg",
   },
   {
     slug: "celsius-to-fahrenheit-in-c",
@@ -92,6 +106,8 @@ const krLessons: Lesson[] = [
     exercise: "1-4",
     seriesSlug: "kr",
     publishedAt: "2022-05-13",
+    updatedAt: "2025-02-05",
+    coverImage: "Celsius-to-Fahrenheit-960x590-1.jpg",
   },
   {
     slug: "fahrenheit-to-celsius-using-for-loop-in-c",
@@ -102,6 +118,8 @@ const krLessons: Lesson[] = [
     exercise: "1-5",
     seriesSlug: "kr",
     publishedAt: "2022-05-13",
+    updatedAt: "2025-02-06",
+    coverImage: "woman-bus-960x900-1.png",
   },
   {
     slug: "getchar-and-eof-in-c",
@@ -112,6 +130,8 @@ const krLessons: Lesson[] = [
     exercise: "1-6",
     seriesSlug: "kr",
     publishedAt: "2022-05-14",
+    updatedAt: "2025-02-07",
+    coverImage: "verify-your-love-960x1269-1.png",
   },
   {
     slug: "value-of-eof-in-c",
@@ -121,6 +141,8 @@ const krLessons: Lesson[] = [
     exercise: "1-7",
     seriesSlug: "kr",
     publishedAt: "2022-05-14",
+    updatedAt: "2025-02-14",
+    coverImage: "beauty-no-bg-960-1211-v2.png",
   },
   {
     slug: "how-to-count-blanks-tabs-and-newlines-in-c",
@@ -131,6 +153,8 @@ const krLessons: Lesson[] = [
     exercise: "1-8",
     seriesSlug: "kr",
     publishedAt: "2025-02-07",
+    updatedAt: "2025-02-14",
+    coverImage: "count-960x679-no-bg.png",
   },
   {
     slug: "replace-string-of-one-or-more-blanks-by-one-blank-while-copying-input-to-output",
@@ -141,6 +165,8 @@ const krLessons: Lesson[] = [
     exercise: "1-9",
     seriesSlug: "kr",
     publishedAt: "2025-02-14",
+    updatedAt: "2025-02-14",
+    coverImage: "method-to-madness-960x669-v1.5.png",
   },
   {
     slug: "c-program-that-replaces-escape-sequence-in-input",
@@ -151,6 +177,8 @@ const krLessons: Lesson[] = [
     exercise: "1-10",
     seriesSlug: "kr",
     publishedAt: "2025-02-15",
+    updatedAt: "2025-02-15",
+    coverImage: "girl-960x1068-1.png",
   },
   {
     slug: "how-would-you-test-the-word-count-program-what-kinds-of-input-are-most-likely-to-uncover-the-bugs-if-there-are-any",
@@ -161,6 +189,8 @@ const krLessons: Lesson[] = [
     exercise: "1-11",
     seriesSlug: "kr",
     publishedAt: "2025-05-26",
+    updatedAt: "2025-05-26",
+    coverImage: "wc-960px-improved-v3.png",
   },
 ];
 

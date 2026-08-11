@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HeroTerminal } from "@/components/home/hero-terminal";
 import { LessonsCarousel } from "@/components/home/lessons-carousel";
@@ -16,27 +17,46 @@ export default function Home() {
         <div className="hero-grid" aria-hidden="true" />
 
         <div className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-10 px-4 pt-10 pb-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-stretch lg:gap-6 lg:pt-8 lg:pb-10 xl:px-6">
-          <div className="hero-copy flex max-w-xl flex-col justify-center lg:pb-4">
-            <p className="font-display text-[clamp(3rem,9vw,5.25rem)] leading-[0.88] font-bold tracking-tight text-[#ff8a1f]">
-              get c
-            </p>
-            <p className="mt-3 font-mono text-xs tracking-[0.18em] text-zinc-500 uppercase dark:text-zinc-400">
-              {SITE_TAGLINE}
-            </p>
-            <h1 className="mt-6 font-display text-[clamp(1.75rem,4.2vw,2.85rem)] leading-[1.1] font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-              Tutorials and games for learning C — built from scratch.
-            </h1>
-            <p className="mt-4 max-w-md text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
-              Write real C in the browser, run it, and learn by doing — starting
-              with hello, world.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/challenge/1" className="hero-cta-primary">
-                Try a challenge
-              </Link>
-              <Link href="/lessons" className="hero-cta-secondary">
-                Browse lessons
-              </Link>
+          <div className="hero-copy relative flex max-w-xl flex-col justify-center lg:pb-4">
+            <div
+              className="hero-bulb pointer-events-none absolute -top-6 -left-8 select-none sm:-top-10 sm:-left-12 lg:-top-16 lg:-left-20"
+              aria-hidden="true"
+            >
+              <Image
+                src="/brand/bulb-with-human-brain.svg"
+                alt=""
+                width={420}
+                height={420}
+                className="h-auto w-[min(18rem,55vw)] opacity-[0.14] sm:w-[min(22rem,48vw)] dark:opacity-[0.22]"
+                priority
+              />
+            </div>
+
+            <div className="relative">
+              <p className="font-mono text-xs tracking-[0.18em] text-zinc-500 uppercase dark:text-zinc-400">
+                {SITE_TAGLINE}
+              </p>
+              <h1 className="mt-4 font-display text-[clamp(1.75rem,4.2vw,2.85rem)] leading-[1.1] font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+                A free resource for learning C from first principles.
+              </h1>
+              <p className="mt-4 max-w-md text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
+                Developed by Krishan to teach first principles through K&amp;R
+                exercises and code challenges.
+              </p>
+              <p className="mt-3 max-w-md font-mono text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                Named after{" "}
+                <code className="text-[#ff8a1f]">getc()</code> — the C function
+                that reads one character at a time. We teach C the same way: one
+                step at a time.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/challenge/1" className="hero-cta-primary">
+                  Try a challenge
+                </Link>
+                <Link href="/lessons" className="hero-cta-secondary">
+                  Browse lessons
+                </Link>
+              </div>
             </div>
           </div>
 

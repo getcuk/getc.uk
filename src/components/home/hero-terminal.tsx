@@ -24,14 +24,43 @@ const LINES = [
     n: 5,
     parts: [
       { t: "  ", c: "" },
-      { t: "printf", c: "tok-fn" },
+      { t: "int", c: "tok-kw" },
+      { t: " ", c: "" },
+      { t: "c", c: "" },
+      { t: ";", c: "" },
+    ],
+  },
+  { n: 6, parts: [] },
+  {
+    n: 7,
+    parts: [
+      { t: "  ", c: "" },
+      { t: "while", c: "tok-kw" },
+      { t: " ((", c: "" },
+      { t: "c", c: "" },
+      { t: " = ", c: "" },
+      { t: "getc", c: "tok-fn" },
       { t: "(", c: "" },
-      { t: '"hello, world\\n"', c: "tok-str" },
+      { t: "stdin", c: "tok-kw" },
+      { t: ")) != ", c: "" },
+      { t: "EOF", c: "tok-kw" },
+      { t: ")", c: "" },
+    ],
+  },
+  {
+    n: 8,
+    parts: [
+      { t: "    ", c: "" },
+      { t: "putc", c: "tok-fn" },
+      { t: "(", c: "" },
+      { t: "c", c: "" },
+      { t: ", ", c: "" },
+      { t: "stdout", c: "tok-kw" },
       { t: ");", c: "" },
     ],
   },
   {
-    n: 6,
+    n: 9,
     parts: [
       { t: "  ", c: "" },
       { t: "return", c: "tok-kw" },
@@ -40,7 +69,7 @@ const LINES = [
       { t: ";", c: "" },
     ],
   },
-  { n: 7, parts: [{ t: "}", c: "" }] },
+  { n: 10, parts: [{ t: "}", c: "" }] },
 ] as const;
 
 export function HeroTerminal() {
@@ -54,16 +83,16 @@ export function HeroTerminal() {
         <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
           <span className="size-2.5 rounded-sm bg-[#ff8a1f]/60" />
           <span className="font-mono text-[0.7rem] tracking-wide text-white/50">
-            main.c — challenge/1
+            getc.c — read a character
           </span>
           <span className="ml-auto font-mono text-[0.65rem] text-[#ff8a1f]/90">
             RESULT: PASSED
           </span>
         </div>
-        <pre className="flex-1 overflow-hidden px-4 py-5 font-mono text-[0.8rem] leading-7 sm:text-[0.9rem] sm:leading-8">
+        <pre className="flex-1 overflow-hidden px-4 py-5 font-mono text-[0.75rem] leading-6 sm:text-[0.85rem] sm:leading-7">
           {LINES.map((line) => (
             <div key={line.n} className="flex gap-4">
-              <span className="w-4 shrink-0 select-none text-right text-white/25">
+              <span className="w-5 shrink-0 select-none text-right text-white/25">
                 {line.n}
               </span>
               <code className="text-white/85">
@@ -82,13 +111,14 @@ export function HeroTerminal() {
             </div>
           ))}
           <div className="mt-1 flex gap-4">
-            <span className="w-4 shrink-0" />
+            <span className="w-5 shrink-0" />
             <span className="hero-cursor inline-block h-5 w-2 translate-y-0.5 bg-[#ff8a1f]" />
           </div>
         </pre>
         <div className="border-t border-white/10 px-4 py-3 font-mono text-[0.7rem] text-white/45">
           <span className="text-[#ff8a1f]">$</span> ./a.out
-          <span className="mt-1 block text-white/70">hello, world</span>
+          <span className="mt-1 block text-white/55">hello, world</span>
+          <span className="block text-white/70">hello, world</span>
         </div>
       </div>
     </div>

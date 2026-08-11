@@ -85,49 +85,37 @@ All UNIX like operating systems have a tree like hierarchical directory ( folder
 
 As we are working with MacOS in this post; the file system can be depicted as shown in the following diagram:
 
-<figure>
 
-![](images/macOS_file_system_post-1024x724.jpeg)
 
-<figcaption>
+![](/lessons/learn-your-tools-solid-foundation-in-command-line/images/macOS_file_system_post-1024x724.jpeg)
 
-File System Tree in MacOS diagram
+*File System Tree in MacOS diagram*
 
-</figcaption>
 
-</figure>
 
 **Note:** This diagram is purely drawn for representation purposes. It gives us insight into how the hierarchy is structured. All the folders / directories under _root directory_ are said to have _parent-child relationship_ where root is parent. The diagram does not show all of the directories, files and directories inside them directories and so on.
 
 The same File System Tree drawn above can be accessed in GUI form in finder app as shown below:
 
-<figure>
 
-![](images/macOS-file-system-tree-in-finder-app-1-1024x842.jpg)
 
-<figcaption>
+![](/lessons/learn-your-tools-solid-foundation-in-command-line/images/macOS-file-system-tree-in-finder-app-1-1024x842.jpg)
 
-File System Tree in MacOS finder app
+*File System Tree in MacOS finder app*
 
-</figcaption>
 
-</figure>
 
 Some of the Folders / directories are faded in the finder window above because they are hidden files and are not usually visible in GUI. Hidden files in system start with **.** and file name after it.
 
 We can see the same File System Tree in Terminal as shown below:
 
-<figure>
 
-![](images/terminal-showing-root-contents-1024x645.jpg)
 
-<figcaption>
+![](/lessons/learn-your-tools-solid-foundation-in-command-line/images/terminal-showing-root-contents-1024x645.jpg)
 
-File System in MacOS Terminal
+*File System in MacOS Terminal*
 
-</figcaption>
 
-</figure>
 
 ##### Navigating the File System using Terminal
 
@@ -197,17 +185,13 @@ https://www.youtube.com/embed/\_TYyBb69rkY
 
 Each absolute pathname starts with _root directory_ then child-directories next to it. All other directories are represented by directory\_name/ e.g. Desktop/ as explained in the following picture:
 
-<figure>
 
-![](images/absolute-path-explanation-1024x450.jpeg)
 
-<figcaption>
+![](/lessons/learn-your-tools-solid-foundation-in-command-line/images/absolute-path-explanation-1024x450.jpeg)
 
-Absolute pathname to funny-app directory
+*Absolute pathname to funny-app directory*
 
-</figcaption>
 
-</figure>
 
 ###### Relative Pathname
 
@@ -229,17 +213,13 @@ https://www.youtube.com/embed/6BC6Lu6ksMg
 
 ##### Options and Arguments to Commands
 
-<figure>
 
-![](images/Scan.jpeg)
 
-<figcaption>
+![](/lessons/learn-your-tools-solid-foundation-in-command-line/images/Scan.jpeg)
 
-options and arguments for command
+*options and arguments for command*
 
-</figcaption>
 
-</figure>
 
 **man** - show the manual page on command
 
