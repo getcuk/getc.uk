@@ -1,6 +1,34 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { LessonCard } from "@/components/lessons/lesson-card";
 import { getAllLessons } from "@/lib/content/lessons";
+import { SITE_NAME, SITE_URL } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Lessons",
+  description:
+    "Setup guides and K&R Chapter 1 exercises for learning C from first principles — free on getc.uk.",
+  alternates: {
+    canonical: "/lessons",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: `${SITE_URL}/lessons`,
+    siteName: SITE_NAME,
+    title: `Lessons · ${SITE_NAME}`,
+    description:
+      "Setup guides and K&R Chapter 1 exercises for learning C from first principles.",
+    images: [
+      {
+        url: "/brand/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "get c",
+      },
+    ],
+  },
+};
 
 export default function LessonsPage() {
   const lessons = getAllLessons();

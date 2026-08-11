@@ -1,7 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Syne } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
+import {
+  SITE_AUTHOR,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+} from "@/lib/constants";
+import { JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,7 +28,7 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://getc.uk"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: `${SITE_NAME} — ${SITE_TAGLINE}`,
     template: `%s · ${SITE_NAME}`,
@@ -30,6 +37,9 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   authors: [{ name: SITE_AUTHOR }],
   creator: SITE_AUTHOR,
+  alternates: {
+    canonical: "/",
+  },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -42,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://getc.uk",
+    url: SITE_URL,
     siteName: SITE_NAME,
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
@@ -78,6 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background font-sans text-foreground">
+        <JsonLd data={[websiteJsonLd(), organizationJsonLd()]} />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

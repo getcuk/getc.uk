@@ -37,17 +37,17 @@ export default function Home() {
                 {SITE_TAGLINE}
               </p>
               <h1 className="mt-4 font-display text-[clamp(1.75rem,4.2vw,2.85rem)] leading-[1.1] font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-                A free resource for learning C from first principles.
+                Learn C — so you shape systems, not just prompt them.
               </h1>
               <p className="mt-4 max-w-md text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
-                Developed by Krishan to teach first principles through K&amp;R
-                exercises and code challenges.
+                AI can write code. C teaches you memory, pointers, and how
+                software really runs — so you can audit, debug, and build from
+                the metal up. Free K&amp;R exercises and challenges by Krishan.
               </p>
               <p className="mt-3 max-w-md font-mono text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                Named after{" "}
-                <code className="text-[#ff8a1f]">getc()</code> — the C function
-                that reads one character at a time. We teach C the same way: one
-                step at a time.
+                Named after the{" "}
+                <code className="text-[#ff8a1f]">getc()</code> function — one
+                character at a time. We teach C the same way.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/challenge/1" className="hero-cta-primary">
@@ -60,8 +60,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-visual relative -mx-4 min-h-[24rem] sm:min-h-[26rem] lg:mx-0 lg:min-h-0 lg:self-stretch">
-            <HeroTerminal />
+          <div className="hero-visual relative -mx-4 flex min-h-[32rem] flex-col sm:min-h-[34rem] lg:mx-0 lg:min-h-0 lg:self-stretch">
+            <div className="min-h-0 flex-1">
+              <HeroTerminal />
+            </div>
           </div>
         </div>
       </section>

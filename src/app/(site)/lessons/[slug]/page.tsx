@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { GiscusComments } from "@/components/lessons/giscus-comments";
@@ -6,8 +7,14 @@ import { LessonBody } from "@/components/lessons/lesson-body";
 import { getCommentsForSlug } from "@/lib/content/comments";
 import { getLessonBody } from "@/lib/content/lesson-body";
 import { getAllLessons, getLessonBySlug } from "@/lib/content/lessons";
-import { SITE_AUTHOR_FULL } from "@/lib/constants";
+import { SITE_AUTHOR_FULL, SITE_NAME } from "@/lib/constants";
 import { formatLessonDate } from "@/lib/format-lesson-date";
+import {
+  JsonLd,
+  absoluteUrl,
+  lessonCoverUrl,
+  lessonJsonLd,
+} from "@/lib/seo/json-ld";
 
 type LessonPageProps = {
   params: Promise<{ slug: string }>;
@@ -17,14 +24,49 @@ export function generateStaticParams() {
   return getAllLessons().map((lesson) => ({ slug: lesson.slug }));
 }
 
-export async function generateMetadata({ params }: LessonPageProps) {
+export async function generateMetadata({
+  params,
+}: LessonPageProps): Promise<Metadata> {
   const { slug } = await params;
   const lesson = getLessonBySlug(slug);
   if (!lesson) return { title: "Lesson" };
+
+  const url = absoluteUrl(`/lessons/${lesson.slug}`);
+  const cover = lessonCoverUrl(lesson);
+  const ogImage = cover
+    ? { url: cover, alt: lesson.title }
+    : {
+        url: "/brand/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "get c",
+      };
+
   return {
     title: lesson.title,
     description: lesson.summary,
     authors: [{ name: SITE_AUTHOR_FULL }],
+    alternates: {
+      canonical: `/lessons/${lesson.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      locale: "en_GB",
+      url,
+      siteName: SITE_NAME,
+      title: lesson.title,
+      description: lesson.summary,
+      publishedTime: lesson.publishedAt,
+      modifiedTime: lesson.updatedAt ?? lesson.publishedAt,
+      authors: [SITE_AUTHOR_FULL],
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: lesson.title,
+      description: lesson.summary,
+      images: [cover ?? "/brand/og-image.png"],
+    },
   };
 }
 
@@ -43,6 +85,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   return (
     <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12">
+      <JsonLd data={lessonJsonLd(lesson)} />
       <Link
         href="/lessons"
         className="text-sm text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
@@ -85,7 +128,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={coverSrc}
-            alt=""
+            alt={lesson.title}
             className="h-auto w-full object-cover"
           />
         </div>
