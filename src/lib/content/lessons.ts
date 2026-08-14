@@ -1,24 +1,29 @@
-import type { Lesson } from "@/lib/types/lesson";
+import type { Lesson, LessonPart } from "@/lib/types/lesson";
 
 /**
  * Setup / foundations content from the legacy site export
  * (Desktop/ktc-site/output-final posts + why-learn page).
  */
+const commandLineParts: LessonPart[] = [
+  { slug: "command-line", label: "Moving around" },
+  { slug: "command-line-files", label: "Files and folders" },
+];
+
 const setupLessons: Lesson[] = [
   {
     slug: "why-learn-basics",
-    title: "Why learn the basics?",
+    title: "Why learn the basics of coding?",
     summary:
-      "AI can write code. Fundamentals teach you why it works — so you can review, debug, and invent solutions yourself.",
+      "AI and copy-paste can ship a demo. Fundamentals are what let you debug it, change it, and invent the program you actually meant.",
     difficulty: "beginner",
     badge: "01",
     seriesSlug: "setup",
     publishedAt: "2019-02-12",
-    updatedAt: "2026-08-11",
+    updatedAt: "2026-08-14",
     coverImage: "why-learn-basics-camel-rider.webp",
     coverImageOg: "why-learn-basics-camel-rider-og.jpg",
     coverImageAlt:
-      "Sepia ink wash of a rider on a galloping camel across a desert — featured painting for Why learn the basics?",
+      "Sepia ink-wash of a rider on a galloping camel — featured image for Why learn the basics of coding? on getc.uk",
   },
   {
     slug: "command-line",
@@ -29,40 +34,42 @@ const setupLessons: Lesson[] = [
     badge: "02",
     seriesSlug: "setup",
     publishedAt: "2019-06-11",
-    updatedAt: "2026-08-11",
-    coverImage: "command-line-foundation-painting.webp",
-    coverImageOg: "command-line-foundation-painting-og.jpg",
+    updatedAt: "2026-08-14",
+    coverImage: "command-line-landscape.webp",
+    coverImageOg: "command-line-landscape-og.jpg",
     coverImageAlt:
-      "Abstract foundation painting — featured image for the command line navigation lesson on getc.uk",
+      "Watercolour study of a rocky path through green hills — featured image for the command line lesson on getc.uk",
     layout: "docs",
+    parts: commandLineParts,
     docsNav: [
       { id: "why-this-matters", label: "Why this matters" },
-      { id: "a-few-words-you-will-hear", label: "Terminology" },
+      { id: "words-you-will-hear", label: "Terminology" },
       { id: "opening-terminal", label: "Open Terminal" },
       { id: "how-the-disk-is-organised", label: "File system" },
       { id: "pwd", label: "pwd", command: true },
       { id: "ls", label: "ls", command: true },
       { id: "cd", label: "cd", command: true },
       { id: "clear", label: "clear", command: true },
-      { id: "addresses-absolute-and-relative", label: "Pathnames" },
-      { id: "next", label: "Next" },
+      { id: "pathnames-absolute-and-relative", label: "Pathnames" },
+      { id: "next-step", label: "Next" },
     ],
   },
   {
     slug: "command-line-files",
     title: "Command line: files and folders",
     summary:
-      "The acidic commands: create a sandbox, then mkdir, cp, mv, and rm without burning the house down. Part 2 of the command line.",
+      "The acidic commands: create a sandbox, then mkdir, cp, mv, and rm without burning the house down.",
     difficulty: "beginner",
     badge: "03",
     seriesSlug: "setup",
     publishedAt: "2019-06-11",
-    updatedAt: "2026-08-11",
-    coverImage: "command-line-files-painting.webp",
-    coverImageOg: "command-line-files-painting-og.jpg",
+    updatedAt: "2026-08-14",
+    coverImage: "command-line-files-ducks.webp",
+    coverImageOg: "command-line-files-ducks-og.jpg",
     coverImageAlt:
-      "Abstract foundation painting — featured image for the command line files lesson on getc.uk",
+      "Vintage naturalist print of two ducks on rocks in shallow water — featured image for the command line files lesson on getc.uk",
     layout: "docs",
+    parts: commandLineParts,
     docsNav: [
       { id: "man", label: "man", command: true },
       { id: "less", label: "less", command: true },
@@ -77,28 +84,36 @@ const setupLessons: Lesson[] = [
     ],
   },
   {
-    slug: "getting-your-macos-ready-for-c",
+    slug: "macos-ready-for-c",
     title: "Getting your macOS ready for C",
     summary:
-      "Install Clang and the macOS command-line tools so you can write and compile C locally.",
+      "Skip full Xcode. Install Apple’s Command Line Tools so Clang is ready in Terminal — then you can compile C on your Mac.",
     difficulty: "beginner",
     badge: "04",
     seriesSlug: "setup",
     publishedAt: "2019-07-16",
-    updatedAt: "2025-02-23",
-    coverImage: "Kiss-1600x240-v1.png",
+    updatedAt: "2026-08-14",
+    coverImage: "macos-ready-for-c-seagull.webp",
+    coverImageOg: "macos-ready-for-c-seagull-og.jpg",
+    coverImageAlt:
+      "Overhead photo of a seagull in flight — featured image for Getting your macOS ready for C on getc.uk",
+    coverTight: true,
   },
   {
-    slug: "installing-cs50-library-locally-on-macos",
+    slug: "cs50-library",
     title: "Installing the CS50 library",
     summary:
-      "Set up cs50.h on macOS so helpers like get_string() work in your local programs.",
+      "Put cs50.h on your Mac so helpers like get_string() work with Clang — install from source, fix the paths, optionally wire a Makefile.",
     difficulty: "beginner",
     badge: "05",
     seriesSlug: "setup",
     publishedAt: "2019-07-17",
-    updatedAt: "2025-02-16",
-    coverImage: "cs50-lib-handdrawn-v2.png",
+    updatedAt: "2026-08-14",
+    coverImage: "cs50-library-handdrawn.webp",
+    coverImageOg: "cs50-library-handdrawn-og.jpg",
+    coverImageAlt:
+      "Hand-lettered CS50 Library title sketch — featured image for Installing the CS50 library on getc.uk",
+    coverTight: true,
   },
 ];
 

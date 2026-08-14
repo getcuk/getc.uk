@@ -79,6 +79,56 @@ export function splitLessonBody(body: string): LessonSegment[] {
   return segments;
 }
 
+function slugifyHeadingText(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[`*_~]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+/**
+ * Split lesson segments so the docs rail can start at the first TOC heading
+ * (e.g. intro + video stay above; "## Why this matters" and below sit beside the nav).
+ */
+export function splitAtHeadingId(
+  segments: LessonSegment[],
+  headingId: string,
+): { before: LessonSegment[]; after: LessonSegment[] } {
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i];
+    if (seg.type !== "markdown") continue;
+
+    const lines = seg.value.split("\n");
+    for (let j = 0; j < lines.length; j++) {
+      const match = /^(#{1,6})\s+(.+?)\s*$/.exec(lines[j]);
+      if (!match) continue;
+      if (slugifyHeadingText(match[2]) !== headingId) continue;
+
+      const beforeText = lines.slice(0, j).join("\n").trim();
+      const afterText = lines.slice(j).join("\n").trim();
+
+      return {
+        before: [
+          ...segments.slice(0, i),
+          ...(beforeText
+            ? [{ type: "markdown" as const, value: beforeText }]
+            : []),
+        ],
+        after: [
+          ...(afterText
+            ? [{ type: "markdown" as const, value: afterText }]
+            : []),
+          ...segments.slice(i + 1),
+        ],
+      };
+    }
+  }
+
+  return { before: [], after: segments };
+}
+
 export async function getLessonBody(slug: string): Promise<LessonSegment[]> {
   const filePath = path.join(
     process.cwd(),

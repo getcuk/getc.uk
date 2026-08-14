@@ -18,9 +18,41 @@ Counting something manually takes time and it is error prone. However; computers
 Following program counts blanks, tabs and newlines in a paragraph.
 
 
+*`count-blanks-tabs-newlines.c`*
 
-<!-- gist:krishanthecoder/b642309a79b30a14467a4a8e2fa01086 -->
+```c
+#include <stdio.h>
 
+int main(void)
+{
+  int c;
+  int blanks, tabs, newlines;
+  
+  /* Set all count variables to 0 */
+  blanks = tabs = newlines = 0;
+  
+  while ((c = getchar()) != EOF)
+  {
+    /* here ' ' represents a blank */
+    
+    if (c == ' ')
+    {
+      ++blanks;
+    }
+    else if (c == '\t')
+    {
+      ++tabs;
+    }
+    else if (c == '\n')
+    {
+      ++newlines;
+    }
+  }
+  
+  printf("You have entered %d blanks, %d tabs and %d newlines\n", blanks, tabs, newlines);
+  return 0;
+}
+```
 
 
 gcc count-blanks-tabs-newlines.c -o count-blanks-tabs-newlines

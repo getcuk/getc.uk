@@ -14,14 +14,23 @@ export type LegacyCommentNode = LegacyComment & {
   replies: LegacyCommentNode[];
 };
 
-export async function getCommentsForSlug(
-  slug: string,
-): Promise<LegacyComment[]> {
+/**
+ * When a lesson slug is shortened, keep loading comments from the old
+ * WordPress-era filename until/unless the JSON is renamed to match.
+ */
+const COMMENT_FILE_ALIASES: Record<string, string[]> = {
+  "cs50-library": ["installing-cs50-library-locally-on-macos"],
+  "macos-ready-for-c": ["getting-your-macos-ready-for-c"],
+  "command-line": ["learn-your-tools-solid-foundation-in-command-line"],
+  "why-learn-basics": ["why-learn-basics-of-coding"],
+};
+
+async function readCommentsFile(fileSlug: string): Promise<LegacyComment[] | null> {
   const filePath = path.join(
     process.cwd(),
     "content",
     "comments",
-    `${slug}.json`,
+    `${fileSlug}.json`,
   );
 
   try {
@@ -29,8 +38,24 @@ export async function getCommentsForSlug(
     const parsed = JSON.parse(raw) as LegacyComment[];
     return Array.isArray(parsed) ? parsed : [];
   } catch {
-    return [];
+    return null;
   }
+}
+
+export async function getCommentsForSlug(
+  slug: string,
+): Promise<LegacyComment[]> {
+  const candidates = [slug, ...(COMMENT_FILE_ALIASES[slug] ?? [])];
+  let emptyHit: LegacyComment[] | null = null;
+
+  for (const fileSlug of candidates) {
+    const comments = await readCommentsFile(fileSlug);
+    if (comments === null) continue;
+    if (comments.length > 0) return comments;
+    emptyHit ??= comments;
+  }
+
+  return emptyHit ?? [];
 }
 
 export function buildCommentTree(

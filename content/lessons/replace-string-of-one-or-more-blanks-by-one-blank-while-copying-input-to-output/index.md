@@ -16,9 +16,34 @@ Write a program to copy its input to its output, replacing each string of one or
 One of the most difficult skills to master is discipline to write the program yourself. When a newbie programmer encounters a problem, s/he looks for the solution using Google Search rather than trying to solve the problem old school way i.e. thinking through the different approaches.
 
 
+*`cp-input-output.c`*
 
-<!-- gist:krishanthecoder/324cbbf3b67111ed56214a16b312af3c -->
+```c
+#include <stdio.h>
 
+int main(void)
+{
+  int c;
+  
+  while ((c = getchar()) != EOF)
+  {
+    printf("%c", c);
+    
+    if (c == ' ')
+    {
+      while ((c = getchar()) == ' ')
+      {
+        printf("");
+      }
+
+      printf("%c", c);
+    }
+    
+  }
+  
+  return 0;
+}
+```
 
 
 gcc cp-input-output.c -o cp-input-output
@@ -36,7 +61,6 @@ Press CTRL+D to simulate EOF and terminate program.
 > _A program should be written similar to how we write an essay. It is very strange how we can come up with something elegant from something completely unrelated._
 
 * * *
-
 
 
 ![](/lessons/replace-string-of-one-or-more-blanks-by-one-blank-while-copying-input-to-output/images/feeling-of-learning-code.gif)

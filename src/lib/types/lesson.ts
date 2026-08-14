@@ -20,10 +20,26 @@ export type Lesson = {
   coverImageOg?: string;
   /** Accessible / SEO description for the cover (falls back to title) */
   coverImageAlt?: string;
+  /**
+   * Clip spare vertical padding on small spot covers (still stored at 1200×630).
+   * Page shows a shorter frame; OG JPG stays full canvas.
+   */
+  coverTight?: boolean;
   /** "docs" = sticky sidebar TOC (command-line style pages) */
   layout?: "article" | "docs";
   /** Sidebar / chip nav for docs layout */
   docsNav?: LessonDocsNavItem[];
+  /**
+   * Multi-part lesson switcher (e.g. command-line 1/2).
+   * Same array on each sibling; current page is highlighted by slug.
+   */
+  parts?: LessonPart[];
+};
+
+export type LessonPart = {
+  slug: string;
+  /** Short label in the switcher, e.g. "Navigate" or "Files" */
+  label: string;
 };
 
 export type LessonDocsNavItem = {

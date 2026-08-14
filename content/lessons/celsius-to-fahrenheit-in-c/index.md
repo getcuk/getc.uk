@@ -45,9 +45,32 @@ I have also written a post with program that converts [Fahrenheit to Celsius](/l
 * * *
 
 
+*`celsius-to-fahrenheit.c`*
 
-<!-- gist:krishanthecoder/c235c7821f79c0221a58941a89439ff0 -->
+```c
+#include <stdio.h>
 
+int main(void)
+{
+  float celsius, fahr;
+  float lower, step, upper;
+  
+  lower = -17.8;
+  step = 11.11;
+  upper = 148.9;
+  
+  printf("Celsius\tFahrenheit\n");
+  celsius = lower;
+
+  while (celsius <= upper)
+  {
+    fahr = (9.0 / 5.0) * celsius + 32.0;
+    printf("%6.1f %8.0f\n", celsius, fahr);
+    celsius += step;  
+  }
+  return 0;
+}
+```
 
 
 gcc celsius-to-fahrenheit.c -o celsius-to-fahrenheit

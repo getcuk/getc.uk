@@ -16,9 +16,17 @@ Q. Run the "hello, world" program on your system. Experiment with leaving out pa
 It is a tradition to write a "hello world" program as the first program when learning a new programming language. Incidentally; it was first introduced in the "The C Programming Language" book by Kernighan and Ritchie with this exercise.
 
 
+*`hello.c`*
 
-<!-- gist:krishanthecoder/f54837cfbd9b71eade85fac0db74d09b -->
+```c
+#include <stdio.h>
 
+int main(void)
+{
+  printf("hello, world\n");
+  return 0;
+}
+```
 
 
 gcc hello.c -o hello  
@@ -32,9 +40,15 @@ hello, world!
 ### Step 1: Leave out standard library
 
 
+*`no-stdio-library.c`*
 
-<!-- gist:krishanthecoder/59f746581499e3dd7472244f227474df -->
-
+```c
+int main(void)
+{
+  printf("hello, world\n");
+  return 0;
+}
+```
 
 
 gcc no-stdio-library.c -o no-stdio-library
@@ -52,9 +66,17 @@ printf function is a c standard library function that is declared in stdio.h so 
 ### Step 2: Leave out \\n escape sequence in printf function
 
 
+*`no-newline-escape-sequence.c`*
 
-<!-- gist:krishanthecoder/82e92c83f7678f4692d6ccb7cb951113 -->
+```c
+#include <stdio.h>
 
+int main(void)
+{
+  printf("hello, world");
+  return 0;
+}
+```
 
 
 gcc no-newline-escape-sequence.c -o no-newline-escape-sequence
@@ -66,9 +88,13 @@ hello, world%
 ### Step 3: Leave out main function
 
 
+*`no-main-function.c`*
 
-<!-- gist:krishanthecoder/bc9610e807cbea351c1d22ffa8be2690 -->
+```c
+#include <stdio.h>
 
+printf("hello, world\n");
+```
 
 
 gcc no-main-function.c -o no-main-function  
@@ -94,9 +120,11 @@ If you try to compile a program without using main function; the compiler gets c
 ## Step 4: Leave out all lines except printf function
 
 
+*`just-printf-function.c`*
 
-<!-- gist:krishanthecoder/e71c5051180a43df4e7cdfbc96a24dfb -->
-
+```c
+printf("hello, world")
+```
 
 
 gcc just-printf-function.c -o just-printf-function
@@ -120,9 +148,11 @@ We can just type printf function with "hello, world" string as its argument and 
 However; it might have worked with Python which is an interpreted language meaning there is no compilation process such as below:
 
 
+*`hello.py`*
 
-<!-- gist:krishanthecoder/e019719743f5eec6cdae96ea9ae2dbae -->
-
+```python
+print('hello, world!')
+```
 
 
 python3 hello.py

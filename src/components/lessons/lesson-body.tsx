@@ -2,6 +2,7 @@ import type { Components } from "react-markdown";
 import type { ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
 import type { LessonSegment } from "@/lib/content/lesson-body";
 import { extractYoutubeId } from "@/lib/content/lesson-body";
 import { GistEmbed } from "@/components/lessons/gist-embed";
@@ -173,7 +174,9 @@ const components: Components = {
     const isBlock = Boolean(className);
     if (isBlock) {
       return (
-        <code className="font-mono text-[0.85rem] leading-relaxed text-zinc-100">
+        <code
+          className={`font-mono text-[0.85rem] leading-relaxed text-zinc-100 ${className ?? ""}`}
+        >
           {children}
         </code>
       );
@@ -185,7 +188,7 @@ const components: Components = {
     );
   },
   pre: ({ children }) => (
-    <pre className="mb-5 overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950 p-4 text-zinc-100">
+    <pre className="lesson-code mb-5 overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950 p-4 text-zinc-100">
       {children}
     </pre>
   ),
@@ -193,11 +196,12 @@ const components: Components = {
 
 type LessonBodyProps = {
   segments: LessonSegment[];
+  className?: string;
 };
 
-export function LessonBody({ segments }: LessonBodyProps) {
+export function LessonBody({ segments, className = "mt-8" }: LessonBodyProps) {
   return (
-    <div className="lesson-body mt-8">
+    <div className={`lesson-body ${className}`.trim()}>
       {segments.map((segment, index) => {
         if (segment.type === "gist") {
           return (
@@ -219,6 +223,7 @@ export function LessonBody({ segments }: LessonBodyProps) {
           <ReactMarkdown
             key={`md-${index}`}
             remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight]}
             components={components}
           >
             {segment.value}

@@ -492,3 +492,72 @@ body {
   border-color: color-mix(in srgb, var(--brand) 60%, transparent);
   color: var(--brand);
 }
+
+/* Syntax highlighting inside lesson fenced code (highlight.js via rehype-highlight) */
+.lesson-code .hljs {
+  background: transparent;
+  color: #e4e4e7;
+  padding: 0;
+}
+
+.lesson-code .hljs-comment,
+.lesson-code .hljs-quote {
+  color: #71717a;
+  font-style: italic;
+}
+
+.lesson-code .hljs-keyword,
+.lesson-code .hljs-selector-tag,
+.lesson-code .hljs-literal,
+.lesson-code .hljs-section,
+.lesson-code .hljs-link {
+  color: #fda4af;
+}
+
+.lesson-code .hljs-string,
+.lesson-code .hljs-doctag,
+.lesson-code .hljs-regexp {
+  color: #86efac;
+}
+
+.lesson-code .hljs-title,
+.lesson-code .hljs-title.function_,
+.lesson-code .hljs-section,
+.lesson-code .hljs-name {
+  color: #93c5fd;
+}
+
+.lesson-code .hljs-number,
+.lesson-code .hljs-bullet,
+.lesson-code .hljs-meta {
+  color: #fcd34d;
+}
+
+.lesson-code .hljs-built_in,
+.lesson-code .hljs-type,
+.lesson-code .hljs-params,
+.lesson-code .hljs-attr {
+  color: #7dd3fc;
+}
+
+.lesson-code .hljs-variable,
+.lesson-code .hljs-template-variable,
+.lesson-code .hljs-class .hljs-title {
+  color: #fde68a;
+}
+
+.lesson-code .hljs-addition {
+  color: #86efac;
+}
+
+.lesson-code .hljs-deletion {
+  color: #fca5a5;
+}
+
+.lesson-code .hljs-emphasis {
+  font-style: italic;
+}
+
+.lesson-code .hljs-strong {
+  font-weight: 600;
+}

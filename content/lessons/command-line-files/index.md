@@ -1,16 +1,16 @@
 ---
 title: "Command line: files and folders"
 date: 2019-06-11
-coverImage: "command-line-files-painting.webp"
+coverImage: "command-line-files-ducks.webp"
 ---
 
-If [part 1](/lessons/command-line) was learning to walk the neighbourhood, this part is learning which doors you can open — and which ones you should not kick in.
+[Part 1](/lessons/command-line) taught you to open Terminal and move around the file tree. This part is about changing what is on the disk — carefully — so you do not damage anything important.
 
-Here we create files and folders, copy and rename them, and delete them when we are done. I used to call these **acidic** commands: useful, powerful, and unforgiving if you wave them around the wrong part of the disk.
+I used to call these **acidic** commands: useful, powerful, and unforgiving if you wave them around the wrong folder.
 
 So before anything else: make a playground. On the Desktop, create a folder called `sandbox` (we will do that with the shell in a moment). Work *only* inside it until these commands feel boring. Do not practise as an experiment under `/`. The operating system will not lecture you politely.
 
-## Asking for help
+## Options and arguments
 
 Every useful command has options and arguments — little switches that change its behaviour. You will not remember them all. Nobody does.
 
@@ -20,7 +20,7 @@ Every useful command has options and arguments — little switches that change i
 
 ### man
 
-When you forget, ask the machine itself. `man` opens the **manual page** for a command — dry, a bit cryptic, and always offline when you need it.
+When you forget, ask the machine itself. `man` opens the **manual page** for a command — dry, a bit cryptic, and available offline without hunting the web.
 
 https://www.youtube.com/embed/qDYgz_scNjc
 
@@ -32,13 +32,13 @@ The same tool reads ordinary text files:
 
 https://www.youtube.com/embed/7_mwDrBAADM
 
-It will even attempt non-text files if you insist — useful once, messy often:
+I will even attempt non-text files if you insist — useful once, messy often:
 
 https://www.youtube.com/embed/rO_fMCV9tk8
 
 ### ls
 
-Back in part 1, `ls` showed names. Add options and it tells a richer story: `-l` for a long listing, `-a` to include hidden (dot) names, `-la` for both.
+Back in [part 1](/lessons/command-line#ls), `ls` showed names of the files and folders. Add options and it tells a richer story: `-l` for a long listing, `-a` to include hidden (dot) names, `-la` for both.
 
 https://www.youtube.com/embed/hJp8OCyZ9Ic
 
@@ -58,7 +58,7 @@ https://www.youtube.com/embed/PU7q5WZwKK8
 
 ### touch
 
-Empty files (or update timestamps). Give them extensions (`.c`, `.txt`, `.html`) when you care which app opens them later; without an extension you usually get plain text.
+Creates an empty file (or updates the timestamp on one that already exists). Add an extension (`.c`, `.txt`, `.html`) when you care which app macOS offers on open — without one, the system has little to go on.
 
 https://www.youtube.com/embed/RD699DN7utA
 
@@ -102,7 +102,7 @@ https://www.youtube.com/embed/LgE38zawY8w
 
 ### mv
 
-Uses the same shapes as `cp`, but the original does not stay behind. That is how you rename: move `file1` to a name that does not exist yet.
+Same source-then-destination pattern as `cp`, but the original does not stay behind. That is how you rename: move `file1` to a name that does not exist yet.
 
 https://www.youtube.com/embed/85tvY4Qe4-s
 
@@ -120,7 +120,7 @@ https://www.youtube.com/embed/utus84zDe80
 
 ### rm
 
-The one that earns the “acid” nickname. It removes files for real. There is usually **no Trash**, no Undo, no second chance — even if you named the file `important-system-file.txt` as a joke in a demo.
+The one that earns the “acid” nickname. It removes files for real. There is usually **no Trash**, no Undo, no second chance — even if you named the file `important-system-file.txt`
 
 https://www.youtube.com/embed/v4Ts-14B0QI
 
@@ -138,4 +138,4 @@ You can navigate, build a playground, and tidy up after yourself. That is enough
 
 Next we put a compiler on the Mac:
 
-→ [Getting your macOS ready for C](/lessons/getting-your-macos-ready-for-c)
+→ [Getting your macOS ready for C](/lessons/macos-ready-for-c)

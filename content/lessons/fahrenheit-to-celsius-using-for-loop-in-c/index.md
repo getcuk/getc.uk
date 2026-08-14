@@ -16,17 +16,54 @@ Q. Modify the temperature conversion program to print the table in reverse order
 Programming is both an art and science. One problem can be solved in many different ways. What approach one uses comes down to the amount of experience one has with this thing called c programming and problem-solving in general.
 
 
+*`fahr-celsius-for-loop.c`*
 
-<!-- gist:krishanthecoder/aaee7de95854de82cd0d28e69c00d4a0 -->
+```c
+#include <stdio.h>
 
+int main(void)
+{
+  printf("Fahrenheit \t Celsius\n");
+  int fahr = 300;
+  
+  for (; fahr >= 0; fahr -= 20)
+  {
+    printf("%6d %16.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
+  }
+  return 0;
+}
+```
 
 
 Above program does the job but notice; it has magic numbers like 0, 20 and 300 hard-coded in it. It is a bad practice to hard-code numbers in a program. They convey no information to the reader and it is difficult to change them in a systematic way. Numbers always should have meaningful names and declared either as variables or constants as in this instance. Better version of the program is shown below:
 
 
+*`fahr-to-celsius-for-loop-constants.c`*
 
-<!-- gist:krishanthecoder/8c81c0f95916d02ecd843ba44ea15ff7 -->
+```c
+#include <stdio.h>
 
+/* It is best practice to define constants rather than throwing random magic numbers around */
+
+#define LOWER   0
+#define STEP   20
+#define UPPER 300
+
+int main(void)
+{
+  printf("Fahrenheit \t Celsius\n");
+
+  int fahr = UPPER;
+  float celsius;
+  
+  for (; fahr >= LOWER; fahr -= STEP)
+  {
+    celsius = (5.0 / 9.0) * (fahr - 32);
+    printf("%6d %16.1f\n", fahr, celsius); 
+  }
+  return 0;
+}
+```
 
 
 * * *

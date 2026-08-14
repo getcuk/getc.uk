@@ -45,9 +45,35 @@ If we enter the values from 0 ℉ to 300 ℉ with increment of 20 ℉; we get th
 * * *
 
 
+*`fahr-to-celsius.c`*
 
-<!-- gist:krishanthecoder/b403f006fb290ec9a4a5471ace14bf31 -->
+```c
+#include <stdio.h>
 
+int main(void)
+{
+  float fahr, celsius;
+  int lower, step, upper;
+  
+  lower = 0;
+  step = 20;
+  upper = 300;
+  
+  /* Add the following line for printing the heading of the table */
+  printf("Fahrenheit\tCelsius\n");
+  
+  fahr = lower;
+  
+  while (fahr <= upper)
+  {
+    celsius = (5.0 / 9.0) * (fahr - 32.0);
+    printf("%3.0f %18.1f\n", fahr, celsius);
+    fahr += step;
+  }
+  
+  return 0;
+}
+```
 
 
 gcc fahr-to-celsius.c -o fahr-to-celsius

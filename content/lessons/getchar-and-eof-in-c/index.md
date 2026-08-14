@@ -16,9 +16,19 @@ Q. Verify that expression getchar( ) != EOF is 0 or 1.
 How would you verify if someone likes you ? They say it is not easy as black and white or 0 and 1. Luckily; we are dealing with computers and everything can be verified with certainty using some code ingenuity. Following program is quite simple and verifies if next character read by built-in c function called getchar() is either 0 or 1.
 
 
+*`getchar-and-eof.c`*
 
-<!-- gist:krishanthecoder/247d35758cf89f93cdea53554c0e5da3 -->
+```c
+#include <stdio.h>
 
+/* EOF is macro defined in standard c library and can be simulated by typing CTRL+D in macos terminal*/
+
+int main(void)
+{
+  printf("Value of expression = %d\n", getchar() != EOF);
+  return 0;
+}
+```
 
 
 gcc getchar-and-eof.c -o getchar-and-eof

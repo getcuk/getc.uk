@@ -21,6 +21,17 @@ const xmlPath = process.argv[2] || DEFAULT_XML;
 const lessonsDir = path.join(ROOT, "content/lessons");
 const outDir = path.join(ROOT, "content/comments");
 
+/**
+ * Current lesson folder slug → WordPress post_name(s) to pull comments from.
+ * Keep in sync with permanent redirects in next.config.ts.
+ */
+const WP_SLUG_ALIASES = {
+  "cs50-library": ["installing-cs50-library-locally-on-macos"],
+  "macos-ready-for-c": ["getting-your-macos-ready-for-c"],
+  "command-line": ["learn-your-tools-solid-foundation-in-command-line"],
+  "why-learn-basics": ["why-learn-basics-of-coding"],
+};
+
 function cdataOrText(block, name) {
   const cdata = block.match(
     new RegExp(`<wp:${name}><!\\[CDATA\\[([\\s\\S]*?)\\]\\]></wp:${name}>`),
@@ -62,11 +73,14 @@ await mkdir(outDir, { recursive: true });
 let total = 0;
 
 for (const slug of slugs) {
-  const needle = `<wp:post_name><![CDATA[${slug}]]></wp:post_name>`;
-  const idx = xml.indexOf(needle);
+  const wpNames = [slug, ...(WP_SLUG_ALIASES[slug] ?? [])];
   let comments = [];
 
-  if (idx !== -1) {
+  for (const wpName of wpNames) {
+    const needle = `<wp:post_name><![CDATA[${wpName}]]></wp:post_name>`;
+    const idx = xml.indexOf(needle);
+    if (idx === -1) continue;
+
     const start = xml.lastIndexOf("<item>", idx);
     const end = xml.indexOf("</item>", idx);
     const chunk = xml.slice(start, end);
@@ -74,7 +88,7 @@ for (const slug of slugs) {
       (m) => m[1],
     );
 
-    comments = blocks
+    const found = blocks
       .map((block) => {
         const approved = cdataOrText(block, "comment_approved").trim();
         if (approved !== "1" && approved.toLowerCase() !== "true") return null;
@@ -91,12 +105,17 @@ for (const slug of slugs) {
           content: stripHtml(cdataOrText(block, "comment_content")),
         };
       })
-      .filter(Boolean)
-      .sort((a, b) => {
-        if (a.date === b.date) return a.id - b.id;
-        return a.date < b.date ? -1 : 1;
-      });
+      .filter(Boolean);
+
+    if (found.length > comments.length) {
+      comments = found;
+    }
   }
+
+  comments.sort((a, b) => {
+    if (a.date === b.date) return a.id - b.id;
+    return a.date < b.date ? -1 : 1;
+  });
 
   const outPath = path.join(outDir, `${slug}.json`);
   await writeFile(outPath, `${JSON.stringify(comments, null, 2)}\n`, "utf8");

@@ -16,19 +16,51 @@ Write a program to copy its input to its output, replacing each tab by \\t, back
 Well... this program has been quite tricky. Nevertheless; I have managed to solve it. One of the problems is that it is not possible to simulate backspace in terminal input. When you press backspace, the terminal just deletes the last character instead of registering it as \\b character. One workaround is that we use character 'b' for backslash such as below:
 
 
+*`replace-by-escape-sequences-v2.c`*
 
-<!-- gist:krishanthecoder/548bdfaa55d238f1966b66b00c602658 -->
+```c
+#include <stdio.h>
 
+int main(void)
+{
+  int c;
+  
+  while ((c = getchar()) != EOF)
+  {
+    if (c == '\t')
+    {
+      printf("\\t");
+    }
+    
+/*  
+    Workaround:
+    else if (c == '\b')
+    change \b to just b to simulate backspace character 
+*/
+    else if (c == 'b') 
+    {
+      printf("\\b");
+    }
+    else if (c == '\\')
+    {
+      printf("\\\\");
+    }
+    else
+    {
+      printf("%c", c);
+    }
+  }
+  return 0;
+}
+```
 
 
 I got the suggestion from [GitHub Copilot](https://github.com/features/copilot). I asked it if it knows how to simulate backspace character in terminal:
 
 
-
 ![](/lessons/c-program-that-replaces-escape-sequence-in-input/images/github-copilot-1200x930-1.png)
 
 *Screenshot of GitHub Copilot in Visual Studio Code*
-
 
 
 Test the input and output:
