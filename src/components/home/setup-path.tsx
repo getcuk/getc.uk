@@ -1,22 +1,31 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import type { Lesson } from "@/lib/types/lesson";
 
 type SetupPathProps = {
   lessons: Lesson[];
+  eyebrow?: string;
+  title?: string;
+  description?: ReactNode;
 };
 
-export function SetupPath({ lessons }: SetupPathProps) {
+export function SetupPath({
+  lessons,
+  eyebrow = "Start here",
+  title = "Before you write C",
+  description = "Why fundamentals matter, then Terminal, then a Mac that can compile.",
+}: SetupPathProps) {
   return (
     <div>
       <div className="max-w-2xl">
         <p className="font-mono text-xs tracking-[0.18em] text-[#ff8a1f] uppercase">
-          Start here
+          {eyebrow}
         </p>
         <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
-          Before you write C
+          {title}
         </h2>
         <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
-          Why fundamentals matter, then Terminal, then a Mac that can compile.
+          {description}
         </p>
       </div>
 

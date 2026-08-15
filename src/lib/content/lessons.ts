@@ -117,6 +117,43 @@ const setupLessons: Lesson[] = [
   },
 ];
 
+const kAndRGuide: Lesson = {
+  slug: "k-and-r",
+  title: "Why we teach from K&R",
+  summary:
+    "The exercises on getc.uk come from Kernighan and Ritchie’s The C Programming Language, Second Edition — the short ANSI C textbook that teaches how the machine actually works.",
+  difficulty: "beginner",
+  badge: "K&R · The textbook",
+  seriesSlug: "kr",
+  publishedAt: "2026-08-15",
+  updatedAt: "2026-08-15",
+  notice:
+    "You do not need to buy the textbook to follow along. Each lesson states the task in our own words. A copy helps if you have one but it is not required.",
+};
+
+/**
+ * Chapter 1 hub — later chapters join this list when their lessons are written.
+ */
+const krChapter1: Lesson = {
+  slug: "kr-chapter-1",
+  title: "Chapter 1: A Tutorial Introduction",
+  summary:
+    "Hello, world, tables, characters, and the first programs that talk to the machine.",
+  difficulty: "beginner",
+  badge: "01",
+  krChapter: 1,
+  seriesSlug: "kr",
+  publishedAt: "2026-08-15",
+  updatedAt: "2026-08-15",
+  layout: "docs",
+  docsNav: [
+    { id: "what-this-chapter-covers", label: "What it covers" },
+    { id: "exercises-on-this-site", label: "Exercises" },
+    { id: "later-in-chapter-1", label: "Later in Chapter 1" },
+    { id: "next", label: "Next" },
+  ],
+};
+
 /**
  * K&R Chapter 1 exercise solutions imported from the legacy site export
  * (Desktop/ktc-site/output-final/posts, category: kr-exercise-solutions).
@@ -256,7 +293,7 @@ const krLessons: Lesson[] = [
   },
 ];
 
-const lessons: Lesson[] = [...setupLessons, ...krLessons];
+const lessons: Lesson[] = [...setupLessons, kAndRGuide, krChapter1, ...krLessons];
 
 export function getAllLessons(): Lesson[] {
   return lessons;

@@ -15,9 +15,11 @@ export function LessonCard({ lesson }: LessonCardProps) {
         <p className="font-mono text-[0.7rem] tracking-wide text-[#ff8a1f]">
           {lesson.exercise
             ? `Ex ${lesson.exercise}`
-            : lesson.badge
-              ? lesson.badge
-              : "Lesson"}
+            : lesson.krChapter
+              ? `Ch ${lesson.krChapter}`
+              : lesson.badge
+                ? lesson.badge
+                : "Lesson"}
         </p>
         <p className="text-xs tracking-wide text-zinc-400 uppercase dark:text-zinc-500">
           {lesson.difficulty}

@@ -111,9 +111,13 @@ export default async function LessonPage({ params }: LessonPageProps) {
       <p className="mt-6 font-mono text-xs tracking-[0.16em] text-[#ff8a1f] uppercase">
         {lesson.exercise
           ? `K&R Exercise ${lesson.exercise}`
-          : lesson.seriesSlug === "setup"
-            ? `Setup · ${lesson.badge ?? "Guide"}`
-            : "Lesson"}
+          : lesson.krChapter
+            ? `K&R · Chapter ${lesson.krChapter}`
+            : lesson.seriesSlug === "setup"
+              ? `Setup · ${lesson.badge ?? "Guide"}`
+              : lesson.badge
+                ? lesson.badge
+                : "Lesson"}
         {isDocs ? " · Reference" : ""}
       </p>
       {lesson.parts && lesson.parts.length > 1 ? (
@@ -125,12 +129,17 @@ export default async function LessonPage({ params }: LessonPageProps) {
       <p className="mt-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
         {lesson.summary}
       </p>
+      {lesson.notice ? (
+        <p className="mt-5 rounded-md border border-[#ff8a1f]/45 bg-[#ff8a1f]/10 px-4 py-3 text-base leading-relaxed text-zinc-800 dark:border-[#ff8a1f]/40 dark:bg-[#ff8a1f]/15 dark:text-zinc-100">
+          {lesson.notice}
+        </p>
+      ) : null}
 
       <div className="mt-5 space-y-1 text-sm text-zinc-500 dark:text-zinc-400">
         {lesson.publishedAt ? (
           <p>{formatLessonDate(lesson.publishedAt)}</p>
         ) : null}
-        {lesson.updatedAt ? (
+        {lesson.updatedAt && lesson.updatedAt !== lesson.publishedAt ? (
           <p className="text-[#ff8a1f]">
             Last updated on {formatLessonDate(lesson.updatedAt)}
           </p>

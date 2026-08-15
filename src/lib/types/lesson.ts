@@ -34,6 +34,10 @@ export type Lesson = {
    * Same array on each sibling; current page is highlighted by slug.
    */
   parts?: LessonPart[];
+  /** K&R Second Edition chapter number (1–8) for chapter hub pages. */
+  krChapter?: number;
+  /** Highlighted note under the title (e.g. you do not need to buy the book). */
+  notice?: string;
 };
 
 export type LessonPart = {

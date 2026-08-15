@@ -31,8 +31,14 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
           </h2>
           <p className="mt-2 max-w-2xl text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
             These are the Chapter 1 exercises from Brian W. Kernighan and
-            Dennis M. Ritchie&apos;s book — Second Edition, ANSI C. We work
-            through them one at a time.
+            Dennis M. Ritchie&apos;s{" "}
+            <Link
+              href="/lessons/k-and-r"
+              className="text-[#ff8a1f] underline decoration-[#ff8a1f]/35 underline-offset-2 hover:decoration-[#ff8a1f]"
+            >
+              textbook
+            </Link>{" "}
+            — Second Edition, ANSI C. We work through them one at a time.
           </p>
         </div>
         <div className="hidden shrink-0 gap-2 sm:flex">
@@ -74,7 +80,7 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
                   ex_{lesson.exercise?.replace("-", "_") ?? "x"}.c
                 </span>
                 <span className="font-mono text-[0.6rem] text-white/35">
-                  ch.1
+                  ch.{lesson.exercise?.split("-")[0] ?? "?"}
                 </span>
               </div>
               <div className="flex flex-1 flex-col px-3.5 py-3.5">

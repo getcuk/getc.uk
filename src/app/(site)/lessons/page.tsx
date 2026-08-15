@@ -47,8 +47,15 @@ export default function LessonsPage() {
         </h1>
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">
           Setup guides, then Chapter 1 exercises from Kernighan and
-          Ritchie&apos;s <em>The C Programming Language</em> (Second Edition) —
-          more series coming soon.
+          Ritchie&apos;s <em>The C Programming Language</em> (Second Edition).
+          Read{" "}
+          <Link
+            href="/lessons/k-and-r"
+            className="text-[#ff8a1f] underline decoration-[#ff8a1f]/35 underline-offset-2 hover:decoration-[#ff8a1f]"
+          >
+            why we teach from K&amp;R
+          </Link>
+          .
         </p>
       </div>
 
