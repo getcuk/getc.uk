@@ -7,7 +7,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Lessons",
   description:
-    "Setup guides and K&R Chapter 1 exercises for learning C from first principles — free on getc.uk.",
+    "Setup guides and Chapter 1 exercises from Kernighan and Ritchie’s The C Programming Language, Second Edition — free on getc.uk.",
   alternates: {
     canonical: "/lessons",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `Lessons · ${SITE_NAME}`,
     description:
-      "Setup guides and K&R Chapter 1 exercises for learning C from first principles.",
+      "Setup guides and Chapter 1 exercises from Kernighan and Ritchie’s The C Programming Language, Second Edition.",
     images: [
       {
         url: "/brand/og-image.png",
@@ -46,7 +46,9 @@ export default function LessonsPage() {
           Lessons
         </h1>
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-          Setup guides and K&amp;R Chapter 1 exercises — more series coming soon.
+          Setup guides, then Chapter 1 exercises from Kernighan and
+          Ritchie&apos;s <em>The C Programming Language</em> (Second Edition) —
+          more series coming soon.
         </p>
       </div>
 

@@ -24,14 +24,15 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
       <div className="mb-6 flex items-end justify-between gap-4">
         <div>
           <p className="font-mono text-xs tracking-[0.18em] text-[#ff8a1f] uppercase">
-            K&amp;R · Chapter 1
+            K&amp;R · Second edition
           </p>
           <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
             Exercises from The C Programming Language
           </h2>
-          <p className="mt-2 max-w-xl text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
-            Work through Kernighan &amp; Ritchie chapter 1 — one exercise at a
-            time.
+          <p className="mt-2 max-w-2xl text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
+            These are the Chapter 1 exercises from Brian W. Kernighan and
+            Dennis M. Ritchie&apos;s book — Second Edition, ANSI C. We work
+            through them one at a time.
           </p>
         </div>
         <div className="hidden shrink-0 gap-2 sm:flex">
