@@ -5,6 +5,8 @@ export type LegacyComment = {
   id: number;
   parentId: number | null;
   author: string;
+  /** Personal site / profile URL from the original WordPress comment, if any. */
+  authorUrl?: string;
   /** ISO date YYYY-MM-DD */
   date: string;
   content: string;

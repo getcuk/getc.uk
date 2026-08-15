@@ -188,7 +188,7 @@ const components: Components = {
     );
   },
   pre: ({ children }) => (
-    <pre className="lesson-code mb-5 overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-950 p-4 text-zinc-100">
+    <pre className="lesson-code mb-5 rounded-lg border border-zinc-800 bg-zinc-950 p-4 text-zinc-100">
       {children}
     </pre>
   ),

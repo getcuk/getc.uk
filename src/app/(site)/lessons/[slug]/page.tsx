@@ -177,8 +177,19 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
       <div className="mt-10 border-t border-zinc-200 pt-8 dark:border-zinc-800">
         {nextLesson ? (
-          <Link href={`/lessons/${nextLesson.slug}`} className="hero-cta-primary">
-            Continue: {nextLesson.title}
+          <Link
+            href={`/lessons/${nextLesson.slug}`}
+            className="hero-cta-primary max-w-full"
+          >
+            <span className="min-w-0">
+              Continue
+              <span className="font-normal opacity-80">
+                :{" "}
+                <span className="line-clamp-2 sm:line-clamp-none">
+                  {nextLesson.title}
+                </span>
+              </span>
+            </span>
           </Link>
         ) : (
           <Link href="/challenge/1" className="hero-cta-primary">
@@ -191,7 +202,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   if (isDocs) {
     return (
-      <main className="w-full flex-1 px-4 py-12">
+      <main className="page-gutter w-full flex-1 py-12">
         <JsonLd data={lessonJsonLd(lesson)} />
         <div className="mx-auto max-w-3xl">
           {meta}
@@ -235,7 +246,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
   }
 
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12">
+    <main className="page-gutter mx-auto w-full max-w-3xl flex-1 py-12">
       <JsonLd data={lessonJsonLd(lesson)} />
       {meta}
       {cover}

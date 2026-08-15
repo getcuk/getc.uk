@@ -34,7 +34,7 @@ export function OutputDrawer({
   return (
     <div
       className={`flex shrink-0 flex-col border-t border-zinc-200 bg-white transition-[height] duration-200 dark:border-zinc-800 dark:bg-zinc-950 ${
-        open ? "h-52" : "h-10"
+        open ? "h-40 max-h-[30vh] md:h-52 md:max-h-none" : "h-10"
       }`}
     >
       <button

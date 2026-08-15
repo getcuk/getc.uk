@@ -21,7 +21,7 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
 
   return (
     <div className="relative">
-      <div className="mb-6 flex items-end justify-between gap-4 px-4 sm:px-0">
+      <div className="mb-6 flex items-end justify-between gap-4">
         <div>
           <p className="font-mono text-xs tracking-[0.18em] text-[#ff8a1f] uppercase">
             K&amp;R · Chapter 1
@@ -56,7 +56,7 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
 
       <ul
         ref={scrollerRef}
-        className="lessons-carousel flex gap-3 overflow-x-auto px-4 pb-4 sm:gap-4 sm:px-0"
+        className="lessons-carousel flex gap-3 overflow-x-auto pb-4 sm:gap-4"
       >
         {lessons.map((lesson) => (
           <li

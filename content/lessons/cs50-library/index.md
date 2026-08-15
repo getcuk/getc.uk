@@ -4,7 +4,7 @@ date: 2019-07-17
 coverImage: "cs50-library-handdrawn.webp"
 ---
 
-Harvard’s [CS50](https://cs50.harvard.edu/) course gives you friendly helpers like `get_string()`. Those live in `cs50.h` — and that header is **not** on a stock Mac until you install the library yourself.
+Harvard’s [CS50](https://cs50.harvard.edu/) course gives you friendly helpers like `get_string()`. Those live in `cs50.h` — and that header is **not** part of macOS until you install the library yourself.
 
 If Clang is not on this machine yet, start with [Getting your macOS ready for C](/lessons/macos-ready-for-c).
 
@@ -36,7 +36,7 @@ Official steps from [cs50/libcs50](https://github.com/cs50/libcs50):
 2. Extract the archive and `cd` into the folder.
 3. Run `sudo make install` (installs under `/usr/local` by default).
 
-On older macOS I hit a build snag; the fix that worked for me is in [this libcs50 issue comment](https://github.com/cs50/libcs50/issues/142#issuecomment-435617306). Rough flow:
+On older macOS I hit a build snag; the fix that worked for me is in [this libcs50 issue comment](https://github.com/cs50/libcs50/issues/142#issuecomment-435617306). Here is the outline:
 
 *`cs50-pseudocode-step1.c`*
 
@@ -75,12 +75,18 @@ clang -lcs50 program.c
 *`cs50-pseudocode-step2.c`*
 
 ```c
-// navigate to /usr/local/include to see 'cs50.h' file 
-// navigate to /usr/local/lib to see 'libcs50-9.0.1.dylib' and 'libcs50.dylib' files
-// find out that 'libcs50.dylib' is a symbolic link pointing to 'libcs50-9.dylib' which does not seem to exist 
-// go to the folder with source code file requiring cs50.h header file included
-   // we enter the command 'clang -lcs50 program-to-be-compiled.c' as described on github page 
-// get error 'ld: library not found for -lcs50' and 'clang: error: linker command failed with exit code 1 (use -v to see invocation)'
+// navigate to /usr/local/include to see 'cs50.h' file
+// navigate to /usr/local/lib to see 'libcs50-9.0.1.dylib'
+//   and 'libcs50.dylib' files
+// find out that 'libcs50.dylib' is a symbolic link pointing
+//   to 'libcs50-9.dylib' which does not seem to exist
+// go to the folder with the source file that includes cs50.h
+   // we enter the command
+   //   'clang -lcs50 program-to-be-compiled.c'
+   //   as described on the github page
+// get error 'ld: library not found for -lcs50'
+//   and 'clang: error: linker command failed with
+//   exit code 1 (use -v to see invocation)'
 ```
 
 https://www.youtube.com/watch?v=Jho1c2JjvRY&t=1s

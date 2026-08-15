@@ -276,18 +276,21 @@ export function HeroTerminal() {
 
   return (
     <div
-      className="hero-terminal relative h-full min-h-[30rem] w-full overflow-hidden lg:min-h-0"
+      className="hero-terminal relative h-full min-h-[22rem] w-full overflow-hidden sm:min-h-[26rem] lg:min-h-0"
       aria-hidden="true"
     >
       <div className="hero-terminal-scan" />
       <div className="relative z-10 flex h-full flex-col">
-        <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-          <span className="size-2.5 rounded-sm bg-[#ff8a1f]/60" />
-          <span className="font-mono text-[0.7rem] tracking-wide text-white/50">
-            getc.c · uppercase each character · drafted by AI
+        <div className="flex min-w-0 items-center gap-2 border-b border-white/10 px-4 py-3">
+          <span className="size-2.5 shrink-0 rounded-sm bg-[#ff8a1f]/60" />
+          <span className="min-w-0 truncate font-mono text-[0.7rem] tracking-wide text-white/50">
+            <span className="sm:hidden">getc.c</span>
+            <span className="hidden sm:inline">
+              getc.c · uppercase each character · drafted by AI
+            </span>
           </span>
           <span
-            className={`ml-auto font-mono text-[0.65rem] transition-opacity duration-300 ${
+            className={`ml-auto shrink-0 font-mono text-[0.65rem] transition-opacity duration-300 ${
               runDone
                 ? "text-[#ff8a1f]/90 opacity-100"
                 : statusLabel
@@ -298,7 +301,7 @@ export function HeroTerminal() {
             {statusLabel ?? "\u00a0"}
           </span>
         </div>
-        <pre className="flex-1 overflow-hidden px-4 py-5 font-mono text-[0.75rem] leading-6 sm:text-[0.85rem] sm:leading-7">
+        <pre className="flex-1 overflow-x-auto px-4 py-5 font-mono text-[0.75rem] leading-6 sm:text-[0.85rem] sm:leading-7">
           {visibleByLine.map((line) => (
             <div
               key={line.n}

@@ -41,20 +41,58 @@ function cdataOrText(block, name) {
   return plain ? plain[1] : "";
 }
 
-function stripHtml(html) {
-  return html
-    .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<\/p>/gi, "\n\n")
-    .replace(/<[^>]+>/g, "")
+function decodeEntities(text) {
+  return text
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
-    .replace(/&#0?39;/g, "'")
+    .replace(/&#0?39;/g, "'");
+}
+
+function stripTags(html) {
+  return decodeEntities(html.replace(/<[^>]+>/g, ""));
+}
+
+function stripHtml(html) {
+  return decodeEntities(
+    html
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/p>/gi, "\n\n")
+      .replace(
+        /<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
+        (_, href, text) => {
+          const label = stripTags(text).trim() || href;
+          return `[${label}](${href})`;
+        },
+      )
+      .replace(/<[^>]+>/g, ""),
+  )
     .replace(/\r\n/g, "\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function authorUrl(block) {
+  const raw = cdataOrText(block, "comment_author_url").trim();
+  if (!raw) return undefined;
+  try {
+    const parsed = new URL(raw);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+      return undefined;
+    }
+    return parsed.href;
+  } catch {
+    return undefined;
+  }
+}
+
+function displayAuthor(name) {
+  const trimmed = name.trim();
+  if (!trimmed) return "Anonymous";
+  if (trimmed === "Krishan") return "Kulwinder Krishan";
+  return trimmed;
 }
 
 function toIsoDate(wpDate) {
@@ -97,10 +135,12 @@ for (const slug of slugs) {
         const parentRaw = cdataOrText(block, "comment_parent").trim();
         const parentId = Number(parentRaw) || 0;
 
+        const url = authorUrl(block);
         return {
           id,
           parentId: parentId > 0 ? parentId : null,
-          author: cdataOrText(block, "comment_author").trim() || "Anonymous",
+          author: displayAuthor(cdataOrText(block, "comment_author").trim()),
+          ...(url ? { authorUrl: url } : {}),
           date: toIsoDate(cdataOrText(block, "comment_date")),
           content: stripHtml(cdataOrText(block, "comment_content")),
         };

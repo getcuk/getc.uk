@@ -193,11 +193,11 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
 
   return (
     <div className="flex h-full min-h-0 flex-col md:flex-row">
-      <div className="h-[38%] min-h-0 md:h-full md:w-[42%] md:max-w-xl">
+      <div className="h-[32%] min-h-0 shrink-0 md:h-full md:w-[42%] md:max-w-xl md:shrink">
         <InstructionsPanel markdown={challenge.instructionsMarkdown} />
       </div>
 
-      <div className="flex min-h-0 flex-1 flex-col bg-white dark:bg-[#1e1e1e]">
+      <div className="flex min-h-[40vh] flex-1 flex-col bg-white dark:bg-[#1e1e1e] md:min-h-0">
         <div className="flex h-11 shrink-0 items-center justify-between border-b border-zinc-200 px-3 dark:border-zinc-800">
           <p className="font-mono text-xs text-zinc-500">
             main.c
@@ -209,7 +209,7 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
             type="button"
             onClick={() => void runCode()}
             disabled={isRunning}
-            className="inline-flex h-8 items-center rounded bg-emerald-500 px-3 font-mono text-xs font-semibold text-zinc-950 hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-8 shrink-0 items-center rounded bg-emerald-500 px-3 font-mono text-xs font-semibold text-zinc-950 hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isRunning ? "Running…" : "Run Code"}
           </button>

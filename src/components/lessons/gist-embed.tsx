@@ -68,7 +68,7 @@ export function GistEmbed({ user, id }: GistEmbedProps) {
             <div className="border-b border-zinc-200 bg-zinc-50 px-3 py-1.5 font-mono text-[0.7rem] text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
               {file.filename}
             </div>
-            <pre className="overflow-x-auto bg-zinc-950 p-4 text-zinc-100">
+            <pre className="lesson-code bg-zinc-950 p-4 text-zinc-100">
               <code className={`font-mono text-[0.85rem] leading-relaxed ${languageClass(file.filename, file.language)}`}>
                 {file.content}
               </code>

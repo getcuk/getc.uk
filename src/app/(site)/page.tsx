@@ -16,10 +16,10 @@ export default function Home() {
         <div className="hero-atmosphere" aria-hidden="true" />
         <div className="hero-grid" aria-hidden="true" />
 
-        <div className="relative z-10 mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-10 px-4 pt-10 pb-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-stretch lg:gap-6 lg:pt-8 lg:pb-10 xl:px-6">
-          <div className="hero-copy relative flex max-w-xl flex-col justify-center lg:pb-4">
+        <div className="page-gutter relative z-10 mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-10 pt-10 pb-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-stretch lg:gap-6 lg:pt-8 lg:pb-10">
+          <div className="hero-copy relative mx-auto flex w-full max-w-3xl flex-col items-center justify-center justify-self-center text-center lg:mx-0 lg:max-w-xl lg:items-start lg:justify-self-stretch lg:pb-4 lg:text-left">
             <div
-              className="hero-bulb pointer-events-none absolute -top-6 -left-8 select-none sm:-top-10 sm:-left-12 lg:-top-16 lg:-left-20"
+              className="hero-bulb pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none sm:-top-10 lg:-top-16 lg:left-auto lg:-left-20 lg:translate-x-0"
               aria-hidden="true"
             >
               <Image
@@ -32,24 +32,23 @@ export default function Home() {
               />
             </div>
 
-            <div className="relative">
+            <div className="relative w-full">
               <p className="font-mono text-xs tracking-[0.18em] text-zinc-500 uppercase dark:text-zinc-400">
                 {SITE_TAGLINE}
               </p>
               <h1 className="mt-4 font-display text-[clamp(1.75rem,4.2vw,2.85rem)] leading-[1.1] font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
                 Learn C — so you shape systems, not just prompt them.
               </h1>
-              <p className="mt-4 max-w-md text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg lg:mx-0 lg:max-w-md dark:text-zinc-400">
                 AI can write code. C teaches you memory, pointers, and how
                 software really runs — so you can review, debug, and build from
-                the metal up. Free K&amp;R exercises and challenges by Krishan.
+                the metal up.
               </p>
-              <p className="mt-3 max-w-md font-mono text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                Named after the{" "}
-                <code className="text-[#ff8a1f]">getc()</code> function — one
-                character at a time. We teach C the same way.
+              <p className="mx-auto mt-3 max-w-2xl font-mono text-sm leading-relaxed text-zinc-500 lg:mx-0 lg:max-w-md dark:text-zinc-400">
+                Named after the <code className="text-[#ff8a1f]">getc()</code>{" "}
+                function — one character at a time.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
                 <Link href="/challenge/1" className="hero-cta-primary">
                   Try a challenge
                 </Link>
@@ -60,7 +59,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-visual relative -mx-4 flex min-h-[32rem] flex-col sm:min-h-[34rem] lg:mx-0 lg:min-h-0 lg:self-stretch">
+          <div className="hero-visual relative flex min-h-[24rem] flex-col sm:min-h-[28rem] lg:min-h-0 lg:self-stretch">
             <div className="min-h-0 flex-1">
               <HeroTerminal />
             </div>
@@ -69,15 +68,15 @@ export default function Home() {
       </section>
 
       <section className="setup-section border-t border-zinc-200/80 py-14 dark:border-zinc-800/80">
-        <div className="mx-auto w-full max-w-6xl xl:px-6">
+        <div className="page-gutter mx-auto w-full max-w-6xl">
           <SetupPath lessons={setupLessons} />
         </div>
       </section>
 
       <section className="exercises-section border-t border-zinc-200/80 py-14 dark:border-zinc-800/80">
-        <div className="mx-auto w-full max-w-6xl xl:px-6">
+        <div className="page-gutter mx-auto w-full max-w-6xl">
           <LessonsCarousel lessons={krLessons} />
-          <div className="mt-6 px-4 sm:px-0">
+          <div className="mt-6">
             <Link
               href="/lessons"
               className="font-mono text-sm text-zinc-500 transition-colors hover:text-[#ff8a1f] dark:text-zinc-400"

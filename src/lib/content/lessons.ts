@@ -43,15 +43,15 @@ const setupLessons: Lesson[] = [
     parts: commandLineParts,
     docsNav: [
       { id: "why-this-matters", label: "Why this matters" },
-      { id: "words-you-will-hear", label: "Terminology" },
+      { id: "a-few-words-you-will-hear", label: "Terminology" },
       { id: "opening-terminal", label: "Open Terminal" },
       { id: "how-the-disk-is-organised", label: "File system" },
       { id: "pwd", label: "pwd", command: true },
       { id: "ls", label: "ls", command: true },
       { id: "cd", label: "cd", command: true },
       { id: "clear", label: "clear", command: true },
-      { id: "pathnames-absolute-and-relative", label: "Pathnames" },
-      { id: "next-step", label: "Next" },
+      { id: "addresses-absolute-and-relative", label: "Pathnames" },
+      { id: "next", label: "Next" },
     ],
   },
   {

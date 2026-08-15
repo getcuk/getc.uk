@@ -28,11 +28,11 @@ export function ChallengeShell({
             {title}
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3">
           <ThemeToggle />
           <Link
             href="/lessons"
-            className="font-mono text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-300"
+            className="shrink-0 font-mono text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-300"
           >
             Exit
           </Link>

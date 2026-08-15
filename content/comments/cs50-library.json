@@ -9,7 +9,7 @@
   {
     "id": 2,
     "parentId": 1,
-    "author": "Krishan",
+    "author": "Kulwinder Krishan",
     "date": "2019-11-15",
     "content": "It's my pleasure, Alex."
   },
@@ -17,13 +17,14 @@
     "id": 3,
     "parentId": null,
     "author": "Nicholas Daisuke Miyasato",
+    "authorUrl": "https://github.com/nixoletas",
     "date": "2020-06-24",
     "content": "Hello, i'm having an issue even after following all 4 steps:\n\nclang -Wall -Wextra -Werror -pedantic -std=c11    hello.c  -lcs50 -o hello\nhello.c:17:2: error: no newline at end of file [-Werror,-Wnewline-eof]\n\nCan you please help me?"
   },
   {
     "id": 4,
     "parentId": 3,
-    "author": "Krishan",
+    "author": "Kulwinder Krishan",
     "date": "2020-06-25",
     "content": "Hi Nicholas, \n\nPlease enter a newline (empty line) after the last line of code. This will fix your error.  \n\nThanks"
   },
@@ -37,7 +38,7 @@
   {
     "id": 6,
     "parentId": 5,
-    "author": "Krishan",
+    "author": "Kulwinder Krishan",
     "date": "2020-09-01",
     "content": "You are welcome Sergio!! Yes; you have to copy Makefile in every folder to use make command following the above steps. Unfortunately; I could not figure out how to configure make utility with -lcs50 without the need of creating a Makefile."
   },
@@ -51,7 +52,7 @@
   {
     "id": 15,
     "parentId": 14,
-    "author": "Krishan",
+    "author": "Kulwinder Krishan",
     "date": "2022-04-05",
     "content": "Hi Kevin, \nYou can easily fix this error by literally adding a new line by pressing Enter key on your keyboard at the end of file. You can save the file and run make command again and it will execute fine.\nThe reason you get this error is because compiler is nit-picky in following C standards as described at https://gcc.gnu.org/legacy-ml/gcc/2003-11/msg01568.html. \nThanks"
   },
@@ -72,16 +73,16 @@
   {
     "id": 19,
     "parentId": 17,
-    "author": "Krishan",
+    "author": "Kulwinder Krishan",
     "date": "2022-06-01",
     "content": "Hello Wojtek, \nCan I ask what Operating System (OS) are you using to look into the issue ?\nThanks"
   },
   {
     "id": 20,
     "parentId": 18,
-    "author": "Krishan",
+    "author": "Kulwinder Krishan",
     "date": "2022-06-01",
-    "content": "Hi Scott, \nI have named the folder \"sandbox\" in which I saved source code and executable files. Sandbox is an isolated play area where we can experiment and test code. It is an actual concept in software development as someone has already explained on  stack overflow .\nThanks"
+    "content": "Hi Scott, \nI have named the folder \"sandbox\" in which I saved source code and executable files. Sandbox is an isolated play area where we can experiment and test code. It is an actual concept in software development as someone has already explained on [stack overflow](https://stackoverflow.com/a/2126214).\nThanks"
   },
   {
     "id": 21,
@@ -94,6 +95,7 @@
     "id": 22,
     "parentId": null,
     "author": "Rifki Ardiansyah",
+    "authorUrl": "http://rifki.tech/",
     "date": "2022-06-26",
     "content": "Best sollution eva"
   },
@@ -122,6 +124,7 @@
     "id": 40,
     "parentId": null,
     "author": "50รับ100 ทํา300ถอนได้หมด",
+    "authorUrl": "https://women.volleybox.net/volleyball-microblog/151977",
     "date": "2024-02-28",
     "content": "I very delighted to find this internet site on bing, just what I was searching for as well saved to fav"
   },
@@ -129,6 +132,7 @@
     "id": 41,
     "parentId": null,
     "author": "โปรฝาก50รับ100 wallet",
+    "authorUrl": "https://gist.github.com/pongsxapas777",
     "date": "2024-02-28",
     "content": "very informative articles or reviews at this time."
   },
@@ -136,6 +140,7 @@
     "id": 44,
     "parentId": null,
     "author": "ufabet911",
+    "authorUrl": "https://ufabet911.gold/",
     "date": "2024-04-02",
     "content": "This was beautiful Admin. Thank you for your reflections."
   },
@@ -143,6 +148,7 @@
     "id": 46,
     "parentId": null,
     "author": "ufabet911 ทางเข้า",
+    "authorUrl": "https://ufabet911.gold/ufabet911-%e0%b8%97%e0%b8%b2%e0%b8%87%e0%b9%80%e0%b8%82%e0%b9%89%e0%b8%b2/",
     "date": "2024-04-04",
     "content": "I like the efforts you have put in this, regards for all the great content."
   },
@@ -150,6 +156,7 @@
     "id": 150,
     "parentId": null,
     "author": "แทงบอลauto",
+    "authorUrl": "https://xn--72c5ak8bzbzh.solutions/%e0%b9%81%e0%b8%97%e0%b8%87%e0%b8%9a%e0%b8%ad%e0%b8%a5auto/",
     "date": "2024-06-03",
     "content": "Good post! We will be linking to this particularly great post on our site. Keep up the great writing"
   },
@@ -157,6 +164,7 @@
     "id": 154,
     "parentId": null,
     "author": "ipro999",
+    "authorUrl": "https://ipro999.casino/",
     "date": "2024-06-05",
     "content": "Pretty! This has been a really wonderful post. Many thanks for providing these details."
   },
@@ -164,6 +172,7 @@
     "id": 170,
     "parentId": null,
     "author": "Armando Mclaughlin",
+    "authorUrl": "https://xn--24-3qi4duc3a1a7o.vin/",
     "date": "2024-06-05",
     "content": "For the reason that the admin of this site is working, no uncertainty very quickly it will be renowned, due to its quality contents."
   },
@@ -171,6 +180,7 @@
     "id": 326,
     "parentId": null,
     "author": "Spain Euro 2024",
+    "authorUrl": "https://lppm.unisda.ac.id/workshop-penyusunan-proposal-penelitian-dan-pengabdian-masyarakat-tahun-2024/",
     "date": "2024-07-21",
     "content": "You’re so awesome! I don’t believe I have read a single thing like that before. So great to find someone with some original thoughts on this topic. Really.. thank you for starting this up. This website is something that is needed on the internet, someone with a little originality!"
   }

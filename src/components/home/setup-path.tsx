@@ -7,17 +7,16 @@ type SetupPathProps = {
 
 export function SetupPath({ lessons }: SetupPathProps) {
   return (
-    <div className="px-4 sm:px-0">
+    <div>
       <div className="max-w-2xl">
         <p className="font-mono text-xs tracking-[0.18em] text-[#ff8a1f] uppercase">
-          Start here · Setup
+          Start here
         </p>
         <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl dark:text-zinc-50">
-          Get your machine ready
+          Before you write C
         </h2>
         <p className="mt-2 text-sm text-zinc-600 sm:text-base dark:text-zinc-400">
-          Five steps before the exercises — mindset, Terminal (navigate then
-          files), macOS toolchain, then CS50.
+          Why fundamentals matter, then Terminal, then a Mac that can compile.
         </p>
       </div>
 
