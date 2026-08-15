@@ -1,5 +1,5 @@
 ---
-title: "Why learn the basics?"
+title: "Why learn the basics of coding?"
 date: 2019-02-12
 coverImage: "why-learn-basics-camel-rider.webp"
 ---

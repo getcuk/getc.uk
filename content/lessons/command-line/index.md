@@ -1,7 +1,7 @@
 ---
 title: "Solid foundation in the command line"
 date: 2019-06-11
-coverImage: "command-line-foundation-painting.webp"
+coverImage: "command-line-landscape.webp"
 ---
 
 I used to think the command line was something only grey-bearded sysadmins needed. Then I started learning C properly — and every tutorial assumed I could open a Terminal, find a folder, and type without panic. The mouse suddenly felt like a toy.
