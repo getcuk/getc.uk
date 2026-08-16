@@ -25,6 +25,7 @@ const COMMENT_FILE_ALIASES: Record<string, string[]> = {
   "macos-ready-for-c": ["getting-your-macos-ready-for-c"],
   "command-line": ["learn-your-tools-solid-foundation-in-command-line"],
   "why-learn-basics": ["why-learn-basics-of-coding"],
+  "hello-world": ["how-to-compile-hello-world-program-in-c"],
 };
 
 async function readCommentsFile(fileSlug: string): Promise<LegacyComment[] | null> {

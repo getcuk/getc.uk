@@ -1,0 +1,28 @@
+---
+description: Rule 4 — each lesson meets the exercise and works with or without the book
+alwaysApply: true
+---
+
+# Rule 4: Exercise completeness and the textbook
+
+**Apply this rule automatically** when writing or editing any lesson — especially K&R exercise pages. Do not wait for the user to remind you.
+
+Each lesson must do **both**:
+
+1. **Meet the exercise requirements on this site** — state the task in our own words, give enough worked guidance that a reader can complete the exercise (compile, run, check behaviour) **without** owning the book.
+2. **Stay followable with a copy of the book** — if the reader has K&R (Second Edition) open beside the page, the lesson should map cleanly to that exercise (number, goal, vocabulary) as a companion walk, not a reprint of the textbook.
+
+## Practical checks
+
+- Do **not** assume “see the book for the problem.” Spell out what to build or verify.
+- Do **not** paste or closely reprint long textbook prose / problem statements.
+- Keep exercise numbers and goals honest so someone with the book can find the matching section.
+- Setup / orientation pages (e.g. why K&R, command line) still state requirements clearly and never require a purchase to continue.
+
+```md
+✅ GOOD — task stated here; book optional beside you
+Write a program that prints hello, world, then break printf to see what the compiler says.
+
+❌ BAD — blocked without the book
+Do exercise 1-1 from K&R (see the book for the wording).
+```

@@ -108,7 +108,7 @@ const setupLessons: Lesson[] = [
     badge: "05",
     seriesSlug: "setup",
     publishedAt: "2019-07-17",
-    updatedAt: "2026-08-14",
+    updatedAt: "2026-08-16",
     coverImage: "cs50-library-handdrawn.webp",
     coverImageOg: "cs50-library-handdrawn-og.jpg",
     coverImageAlt:
@@ -148,7 +148,7 @@ const krChapter1: Lesson = {
   krChapter: 1,
   seriesSlug: "kr",
   publishedAt: "2026-08-15",
-  updatedAt: "2026-08-15",
+  updatedAt: "2026-08-16",
   layout: "docs",
   docsNav: [
     { id: "what-this-chapter-covers", label: "What it covers" },
@@ -165,16 +165,19 @@ const krChapter1: Lesson = {
  */
 const krLessons: Lesson[] = [
   {
-    slug: "how-to-compile-hello-world-program-in-c",
+    slug: "hello-world",
     title: "Hello, world",
     summary:
-      'Run the classic "hello, world" program, then break pieces off to see what the compiler complains about.',
+      "K&R Exercise 1-1: write hello, world, compile it, then break pieces off and read what the compiler says.",
     difficulty: "beginner",
     exercise: "1-1",
     seriesSlug: "kr",
     publishedAt: "2022-05-13",
-    updatedAt: "2025-02-07",
-    coverImage: "hello-world-v2.png",
+    updatedAt: "2026-08-16",
+    coverImage: "hello-world-question-mark.webp",
+    coverImageOg: "hello-world-question-mark-og.jpg",
+    coverImageAlt:
+      "Watercolour of two figures under a glowing question-mark plume — featured image for Hello, world on getc.uk",
   },
   {
     slug: "unknown-escape-sequence-in-c",

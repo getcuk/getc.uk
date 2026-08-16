@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
         destination: "/lessons/cs50-library",
         permanent: true,
       },
+      {
+        source: "/lessons/how-to-compile-hello-world-program-in-c",
+        destination: "/lessons/hello-world",
+        permanent: true,
+      },
     ];
   },
 };

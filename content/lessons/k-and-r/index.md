@@ -33,7 +33,7 @@ This site exists to teach C thoroughly, one character at a time. We start where 
 
 We do **not** reprint the textbook. A copy is a companion, not a ticket: if you have one, read the prose that sits next to each exercise. If you do not, follow the lessons on this site. What we add is the walk: worked notes, Terminal and compiler setup, videos where it helps, and a place to run related challenges.
 
-The “Before you write C” guides are the on-ramp: why fundamentals, then the command line, then a Mac that can compile. After that we start where K&R starts: [hello, world](/lessons/how-to-compile-hello-world-program-in-c).
+The “Before you write C” guides are the on-ramp: why fundamentals, then the command line, then a Mac that can compile. After that we start where K&R starts: [hello, world](/lessons/hello-world).
 
 ## Start with Chapter 1
 
@@ -41,4 +41,4 @@ The homepage cards are those exercises, in order. Start with the first lesson.
 
 → [Chapter 1: A Tutorial Introduction](/lessons/kr-chapter-1)
 
-→ [Hello, world — Exercise 1-1](/lessons/how-to-compile-hello-world-program-in-c)
+→ [Hello, world — Exercise 1-1](/lessons/hello-world)

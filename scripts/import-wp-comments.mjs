@@ -30,6 +30,7 @@ const WP_SLUG_ALIASES = {
   "macos-ready-for-c": ["getting-your-macos-ready-for-c"],
   "command-line": ["learn-your-tools-solid-foundation-in-command-line"],
   "why-learn-basics": ["why-learn-basics-of-coding"],
+  "hello-world": ["how-to-compile-hello-world-program-in-c"],
 };
 
 function cdataOrText(block, name) {

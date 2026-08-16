@@ -15,7 +15,7 @@ getc.uk follows that same ladder. Read a few pages, write the exercise, then ope
 
 These are Exercises **1-1** through **1-11**, in order:
 
-1. [Hello, world](/lessons/how-to-compile-hello-world-program-in-c) — 1-1
+1. [Hello, world](/lessons/hello-world) — 1-1
 2. [Unknown escape sequences](/lessons/unknown-escape-sequence-in-c) — 1-2
 3. [Fahrenheit to Celsius table](/lessons/fahrenheit-to-celsius-in-c) — 1-3
 4. [Celsius to Fahrenheit table](/lessons/celsius-to-fahrenheit-in-c) — 1-4
@@ -33,4 +33,4 @@ The textbook continues through exercise **1-24**. Those walkthroughs are next, o
 
 ## Next
 
-Start with [Hello, world](/lessons/how-to-compile-hello-world-program-in-c).
+Start with [Hello, world](/lessons/hello-world).

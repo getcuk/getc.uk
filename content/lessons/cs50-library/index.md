@@ -148,4 +148,4 @@ clang program_to_be_compiled_using_cs50.c -lcs50 -o any_name_you_want_to_give
 
 Library in place. Time for the classic first program:
 
-→ [Hello, world](/lessons/how-to-compile-hello-world-program-in-c)
+→ [Hello, world](/lessons/hello-world)
