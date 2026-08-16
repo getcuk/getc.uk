@@ -126,9 +126,13 @@ const kAndRGuide: Lesson = {
   badge: "K&R · The textbook",
   seriesSlug: "kr",
   publishedAt: "2026-08-15",
-  updatedAt: "2026-08-15",
+  updatedAt: "2026-08-16",
   notice:
     "You do not need to buy the textbook to follow along. Each lesson states the task in our own words. A copy helps if you have one but it is not required.",
+  coverImage: "k-and-r-goat-wellington-boots.webp",
+  coverImageOg: "k-and-r-goat-wellington-boots-og.jpg",
+  coverImageAlt:
+    "White mountain goat in green wellington boots — a GOAT nod for Why we teach from K&R on getc.uk",
 };
 
 /**

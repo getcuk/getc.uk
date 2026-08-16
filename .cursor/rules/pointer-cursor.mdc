@@ -1,0 +1,14 @@
+---
+description: Clickable controls must use pointer cursor on desktop
+alwaysApply: true
+---
+
+# Pointer cursor on clickable UI
+
+On desktop / fine pointers, interactive controls must show a hand (`cursor: pointer`) on hover.
+
+- Covered globally in `src/app/globals.css` for `a[href]`, `button`, `[role="button"]`, `summary`, submit/button inputs, `label[for]`, and `select`.
+- Do not override with `cursor-default` on clickable controls.
+- Disabled controls should use `cursor-not-allowed` (or remain non-pointer).
+- Prefer semantic `<button>` / `<a href>` so the global rule applies; if a custom clickable element is required, give it `role="button"` or `cursor-pointer`.
+- Touch / coarse pointers can keep the default cursor (global rule is scoped with `(hover: hover) and (pointer: fine)`).

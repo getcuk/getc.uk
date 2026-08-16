@@ -3,7 +3,7 @@ title: "Why we teach from K&R"
 date: 2026-08-15
 ---
 
-getc.uk is not a random pile of C snippets. The exercises here follow one textbook: *The C Programming Language* by Brian W. Kernighan and Dennis M. Ritchie — Second Edition, ANSI C. People call it **K&R**. This page is why we teach from that textbook, and why we have not moved on.
+getc.uk is not a random pile of C snippets. The exercises here follow one textbook: *The C Programming Language* by Brian W. Kernighan and Dennis M. Ritchie — Second Edition, ANSI C. People call it **K&R**. Plenty would call it the GOAT — greatest of all — which is why the mountain goat is watching from above. This page is why we teach from that textbook, and why we have not moved on.
 
 ## The white C book
 
@@ -11,7 +11,7 @@ C was born at Bell Labs in the early 1970s. Dennis Ritchie designed the language
 
 The first edition appeared in **1978**. It is the book a generation of programmers actually learned C from. The **Second Edition** followed in **1988**, updated for **ANSI C** (the C89 standard). That is the copy with the big letter C on the cover and the red ANSI C stamp. That is the edition we follow.
 
-It is a thin book on purpose. There is little padding, few cartoons, and no 800-page tour of every library. You read a few pages, you write a small program, you see what the machine does. The exercises on this site keep that rigour, and add a bit of colour — cartoons and jokes around the work, not instead of it.
+It is a thin book on purpose. There is little padding, few cartoons, and no 800-page tour of every library. You read a few pages, you write a small program, you see what the machine does. The exercises on this site keep that rigour, and add a bit of colour — cartoons and jokes around the work just to make everything interesting.
 
 ## Why the Second Edition
 

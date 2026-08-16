@@ -1,0 +1,49 @@
+---
+description: Rule 3 — auto bump updatedAt on edits; show Last updated when later than published
+alwaysApply: true
+---
+
+# Rule 3: Lesson “Last updated” date
+
+**Apply this rule automatically** whenever you edit any lesson post or page. Do not wait for the user to remind you.
+
+## Auto-update metadata
+
+On any material change to a published lesson (copy, metadata, covers, images, redirects, or anything that ships on that page):
+
+1. Set `updatedAt` in `src/lib/content/lessons.ts` for that lesson to **today’s date** (`YYYY-MM-DD`).
+2. Leave `publishedAt` unchanged (first published day).
+3. New lessons may use the same day for both `publishedAt` and `updatedAt`.
+
+Skip this only for read-only work or edits that do not touch that lesson.
+
+## What the page shows
+
+**Show “Last updated” automatically** when `updatedAt` is a **later calendar day** than `publishedAt`.
+
+- Compare ISO `YYYY-MM-DD` strings.
+- Same day (or missing / equal): show only the written date and author — **do not** print “Last updated on …”.
+- Later day: show the original date, then orange “Last updated on {date}”.
+
+UI lives in `src/app/(site)/lessons/[slug]/page.tsx`. Keep that gate intact when changing the lesson page.
+
+```ts
+// ✅ Edited later than published → Last updated appears
+publishedAt: "2026-08-15",
+updatedAt: "2026-08-16",
+
+// ✅ Same day → Last updated hidden
+publishedAt: "2026-08-16",
+updatedAt: "2026-08-16",
+
+// ❌ Edited today but forgot to bump updatedAt
+publishedAt: "2026-08-15",
+updatedAt: "2026-08-15",
+```
+
+```tsx
+// ✅ Only when updated on a later day
+{lesson.updatedAt && lesson.updatedAt !== lesson.publishedAt ? (
+  <p>Last updated on {formatLessonDate(lesson.updatedAt)}</p>
+) : null}
+```

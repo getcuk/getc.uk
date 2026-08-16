@@ -1,0 +1,43 @@
+---
+description: Rule 1 — per-lesson SEO refactor (title, URL, copy, headings, images)
+alwaysApply: true
+---
+
+# Rule 1: Lesson page SEO refactor
+
+Apply this checklist **one lesson at a time** when refreshing a page. Do not batch-refactor the whole catalogue unless asked.
+
+Touch these areas together for each page:
+
+## 1. Title
+- Clear, specific H1 that matches search intent (not vague blog titles).
+- Keep catalogue `title` in `src/lib/content/lessons.ts` in sync with the page H1 / frontmatter.
+
+## 2. URL (slug)
+- Prefer short, readable slugs (`/lessons/why-learn-basics`, not long WordPress leftovers).
+- If the slug changes: update `lessons.ts`, content folder path, image paths, internal links, and add a **permanent redirect** in `next.config.ts`.
+
+## 3. Copy (summary + body)
+- Rewrite summary for the lesson card, meta description, and intro under the H1.
+- Body: warm tutorial voice; tight structure; one job per section; meaningful CTAs to the next step.
+- Keep facts accurate; modernise outdated framing when needed.
+
+## 4. Headings (SEO structure)
+- Use a logical H2/H3 outline; ids must match docs nav / in-page anchors when `layout: "docs"`.
+- Headings should be scannable and keyword-honest (what the section actually teaches).
+
+## 5. Images
+- Featured cover: descriptive SEO filename, `coverImage` + `coverImageOg` + `coverImageAlt` in `lessons.ts`.
+- Page WebP: subject on **transparent** 1200×630 canvas (spot illustration style, like camel / landscape).
+- OG JPG: same composition on **white**, 1200×630.
+- Inline images: descriptive filenames + useful alt text; drop unused assets.
+- Match article column width (`max-w-3xl`); covers should not stretch wider than the title column.
+
+## 6. Overall SEO pass
+Before finishing the page, verify together:
+- **URL** — short slug + redirect if renamed
+- **Copy** — title, summary/description, body tone
+- **Headings** — outline + anchors
+- **Images** — filenames, alt, WebP + OG, transparent cover treatment
+
+Wire catalogue metadata in `src/lib/content/lessons.ts` and markdown under `content/lessons/<slug>/`. Commit only when the user asks.

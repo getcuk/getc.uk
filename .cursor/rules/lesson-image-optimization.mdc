@@ -1,0 +1,60 @@
+---
+description: Rule 2 — optimize lesson images for SEO and transparent spot covers
+alwaysApply: true
+---
+
+# Rule 2: Lesson image optimization
+
+Apply whenever adding or replacing lesson covers or inline lesson images. Prefer quality over speed; verify colours after processing (never ship a blacked-out subject).
+
+## Cover images (featured)
+
+For each lesson cover, produce **two** assets under `public/lessons/<slug>/images/`:
+
+1. **Page WebP** — subject on a **transparent** 1200×630 canvas (spot illustration that sits on the page background).
+2. **OG JPG** — same composition on a **solid white** 1200×630 canvas for Open Graph / social cards.
+
+Wire in `src/lib/content/lessons.ts`:
+
+- `coverImage` → WebP filename
+- `coverImageOg` → OG JPG filename
+- `coverImageAlt` → descriptive SEO alt (subject + lesson context + getc.uk)
+
+Use descriptive SEO filenames (e.g. `why-learn-basics-camel-rider.webp`), not `cover.png` or `image-1.jpg`.
+
+## Remove background (attractive spot look)
+
+- Key out paper / cream / white studio backgrounds so the subject floats.
+- Prefer **corner flood-fill** with a modest fuzz on the paper colour — do **not** blanket `-transparent` on light colours (that eats highlight brushwork and can destroy the painting).
+- Soften only the **alpha** edge if needed; never run ops that zero RGB on the subject.
+- After export, check corners are transparent and centre pixels still have real colour (not pure black).
+- Size the subject as a centred spot with breathing room (roughly camel / landscape precedent), not edge-to-edge fill.
+
+## Right size for SEO / performance
+
+| Asset | Size | Format | Target weight |
+|-------|------|--------|---------------|
+| Page cover | 1200×630 | WebP (alpha) | ~30–70 KB when art allows |
+| OG / social | 1200×630 | JPEG (white bg) | ~40–80 KB |
+| Inline diagrams / screenshots | intrinsic size as needed; compress | JPEG/WebP | keep lean; descriptive filenames + alt |
+
+- Strip metadata; avoid huge source dumps in `public/`.
+- Covers must not stretch wider than the article column (`max-w-3xl`).
+- Delete superseded cover files when replacing.
+
+## Dark mode
+
+Transparent covers keyed from cream/white paper leave light fringes that look broken on black.
+
+- Do **not** rely on the naked transparent WebP against a dark page background.
+- Lesson covers sit on a soft paper plate in dark mode (see `.lesson-cover` on the lesson page) so edges read as intended.
+- OG JPGs already use a white canvas — fine for social cards.
+
+## Checklist before finishing
+
+- [ ] Transparent WebP + white OG JPG, both 1200×630
+- [ ] Colours intact (spot-check centre pixel / visual open)
+- [ ] SEO filename + `coverImageAlt` updated
+- [ ] Old unused image files removed
+- [ ] Page hard-refresh looks like a floating illustration, not a black rectangle or boxed photo
+- [ ] Check dark mode — paper plate should hide fringe; no white halo on black
