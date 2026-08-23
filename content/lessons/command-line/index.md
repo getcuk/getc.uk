@@ -88,7 +88,7 @@ Type `cd` alone and press Return — you are home again, from anywhere on the ma
 
 ### clear
 
-Terminal sessions get noisy. `clear` (or `⌘ + K` on a Mac) wipes the visible scrollback so you can think again.
+The window fills with old output. Type `clear` (or press `⌘ + K` on a Mac) so you can start at the top of the terminal screen again.
 
 https://www.youtube.com/embed/6BC6Lu6ksMg
 
@@ -110,8 +110,8 @@ https://www.youtube.com/embed/Ek4so8R8s0s
 
 ## Next
 
-You can open Terminal, see the tree, and walk it. That is enough to stop feeling lost.
+You can open Terminal, see the tree, and traverse it. That is enough to stop feeling lost.
 
-Next we build a little sandbox and practise the commands that *change* things — create, copy, move, delete — without burning the house down.
+Next we build a little sandbox and practise the commands that *change* things — create, copy, move, delete — in a folder we can throw away.
 
 → [Command line: files and folders](/lessons/command-line-files)

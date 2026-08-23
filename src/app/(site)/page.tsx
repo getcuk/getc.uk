@@ -46,7 +46,7 @@ export default function Home() {
               </p>
               <p className="mx-auto mt-3 max-w-2xl font-mono text-sm leading-relaxed text-zinc-500 lg:mx-0 lg:max-w-md dark:text-zinc-400">
                 Named after the <code className="text-[#ff8a1f]">getc()</code>{" "}
-                function — one character at a time.
+                function — learning C one character at a time.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
                 <Link href="/challenge/1" className="hero-cta-primary">

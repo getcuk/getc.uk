@@ -44,13 +44,13 @@ export function YoutubeEmbed({ id }: YoutubeEmbedProps) {
   }
 
   return (
-    <div className="my-4 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
-      <div className="relative aspect-video w-full bg-zinc-950">
+    <div className="my-4 overflow-hidden rounded-lg">
+      <div className="relative aspect-[4/3] w-full bg-zinc-950">
         {playing ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${id}?${EMBED_PARAMS}`}
             title="YouTube video"
-            className="absolute inset-0 h-full w-full"
+            className="absolute inset-0 h-full w-full border-0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"

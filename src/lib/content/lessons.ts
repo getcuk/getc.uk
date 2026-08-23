@@ -19,7 +19,7 @@ const setupLessons: Lesson[] = [
     badge: "01",
     seriesSlug: "setup",
     publishedAt: "2019-02-12",
-    updatedAt: "2026-08-14",
+    updatedAt: "2026-08-23",
     coverImage: "why-learn-basics-camel-rider.webp",
     coverImageOg: "why-learn-basics-camel-rider-og.jpg",
     coverImageAlt:
@@ -34,7 +34,7 @@ const setupLessons: Lesson[] = [
     badge: "02",
     seriesSlug: "setup",
     publishedAt: "2019-06-11",
-    updatedAt: "2026-08-14",
+    updatedAt: "2026-08-23",
     coverImage: "command-line-landscape.webp",
     coverImageOg: "command-line-landscape-og.jpg",
     coverImageAlt:
@@ -58,12 +58,12 @@ const setupLessons: Lesson[] = [
     slug: "command-line-files",
     title: "Command line: files and folders",
     summary:
-      "The acidic commands: create a sandbox, then mkdir, cp, mv, and rm without burning the house down.",
+      "Make a sandbox first, then practise mkdir, cp, mv, and rm so a mistake cannot touch the files you care about.",
     difficulty: "beginner",
     badge: "03",
     seriesSlug: "setup",
     publishedAt: "2019-06-11",
-    updatedAt: "2026-08-14",
+    updatedAt: "2026-08-23",
     coverImage: "command-line-files-ducks.webp",
     coverImageOg: "command-line-files-ducks-og.jpg",
     coverImageAlt:

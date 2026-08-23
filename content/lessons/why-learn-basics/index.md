@@ -8,7 +8,7 @@ It sounds like a redundant question. To become a programmer, you start with the 
 
 AI can draft code in seconds. Forums and docs are full of snippets you can paste until something compiles. Plenty of people ship software this way — and for a while, it works. The trouble starts when the code breaks, the model hallucinates, or you need a change that the snippet was never designed for. Without fundamentals, you are stuck in a rabbit hole of opaque libraries and hope.
 
-People who know the basics can invent a solution when they have the recipe — an algorithm. They can read what a model wrote, spot the lie, and fix it. People who only assemble fragments rarely see under the bonnet: why a program is slow, bloated, or fragile. Assembling is a fine way to start, and sometimes it puts food on the table. Staying there forever, when you know you could go deeper, is a different choice.
+People who know the basics can invent a solution when they have the recipe — an algorithm. They can read what a model wrote, catch the mistakes, and fix them. People who only assemble fragments rarely see under the bonnet: why a program is slow, bloated, or fragile. Assembling is a fine way to start, and sometimes it puts food on the table. Staying there forever, when you know you could go deeper, is a different choice.
 
 Learning the basics of coding is how you solve problems with a computer on purpose — a weather-sensor log, a search index, anything practical you can invent — instead of hunting for a half-fit ready-made tool you cannot safely change.
 
