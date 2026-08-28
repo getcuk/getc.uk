@@ -301,6 +301,30 @@ body {
   }
 }
 
+@media (max-width: 1280px) {
+  .hero-stage .site-shell {
+    padding-bottom: 4.5rem;
+  }
+
+  .hero-terminal-chrome {
+    padding-block: 0.5rem;
+  }
+
+  .hero-terminal-code {
+    padding-block: 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1.35rem;
+  }
+
+  .hero-terminal-code > div {
+    min-height: 1.35rem;
+  }
+
+  .hero-terminal-out {
+    padding-block: 0.5rem;
+  }
+}
+
 .hero-terminal-scan {
   pointer-events: none;
   position: absolute;
