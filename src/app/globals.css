@@ -173,6 +173,36 @@ body {
   animation: hero-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@media (min-width: 1024px) {
+  .hero-copy-inner {
+    position: absolute;
+    inset: 0;
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: left;
+  }
+
+  .hero-bulb {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    transform: none;
+    overflow: visible;
+  }
+
+  .hero-bulb img {
+    position: absolute;
+    top: 0;
+    left: -4rem;
+    height: 60%;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: top left;
+  }
+}
+
 .hero-visual {
   animation: hero-rise 1s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
@@ -305,9 +335,8 @@ body {
   animation: hero-blink 1.05s steps(1, end) infinite;
 }
 
-.hero-bulb {
-  animation: hero-bulb-float 8s ease-in-out infinite alternate;
-  z-index: 0;
+.hero-bulb img {
+  animation: hero-bulb-float 5.5s ease-in-out infinite alternate;
 }
 
 @keyframes hero-bulb-float {
@@ -357,7 +386,7 @@ body {
   .hero-copy,
   .hero-visual,
   .hero-cursor,
-  .hero-bulb {
+  .hero-bulb img {
     animation: none !important;
   }
 
