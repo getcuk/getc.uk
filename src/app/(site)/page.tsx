@@ -12,12 +12,12 @@ export default function Home() {
 
   return (
     <main className="flex flex-1 flex-col">
-      <section className="hero-stage relative isolate flex min-h-[calc(100svh-8rem)] flex-1 overflow-hidden">
+      <section className="hero-stage relative isolate overflow-hidden">
         <div className="hero-atmosphere" aria-hidden="true" />
         <div className="hero-grid" aria-hidden="true" />
 
-        <div className="page-gutter relative z-10 mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-10 pt-10 pb-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-stretch lg:gap-6 lg:pt-8 lg:pb-10">
-          <div className="hero-copy relative mx-auto flex w-full max-w-3xl flex-col items-center justify-center justify-self-center text-center lg:mx-0 lg:max-w-xl lg:items-start lg:justify-self-stretch lg:pb-4 lg:text-left">
+        <div className="site-shell relative z-10 grid grid-cols-1 gap-14 py-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)] lg:items-center lg:gap-6">
+          <div className="hero-copy relative mx-auto flex w-full max-w-3xl flex-col items-center text-center lg:mx-0 lg:max-w-xl lg:items-start lg:text-left">
             <div
               className="hero-bulb pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none sm:-top-10 lg:-top-16 lg:left-auto lg:-left-20 lg:translate-x-0"
               aria-hidden="true"
@@ -33,7 +33,7 @@ export default function Home() {
             </div>
 
             <div className="relative w-full">
-              <p className="font-mono text-xs tracking-[0.18em] text-zinc-500 uppercase dark:text-zinc-400">
+              <p className="font-mono text-xs tracking-[0.18em] text-[#ff8a1f] uppercase">
                 {SITE_TAGLINE}
               </p>
               <h1 className="mt-4 font-display text-[clamp(1.75rem,4.2vw,2.85rem)] leading-[1.1] font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
@@ -59,22 +59,20 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-visual relative flex min-h-[24rem] flex-col sm:min-h-[28rem] lg:min-h-0 lg:self-stretch">
-            <div className="min-h-0 flex-1">
-              <HeroTerminal />
-            </div>
+          <div className="hero-visual relative lg:self-center">
+            <HeroTerminal />
           </div>
         </div>
       </section>
 
       <section className="setup-section border-t border-zinc-200/80 py-14 dark:border-zinc-800/80">
-        <div className="page-gutter mx-auto w-full max-w-6xl">
+        <div className="site-shell">
           <SetupPath lessons={setupLessons} />
         </div>
       </section>
 
       <section className="exercises-section border-t border-zinc-200/80 py-14 dark:border-zinc-800/80">
-        <div className="page-gutter mx-auto w-full max-w-6xl">
+        <div className="site-shell">
           <LessonsCarousel lessons={krLessons} />
           <div className="mt-6">
             <Link

@@ -9,6 +9,7 @@
   --hero-ink: #0c0d10;
   --hero-panel: #14161c;
   --page-gutter: 2rem;
+  --site-max: 72rem;
 }
 
 @media (min-width: 640px) {
@@ -19,11 +20,30 @@
 
 @media (min-width: 1024px) {
   :root {
-    --page-gutter: 2rem;
+    --site-max: 80rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --site-max: 90rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --site-max: 96rem;
   }
 }
 
 .page-gutter {
+  padding-inline: var(--page-gutter);
+}
+
+.site-shell {
+  width: 100%;
+  max-width: var(--site-max);
+  margin-inline: auto;
   padding-inline: var(--page-gutter);
 }
 
@@ -219,7 +239,10 @@ body {
 @media (min-width: 1024px) {
   .hero-visual {
     margin-right: calc(
-      -1 * max(var(--page-gutter), (100vw - 72rem) / 2 + var(--page-gutter))
+      -1 * max(
+        var(--page-gutter),
+        (100vw - var(--site-max)) / 2 + var(--page-gutter)
+      )
     );
   }
 
@@ -227,6 +250,17 @@ body {
     border-radius: 1rem 0 0 1rem;
     border: 1px solid color-mix(in srgb, white 10%, transparent);
     border-right: 0;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-visual {
+    margin-right: 0;
+  }
+
+  .hero-terminal {
+    border-radius: 1rem;
+    border-right: 1px solid color-mix(in srgb, white 10%, transparent);
   }
 }
 

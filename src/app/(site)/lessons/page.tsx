@@ -34,7 +34,7 @@ export default function LessonsPage() {
   const lessons = getAllLessons();
 
   return (
-    <main className="page-gutter mx-auto w-full max-w-5xl flex-1 py-12">
+    <main className="site-shell flex-1 py-12">
       <div className="mb-8">
         <Link
           href="/"

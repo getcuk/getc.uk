@@ -276,11 +276,11 @@ export function HeroTerminal() {
 
   return (
     <div
-      className="hero-terminal relative h-full min-h-[22rem] w-full overflow-hidden sm:min-h-[26rem] lg:min-h-0"
+      className="hero-terminal relative w-full overflow-hidden"
       aria-hidden="true"
     >
       <div className="hero-terminal-scan" />
-      <div className="relative z-10 flex h-full flex-col">
+      <div className="relative z-10 flex flex-col">
         <div className="flex min-w-0 items-center gap-2 border-b border-white/10 px-4 py-3">
           <span className="size-2.5 shrink-0 rounded-sm bg-[#ff8a1f]/60" />
           <span className="min-w-0 truncate font-mono text-[0.7rem] tracking-wide text-white/50">
@@ -301,7 +301,7 @@ export function HeroTerminal() {
             {statusLabel ?? "\u00a0"}
           </span>
         </div>
-        <pre className="flex-1 overflow-x-auto px-4 py-5 font-mono text-[0.75rem] leading-6 sm:text-[0.85rem] sm:leading-7">
+        <pre className="overflow-x-auto px-4 py-5 font-mono text-[0.75rem] leading-6 sm:text-[0.85rem] sm:leading-7">
           {visibleByLine.map((line) => (
             <div
               key={line.n}

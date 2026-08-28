@@ -5,7 +5,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 export function SiteHeader() {
   return (
     <header className="relative z-20 border-b border-zinc-200/80 bg-background/70 backdrop-blur-md dark:border-zinc-800/80">
-      <div className="page-gutter mx-auto flex h-16 w-full max-w-6xl items-center justify-between">
+      <div className="site-shell flex h-16 items-center justify-between">
         <Logo />
         <div className="flex items-center gap-4">
           <nav className="flex items-center gap-5 text-[0.95rem] text-zinc-600 dark:text-zinc-400">
