@@ -3,7 +3,7 @@ title: "Why we teach from K&R"
 date: 2026-08-15
 ---
 
-getc.uk is not a random pile of C snippets. The exercises here follow one textbook: *The C Programming Language* by Brian W. Kernighan and Dennis M. Ritchie — Second Edition, ANSI C. People call it **K&R**. Plenty would call it the GOAT — greatest of all — which is why the mountain goat is watching from above. This page is why we teach from that textbook, and why we have not moved on.
+getc.uk is not a random pile of C snippets. The exercises here follow one textbook: *The C Programming Language* by Brian W. Kernighan and Dennis M. Ritchie — Second Edition, ANSI C. People call it **K&R**. Plenty would call it the GOAT — greatest of all. This page is why we teach from that textbook, and why we have not moved on.
 
 ## The white C book
 
@@ -31,7 +31,7 @@ C is still how a lot of the world actually runs: operating systems, compilers, e
 
 This site exists to teach C thoroughly, one character at a time. We start where the book starts: K&R Chapter 1. Later chapters join this site when those lessons are written.
 
-We do **not** reprint the textbook. A copy is a companion, not a ticket: if you have one, read the prose that sits next to each exercise. If you do not, follow the lessons on this site. What we add is the walk: worked notes, Terminal and compiler setup, videos where it helps, and a place to run related challenges.
+We do **not** reprint the textbook. A copy is useful if you have one, but you do not need it to follow along. If you have the book, read the prose next to each exercise. If you do not, the lessons here still stand on their own. What we add are worked notes, Terminal and compiler setup, videos where it helps, and a place to run related challenges.
 
 The “Before you write C” guides are the on-ramp: why fundamentals, then the command line, then a Mac that can compile. After that we start where K&R starts: [hello, world](/lessons/hello-world).
 

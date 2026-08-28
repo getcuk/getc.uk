@@ -126,7 +126,7 @@ const kAndRGuide: Lesson = {
   badge: "K&R · The textbook",
   seriesSlug: "kr",
   publishedAt: "2026-08-15",
-  updatedAt: "2026-08-16",
+  updatedAt: "2026-08-28",
   notice:
     "You do not need to buy the textbook to follow along. Each lesson states the task in our own words. A copy helps if you have one but it is not required.",
   coverImage: "k-and-r-goat-wellington-boots.webp",
