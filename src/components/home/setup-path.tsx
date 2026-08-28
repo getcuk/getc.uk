@@ -16,8 +16,8 @@ export function SetupPath({
   description = "Why fundamentals matter, then Terminal, then a Mac that can compile.",
 }: SetupPathProps) {
   return (
-    <div>
-      <div className="max-w-2xl">
+    <div className="max-w-3xl">
+      <div>
         <p className="font-mono text-xs tracking-[0.18em] text-[#ff8a1f] uppercase">
           {eyebrow}
         </p>
@@ -32,16 +32,24 @@ export function SetupPath({
       <ol className="setup-path mt-10">
         {lessons.map((lesson, index) => {
           const isLast = index === lessons.length - 1;
+          const num = lesson.badge ?? String(index + 1).padStart(2, "0");
           return (
-            <li key={lesson.slug} className="setup-path-item">
+            <li
+              key={lesson.slug}
+              className={
+                index === 0
+                  ? "setup-path-item setup-path-item-start"
+                  : "setup-path-item"
+              }
+            >
               <div className="setup-path-rail" aria-hidden="true">
-                <span className="setup-path-dot" />
+                <span className="setup-path-station font-mono">{num}</span>
                 {!isLast ? <span className="setup-path-line" /> : null}
               </div>
-              <Link href={`/lessons/${lesson.slug}`} className="setup-path-link group">
-                <span className="setup-path-num font-mono">
-                  {lesson.badge ?? String(index + 1).padStart(2, "0")}
-                </span>
+              <Link
+                href={`/lessons/${lesson.slug}`}
+                className="setup-path-link group"
+              >
                 <div className="min-w-0 flex-1">
                   <h3 className="font-display text-lg font-semibold tracking-tight text-zinc-950 transition-colors group-hover:text-[#ff8a1f] sm:text-xl dark:text-zinc-50 dark:group-hover:text-[#ff8a1f]">
                     {lesson.title}
