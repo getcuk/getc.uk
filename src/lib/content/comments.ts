@@ -20,7 +20,7 @@ export type LegacyCommentNode = LegacyComment & {
  * When a lesson slug is shortened, keep loading comments from the old
  * WordPress-era filename until/unless the JSON is renamed to match.
  */
-const COMMENT_FILE_ALIASES: Record<string, string[]> = {
+export const COMMENT_FILE_ALIASES: Record<string, string[]> = {
   "cs50-library": ["installing-cs50-library-locally-on-macos"],
   "macos-ready-for-c": ["getting-your-macos-ready-for-c"],
   "command-line": ["learn-your-tools-solid-foundation-in-command-line"],
