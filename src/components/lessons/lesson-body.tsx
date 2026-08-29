@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import type { LessonSegment } from "@/lib/content/lesson-body";
 import { extractYoutubeId } from "@/lib/content/lesson-body";
+import { lessonHighlightOptions } from "@/lib/content/lesson-highlight";
 import { GistEmbed } from "@/components/lessons/gist-embed";
 import { YoutubeEmbed } from "@/components/lessons/youtube-embed";
 
@@ -223,7 +224,7 @@ export function LessonBody({ segments, className = "mt-8" }: LessonBodyProps) {
           <ReactMarkdown
             key={`md-${index}`}
             remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeHighlight]}
+            rehypePlugins={[[rehypeHighlight, lessonHighlightOptions]]}
             components={components}
           >
             {segment.value}
