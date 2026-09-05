@@ -315,7 +315,8 @@ body {
 .hero-cta-secondary,
 .setup-next-btn,
 .setup-read-btn,
-.carousel-nav-btn {
+.carousel-nav-btn,
+.challenge-run-btn {
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -327,7 +328,8 @@ body {
 .hero-cta-secondary::after,
 .setup-next-btn::after,
 .setup-read-btn::after,
-.carousel-nav-btn::after {
+.carousel-nav-btn::after,
+.challenge-run-btn::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -344,12 +346,14 @@ body {
 .setup-next-btn:hover::after,
 .setup-read-btn:hover::after,
 .carousel-nav-btn:hover:not(:disabled)::after,
+.challenge-run-btn:hover:not(:disabled)::after,
 .md-interactive:focus-visible::after,
 .hero-cta-primary:focus-visible::after,
 .hero-cta-secondary:focus-visible::after,
 .setup-next-btn:focus-visible::after,
 .setup-read-btn:focus-visible::after,
-.carousel-nav-btn:focus-visible:not(:disabled)::after {
+.carousel-nav-btn:focus-visible:not(:disabled)::after,
+.challenge-run-btn:focus-visible:not(:disabled)::after {
   opacity: 0.08;
 }
 
@@ -358,7 +362,8 @@ body {
 .hero-cta-secondary:active::after,
 .setup-next-btn:active::after,
 .setup-read-btn:active::after,
-.carousel-nav-btn:active:not(:disabled)::after {
+.carousel-nav-btn:active:not(:disabled)::after,
+.challenge-run-btn:active:not(:disabled)::after {
   opacity: 0.12;
 }
 
@@ -367,7 +372,8 @@ body {
 .hero-cta-secondary:active,
 .setup-next-btn:active,
 .setup-read-btn:active,
-.carousel-nav-btn:active:not(:disabled) {
+.carousel-nav-btn:active:not(:disabled),
+.challenge-run-btn:active:not(:disabled) {
   transform: scale(0.98);
 }
 
@@ -589,6 +595,7 @@ body {
   .setup-next-btn:active,
   .setup-read-btn:active,
   .carousel-nav-btn:active,
+  .challenge-run-btn:active,
   .exercise-tile:active {
     transform: none;
   }
@@ -674,10 +681,11 @@ body {
   flex-direction: column;
   overflow: hidden;
   isolation: isolate;
-  border: 1px solid color-mix(in srgb, white 12%, transparent);
+  border: 1px solid #e2e8f0;
   border-radius: 1.25rem;
   background: var(--md-code-surface);
   color: var(--md-code-on-surface);
+  box-shadow: 0 1px 2px rgba(15, 18, 24, 0.06);
   transition:
     transform 0.12s cubic-bezier(0.2, 0, 0, 1),
     border-color 0.15s cubic-bezier(0.2, 0, 0, 1);
@@ -686,6 +694,7 @@ body {
 .dark .exercise-tile {
   background: rgb(24 24 27 / 0.92);
   border-color: rgb(120 53 15 / 0.4);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
 }
 
 .exercise-tile::after {
@@ -847,4 +856,121 @@ body {
 .lesson-code *::selection {
   background-color: #ff8a1f;
   color: #1a1208;
+}
+
+/* —— Challenge workspace (homepage terminal treatment) —— */
+.challenge-code-pane {
+  background: var(--md-code-surface);
+  color: var(--md-code-on-surface);
+}
+
+.challenge-code-chrome {
+  border-bottom: 1px solid color-mix(in srgb, white 12%, transparent);
+  background: color-mix(in srgb, white 5%, transparent);
+}
+
+.challenge-editor {
+  background: var(--md-code-surface);
+}
+
+.challenge-editor .monaco-editor,
+.challenge-editor .monaco-editor-background,
+.challenge-editor .monaco-editor .margin {
+  background-color: transparent !important;
+}
+
+.challenge-run-btn {
+  display: inline-flex;
+  height: 2rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: var(--md-primary);
+  padding-inline: 0.875rem;
+  color: var(--md-on-primary);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.challenge-run-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.challenge-run-btn:disabled::after {
+  opacity: 0;
+}
+
+.challenge-terminal {
+  border-top: 1px solid color-mix(in srgb, white 12%, transparent);
+  background: color-mix(in srgb, black 32%, var(--md-code-surface));
+  color: var(--md-code-on-surface);
+}
+
+.challenge-terminal-chrome {
+  color: color-mix(in srgb, var(--md-code-on-surface) 55%, transparent);
+}
+
+.challenge-terminal-chrome:hover {
+  color: var(--md-code-on-surface);
+}
+
+.challenge-terminal-body {
+  color: color-mix(in srgb, var(--md-code-on-surface) 88%, transparent);
+}
+
+.challenge-terminal-body--success {
+  color: #7dd3c0;
+}
+
+.challenge-terminal-body--error {
+  color: #fca5a5;
+}
+
+.challenge-instruction-card {
+  border: 1px solid var(--md-outline-variant);
+  border-radius: 0.75rem;
+  background: var(--md-surface-container-lowest);
+  padding: 0.875rem 1rem 0.65rem;
+}
+
+.challenge-instruction-card > :last-child {
+  margin-bottom: 0;
+}
+
+.challenge-instruction-card--spec {
+  background: var(--md-surface-container-lowest);
+}
+
+.challenge-instruction-card--hint {
+  border-color: color-mix(
+    in srgb,
+    var(--md-primary) 28%,
+    var(--md-outline-variant)
+  );
+  background: color-mix(
+    in srgb,
+    var(--md-primary) 7%,
+    var(--md-surface-container-lowest)
+  );
+}
+
+.dark .challenge-instruction-card {
+  border-color: color-mix(in srgb, #34d399 22%, transparent);
+  background: color-mix(in srgb, black 42%, transparent);
+}
+
+.dark .challenge-instruction-card--spec {
+  background: color-mix(in srgb, #064e3b 22%, black);
+}
+
+.dark .challenge-instruction-card--hint {
+  border-color: color-mix(in srgb, #fbbf24 30%, transparent);
+  background: color-mix(in srgb, #78350f 28%, black);
 }

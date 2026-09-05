@@ -34,18 +34,18 @@ export default function Home() {
               </div>
 
               <div className="hero-copy-text relative z-10 flex w-full flex-col gap-5">
-                <p className="text-xs font-medium tracking-[0.08em] text-md-primary uppercase">
+                <p className="text-xs font-semibold tracking-[0.08em] text-md-primary uppercase">
                   {SITE_TAGLINE}
                 </p>
                 <h1 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.12] font-medium tracking-tight text-md-on-surface">
                   Learn C — so you shape systems, not just prompt them.
                 </h1>
-                <p className="mx-auto max-w-2xl text-base leading-relaxed text-md-on-surface-variant sm:text-lg lg:mx-0 lg:max-w-md">
+                <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed text-md-on-surface-variant sm:text-lg lg:mx-0 lg:max-w-md">
                   AI can write code. C teaches you memory, pointers, and how
                   software really runs — so you can review, debug, and build from
                   the metal up.
                 </p>
-                <p className="mx-auto max-w-2xl font-mono text-sm leading-relaxed text-md-on-surface-variant lg:mx-0 lg:max-w-md">
+                <p className="mx-auto max-w-2xl font-mono text-sm font-medium leading-relaxed text-md-on-surface-variant lg:mx-0 lg:max-w-md">
                   Named after the <code className="text-md-primary">getc()</code>{" "}
                   function — learning C one character at a time.
                 </p>

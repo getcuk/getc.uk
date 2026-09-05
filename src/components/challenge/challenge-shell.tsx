@@ -15,24 +15,22 @@ export function ChallengeShell({
   children,
 }: ChallengeShellProps) {
   return (
-    <div className="flex h-dvh flex-col overflow-hidden bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-100">
-      <header className="flex h-16 shrink-0 items-center justify-between border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-950">
+    <div className="flex h-dvh flex-col overflow-hidden bg-md-surface text-md-on-surface">
+      <header className="flex h-16 shrink-0 items-center justify-between border-b border-md-outline-variant bg-md-surface-container-lowest px-4 sm:px-5">
         <div className="flex min-w-0 items-center gap-3">
           <Logo size={1.55} />
-          <span className="hidden text-zinc-400 sm:inline dark:text-zinc-600">
-            /
-          </span>
-          <p className="truncate font-mono text-sm text-zinc-600 dark:text-zinc-300">
+          <span className="hidden text-md-outline sm:inline">/</span>
+          <p className="truncate font-mono text-sm text-md-on-surface-variant">
             challenge/{challengeId}
-            <span className="text-zinc-400 dark:text-zinc-600"> — </span>
-            {title}
+            <span className="text-md-outline"> — </span>
+            <span className="text-md-on-surface">{title}</span>
           </p>
         </div>
-        <div className="flex shrink-0 items-center gap-3">
+        <div className="flex shrink-0 items-center gap-1">
           <ThemeToggle />
           <Link
             href="/lessons"
-            className="shrink-0 font-mono text-xs text-zinc-500 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-300"
+            className="md-interactive shrink-0 rounded-full px-3 py-2 font-mono text-xs text-md-on-surface-variant"
           >
             Exit
           </Link>

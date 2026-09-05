@@ -91,13 +91,13 @@ export function SetupPath({
   return (
     <div className="setup-wizard rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 lg:p-12 dark:border-amber-900/40 dark:bg-zinc-900/90 dark:shadow-[0_24px_64px_rgba(0,0,0,0.55)]">
       <div className="max-w-2xl">
-        <p className="text-xs font-medium tracking-[0.08em] text-[#ff8a1f] uppercase">
+        <p className="text-xs font-semibold tracking-[0.08em] text-[#ff8a1f] uppercase">
           {eyebrow}
         </p>
         <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl dark:text-zinc-100">
           {title}
         </h2>
-        <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-zinc-400">
+        <p className="mt-3 text-base font-medium leading-relaxed text-slate-600 dark:text-zinc-400">
           {description}
         </p>
       </div>
@@ -159,7 +159,7 @@ export function SetupPath({
                     </span>
                     <span
                       className={cn(
-                        "mt-2 max-w-[7.5rem] text-center text-xs font-medium leading-tight",
+                        "mt-2 max-w-[7.5rem] text-center text-xs font-semibold leading-tight",
                         isComplete
                           ? "text-slate-900 dark:text-zinc-100"
                           : isNext
@@ -190,7 +190,7 @@ export function SetupPath({
                 <h3 className="font-display text-xl font-medium tracking-tight text-slate-900 sm:text-2xl dark:text-zinc-100">
                   {lesson.title}
                 </h3>
-                <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-zinc-400">
+                <p className="mt-4 max-w-3xl text-base font-medium leading-relaxed text-slate-600 dark:text-zinc-400">
                   {lesson.summary}
                 </p>
               </div>

@@ -73,18 +73,18 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
     <div className="relative">
       <div className="mb-6 flex items-end justify-between gap-3 sm:gap-4">
         <div className="min-w-0">
-          <p className="text-xs font-medium tracking-[0.08em] text-md-primary uppercase">
+          <p className="text-xs font-semibold tracking-[0.08em] text-md-primary uppercase">
             K&amp;R · Second edition
           </p>
           <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-md-on-surface sm:text-4xl">
             Exercises from The C Programming Language
           </h2>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-md-on-surface-variant">
+          <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-md-on-surface-variant">
             These are the Chapter 1 exercises from Brian W. Kernighan and
             Dennis M. Ritchie&apos;s{" "}
             <Link
               href="/lessons/k-and-r"
-              className="font-medium text-md-primary underline decoration-md-primary/35 underline-offset-2 hover:decoration-md-primary"
+              className="font-semibold text-md-primary underline decoration-md-primary/35 underline-offset-2 hover:decoration-md-primary"
             >
               textbook
             </Link>{" "}

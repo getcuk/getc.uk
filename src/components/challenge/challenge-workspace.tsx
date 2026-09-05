@@ -1,9 +1,12 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useTheme } from "next-themes";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { InstructionsPanel } from "@/components/challenge/instructions-panel";
+import {
+  defineGetcEditorTheme,
+  GETC_EDITOR_THEME,
+} from "@/components/challenge/monaco-theme";
 import { OutputDrawer } from "@/components/challenge/output-drawer";
 import { gradeStdout } from "@/lib/challenges/grade";
 import type { Challenge } from "@/lib/content/challenges";
@@ -12,7 +15,7 @@ import type { RunResult } from "@/lib/jdoodle/types";
 const MonacoEditor = dynamic(() => import("@monaco-editor/react"), {
   ssr: false,
   loading: () => (
-    <div className="flex h-full items-center justify-center bg-zinc-100 font-mono text-sm text-zinc-500 dark:bg-[#1e1e1e]">
+    <div className="flex h-full items-center justify-center bg-md-code-surface font-mono text-sm text-md-code-on-surface/50">
       Loading editor…
     </div>
   ),
@@ -87,8 +90,6 @@ function formatRunOutput(
 }
 
 export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [code, setCode] = useState(challenge.starterCode);
   const codeRef = useRef(challenge.starterCode);
   const abortRef = useRef<AbortController | null>(null);
@@ -97,13 +98,6 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
   const [tone, setTone] = useState<RunTone>("default");
   const [drawerOpen, setDrawerOpen] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const editorTheme =
-    mounted && resolvedTheme === "light" ? "light" : "vs-dark";
 
   const updateCode = useCallback((value: string) => {
     codeRef.current = value;
@@ -197,11 +191,12 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
         <InstructionsPanel markdown={challenge.instructionsMarkdown} />
       </div>
 
-      <div className="flex min-h-[40vh] flex-1 flex-col bg-white dark:bg-[#1e1e1e] md:min-h-0">
-        <div className="flex h-11 shrink-0 items-center justify-between border-b border-zinc-200 px-3 dark:border-zinc-800">
-          <p className="font-mono text-xs text-zinc-500">
-            main.c
-            <span className="ml-3 hidden text-zinc-400 sm:inline dark:text-zinc-600">
+      <div className="challenge-code-pane flex min-h-[40vh] flex-1 flex-col md:min-h-0">
+        <div className="challenge-code-chrome flex h-12 shrink-0 items-center justify-between gap-3 px-4">
+          <p className="flex min-w-0 items-center gap-2 font-mono text-[0.7rem] tracking-wide text-white/50">
+            <span className="size-2.5 shrink-0 rounded-sm bg-md-primary/60" />
+            <span className="truncate">main.c</span>
+            <span className="hidden text-white/35 sm:inline">
               ⌘/Ctrl+Enter to run
             </span>
           </p>
@@ -209,17 +204,18 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
             type="button"
             onClick={() => void runCode()}
             disabled={isRunning}
-            className="inline-flex h-8 shrink-0 items-center rounded bg-emerald-500 px-3 font-mono text-xs font-semibold text-zinc-950 hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
+            className="challenge-run-btn md-interactive"
           >
             {isRunning ? "Running…" : "Run Code"}
           </button>
         </div>
 
-        <div className="min-h-0 flex-1">
+        <div className="challenge-editor min-h-0 flex-1">
           <MonacoEditor
             height="100%"
             defaultLanguage="c"
-            theme={editorTheme}
+            theme={GETC_EDITOR_THEME}
+            beforeMount={defineGetcEditorTheme}
             value={code}
             onChange={(value) => updateCode(value ?? "")}
             options={{
@@ -231,7 +227,14 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
               tabSize: 4,
               insertSpaces: true,
               wordWrap: "on",
-              padding: { top: 12 },
+              padding: { top: 16, bottom: 12 },
+              overviewRulerLanes: 0,
+              hideCursorInOverviewRuler: true,
+              renderLineHighlight: "line",
+              scrollbar: {
+                verticalScrollbarSize: 8,
+                horizontalScrollbarSize: 8,
+              },
             }}
           />
         </div>

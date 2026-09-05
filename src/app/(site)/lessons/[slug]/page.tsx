@@ -213,7 +213,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
     return (
       <main className="page-gutter w-full flex-1 py-12">
         <JsonLd data={lessonJsonLd(lesson)} />
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto w-full max-w-4xl">
           {meta}
           {cover}
           {docsPrelude.length > 0 ? (
@@ -222,10 +222,10 @@ export default async function LessonPage({ params }: LessonPageProps) {
         </div>
 
         {/*
-          Body stays max-w-3xl (aligned with title/cover). On xl+, the docs rail
+          Body stays max-w-4xl (aligned with title/cover). On xl+, the docs rail
           hangs in the left margin and starts at the first TOC heading.
         */}
-        <div className="relative mx-auto mt-10 max-w-3xl">
+        <div className="relative mx-auto mt-10 w-full max-w-4xl">
           <aside className="absolute inset-y-0 right-full hidden w-44 pr-10 xl:block">
             <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto">
               <LessonDocsNav
@@ -255,12 +255,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
   }
 
   return (
-    <main className="page-gutter mx-auto w-full max-w-3xl flex-1 py-12">
+    <main className="page-gutter w-full flex-1 py-12">
       <JsonLd data={lessonJsonLd(lesson)} />
-      {meta}
-      {cover}
-      <LessonBody segments={segments} />
-      {footer}
+      <div className="mx-auto w-full max-w-4xl">
+        {meta}
+        {cover}
+        <LessonBody segments={segments} />
+        {footer}
+      </div>
     </main>
   );
 }
