@@ -281,7 +281,7 @@ export function HeroTerminal() {
     >
       <div className="hero-terminal-scan" />
       <div className="relative z-10 flex flex-col">
-        <div className="hero-terminal-chrome flex min-w-0 items-center gap-2 border-b border-white/10 px-4 py-3">
+        <div className="hero-terminal-chrome flex min-w-0 items-center gap-2 px-5 py-3">
           <span className="size-2.5 shrink-0 rounded-sm bg-[#ff8a1f]/60" />
           <span className="min-w-0 truncate font-mono text-[0.7rem] tracking-wide text-white/50">
             <span className="sm:hidden">getc.c</span>
@@ -339,7 +339,10 @@ export function HeroTerminal() {
             <span className="hero-cursor inline-block h-5 w-2 translate-y-0.5 bg-[#ff8a1f]" />
           </div>
         </pre>
-        <div className="hero-terminal-out border-t border-white/10 px-4 py-3 font-mono text-[0.7rem] text-white/45">
+        <div className="hero-terminal-out px-5 py-3 font-mono text-[0.7rem] text-md-code-on-surface/50">
+          <p className="mb-2 font-mono text-[0.6rem] tracking-[0.14em] text-white/35 uppercase">
+            Terminal
+          </p>
           <div className="flex min-h-5 items-center gap-2">
             <span className="text-[#ff8a1f]">$</span>
             <span className="text-white/70">

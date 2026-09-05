@@ -11,7 +11,7 @@ export default function Home() {
   const krLessons = getKrLessons();
 
   return (
-    <main className="flex flex-1 flex-col">
+    <main className="flex flex-1 flex-col bg-md-surface">
       <section className="hero-stage relative isolate overflow-hidden">
         <div className="hero-atmosphere" aria-hidden="true" />
         <div className="hero-grid" aria-hidden="true" />
@@ -34,26 +34,32 @@ export default function Home() {
               </div>
 
               <div className="relative z-10 w-full shrink-0">
-                <p className="font-mono text-xs tracking-[0.18em] text-[#ff8a1f] uppercase">
+                <p className="text-xs font-medium tracking-[0.08em] text-md-primary uppercase">
                   {SITE_TAGLINE}
                 </p>
-                <h1 className="mt-4 font-display text-[clamp(1.75rem,4.2vw,2.85rem)] leading-[1.1] font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+                <h1 className="mt-4 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.12] font-medium tracking-tight text-md-on-surface">
                   Learn C — so you shape systems, not just prompt them.
                 </h1>
-                <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg lg:mx-0 lg:max-w-md dark:text-zinc-400">
+                <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-md-on-surface-variant sm:text-lg lg:mx-0 lg:max-w-md">
                   AI can write code. C teaches you memory, pointers, and how
                   software really runs — so you can review, debug, and build from
                   the metal up.
                 </p>
-                <p className="mx-auto mt-3 max-w-2xl font-mono text-sm leading-relaxed text-zinc-500 lg:mx-0 lg:max-w-md dark:text-zinc-400">
-                  Named after the <code className="text-[#ff8a1f]">getc()</code>{" "}
+                <p className="mx-auto mt-3 max-w-2xl font-mono text-sm leading-relaxed text-md-on-surface-variant lg:mx-0 lg:max-w-md">
+                  Named after the <code className="text-md-primary">getc()</code>{" "}
                   function — learning C one character at a time.
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-                  <Link href="/challenge/1" className="hero-cta-primary">
+                  <Link
+                    href="/challenge/1"
+                    className="hero-cta-primary md-interactive"
+                  >
                     Try a challenge
                   </Link>
-                  <Link href="/lessons" className="hero-cta-secondary">
+                  <Link
+                    href="/lessons"
+                    className="hero-cta-secondary md-interactive"
+                  >
                     Browse lessons
                   </Link>
                 </div>
@@ -67,21 +73,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="setup-section border-t border-zinc-200/80 py-14 dark:border-zinc-800/80">
+      <section className="setup-section py-20 sm:py-28">
         <div className="site-shell">
           <SetupPath lessons={setupLessons} />
         </div>
       </section>
 
-      <section className="exercises-section border-t border-zinc-200/80 py-14 dark:border-zinc-800/80">
+      <section className="exercises-section pt-16 pb-16 sm:pt-20 sm:pb-20">
         <div className="site-shell">
           <LessonsCarousel lessons={krLessons} />
-          <div className="mt-6">
+          <div className="mt-8">
             <Link
               href="/lessons"
-              className="font-mono text-sm text-zinc-500 transition-colors hover:text-[#ff8a1f] dark:text-zinc-400"
+              className="setup-read-btn border-2 border-orange-300 bg-orange-100 text-[#ff8a1f] dark:border-[#ff8a1f] dark:bg-orange-950 dark:text-[#ff8a1f]"
             >
-              View all lessons →
+              View all lessons
             </Link>
           </div>
         </div>

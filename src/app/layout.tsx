@@ -88,7 +88,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${ibmPlexSans.variable} ${geistMono.variable} ${syne.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background font-sans text-foreground">
+      <body
+        className="min-h-full bg-background font-sans text-foreground"
+        suppressHydrationWarning
+      >
         <JsonLd data={[websiteJsonLd(), organizationJsonLd()]} />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
