@@ -230,12 +230,59 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .hero-copy {
+    height: 100%;
+  }
+
   .hero-copy-inner {
     position: absolute;
     inset: 0;
     align-items: flex-start;
     justify-content: flex-end;
     text-align: left;
+    container-type: size;
+    container-name: hero-copy;
+  }
+
+  .hero-copy-text {
+    font-size: clamp(0.8rem, 4cqh, 1.35rem);
+  }
+
+  .hero-copy-text > p:first-of-type {
+    font-size: 0.7em;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-copy-text h1 {
+    margin-top: 0.5em;
+    font-size: 2em;
+    line-height: 1.12;
+  }
+
+  .hero-copy-text h1 + p {
+    margin-top: 0.65em;
+    max-width: 22em;
+    font-size: 0.85em;
+    line-height: 1.55;
+  }
+
+  .hero-copy-text h1 + p + p {
+    margin-top: 0.4em;
+    max-width: 22em;
+    font-size: 0.7em;
+    line-height: 1.5;
+  }
+
+  .hero-copy-actions {
+    margin-top: 0.85em;
+  }
+
+  .hero-copy-actions .hero-cta-primary,
+  .hero-copy-actions .hero-cta-secondary {
+    min-height: 2.2em;
+    padding-block: 0.45em;
+    padding-inline: 1.15em;
+    font-size: 0.78em;
   }
 
   .hero-bulb {

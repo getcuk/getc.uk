@@ -33,7 +33,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="relative z-10 w-full shrink-0">
+              <div className="hero-copy-text relative z-10 w-full">
                 <p className="text-xs font-medium tracking-[0.08em] text-md-primary uppercase">
                   {SITE_TAGLINE}
                 </p>
@@ -49,7 +49,7 @@ export default function Home() {
                   Named after the <code className="text-md-primary">getc()</code>{" "}
                   function — learning C one character at a time.
                 </p>
-                <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+                <div className="hero-copy-actions mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
                   <Link
                     href="/challenge/1"
                     className="hero-cta-primary md-interactive"
