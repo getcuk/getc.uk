@@ -241,7 +241,7 @@ body {
 .not-found-bulb {
   margin-block: clamp(0.5rem, 2.5vh, 2rem);
   max-width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .not-found-bulb img {
@@ -251,6 +251,7 @@ body {
   height: auto;
   max-height: 22vh;
   object-fit: contain;
+  animation: hero-bulb-float 5.5s ease-in-out infinite alternate;
 }
 
 @media (min-width: 640px) {
@@ -653,7 +654,8 @@ body {
   .hero-copy,
   .hero-visual,
   .hero-cursor,
-  .hero-bulb img {
+  .hero-bulb img,
+  .not-found-bulb img {
     animation: none !important;
   }
 
