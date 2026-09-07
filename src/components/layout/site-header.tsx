@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { getFirstChallengePath } from "@/lib/content/challenges";
 
 export function SiteHeader() {
   return (
@@ -16,7 +17,7 @@ export function SiteHeader() {
               Lessons
             </Link>
             <Link
-              href="/challenge/1"
+              href={getFirstChallengePath()}
               className="md-interactive rounded-full px-3 py-2"
             >
               Challenges

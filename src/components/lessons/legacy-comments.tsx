@@ -14,7 +14,7 @@ const LINK_RE =
   /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)|(https?:\/\/[^\s<]+)/g;
 
 const COMMENT_LINK_CLASS =
-  "font-medium text-[#ff8a1f] underline decoration-[#ff8a1f]/35 underline-offset-2 hover:decoration-[#ff8a1f]";
+  "font-medium text-md-primary underline decoration-md-primary/35 underline-offset-2 hover:decoration-md-primary";
 
 function trimUrl(raw: string): { href: string; trailing: string } {
   const trailing = raw.match(/[).,;:!?]+$/)?.[0] ?? "";
@@ -80,7 +80,7 @@ function CommentItem({ comment }: { comment: LegacyCommentNode }) {
     .filter(Boolean);
 
   return (
-    <li className="border-t border-zinc-200 pt-5 first:border-t-0 first:pt-0 dark:border-zinc-800">
+    <li className="border-t border-md-outline-variant pt-5 first:border-t-0 first:pt-0">
       <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-sm">
         {comment.authorUrl ? (
           <a
@@ -92,18 +92,18 @@ function CommentItem({ comment }: { comment: LegacyCommentNode }) {
             {comment.author}
           </a>
         ) : (
-          <span className="font-medium text-zinc-900 dark:text-zinc-100">
+          <span className="font-medium text-md-on-surface">
             {comment.author}
           </span>
         )}
         <time
           dateTime={comment.date}
-          className="font-mono text-xs text-zinc-400 dark:text-zinc-500"
+          className="font-mono text-xs text-md-on-surface-variant"
         >
           {formatLessonDate(comment.date)}
         </time>
       </div>
-      <div className="mt-2 space-y-3 text-[0.95rem] leading-relaxed text-zinc-700 dark:text-zinc-300">
+      <div className="mt-2 space-y-3 text-[0.95rem] leading-relaxed text-md-on-surface">
         {paragraphs.map((paragraph, index) => (
           <p key={index} className="whitespace-pre-wrap">
             {renderCommentText(paragraph)}
@@ -111,7 +111,7 @@ function CommentItem({ comment }: { comment: LegacyCommentNode }) {
         ))}
       </div>
       {comment.replies.length > 0 ? (
-        <ul className="mt-4 space-y-5 border-l border-zinc-200 pl-4 dark:border-zinc-800 sm:pl-5">
+        <ul className="mt-4 space-y-5 border-l border-md-outline-variant pl-4 sm:pl-5">
           {comment.replies.map((reply) => (
             <CommentItem key={reply.id} comment={reply} />
           ))}
@@ -127,10 +127,10 @@ export function LegacyComments({ comments }: LegacyCommentsProps) {
   const tree = buildCommentTree(comments);
 
   return (
-    <section className="mt-12 border-t border-zinc-200 pt-10 dark:border-zinc-800">
-      <h2 className="font-display text-xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+    <section className="mt-12 border-t border-md-outline-variant pt-10">
+      <h2 className="font-display text-xl font-medium tracking-tight text-md-on-surface">
         Earlier comments
-        <span className="ml-2 font-mono text-sm font-normal text-zinc-400">
+        <span className="ml-2 font-mono text-sm font-normal text-md-on-surface-variant">
           ({comments.length})
         </span>
       </h2>

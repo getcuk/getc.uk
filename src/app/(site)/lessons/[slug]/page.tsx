@@ -6,6 +6,11 @@ import { LegacyComments } from "@/components/lessons/legacy-comments";
 import { LessonBody } from "@/components/lessons/lesson-body";
 import { LessonDocsNav } from "@/components/lessons/lesson-docs-nav";
 import { LessonPartsNav } from "@/components/lessons/lesson-parts-nav";
+import {
+  challengePath,
+  getChallengeForLessonSlug,
+  getFirstChallenge,
+} from "@/lib/content/challenges";
 import { getCommentsForSlug } from "@/lib/content/comments";
 import { getLessonBody, splitAtHeadingId } from "@/lib/content/lesson-body";
 import { getAllLessons, getLessonBySlug, getNextLessonInSeries } from "@/lib/content/lessons";
@@ -93,6 +98,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
     : null;
   const coverAlt = lessonCoverAlt(lesson);
   const nextLesson = getNextLessonInSeries(slug);
+  const relatedChallenge = getChallengeForLessonSlug(slug);
+  const challengeCta = relatedChallenge ?? getFirstChallenge();
   const isDocs = lesson.layout === "docs" && (lesson.docsNav?.length ?? 0) > 0;
   const firstNavId = lesson.docsNav?.[0]?.id;
   const { before: docsPrelude, after: docsSections } =
@@ -104,11 +111,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
     <>
       <Link
         href="/lessons"
-        className="text-sm text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+        className="md-interactive -ml-3 inline-flex rounded-full px-3 py-2 text-sm font-medium text-md-primary"
       >
         ← All lessons
       </Link>
-      <p className="mt-6 font-mono text-xs tracking-[0.16em] text-[#ff8a1f] uppercase">
+      <p className="mt-4 font-mono text-xs tracking-[0.16em] text-md-primary uppercase">
         {lesson.exercise
           ? `K&R Exercise ${lesson.exercise}`
           : lesson.krChapter
@@ -123,32 +130,30 @@ export default async function LessonPage({ params }: LessonPageProps) {
       {lesson.parts && lesson.parts.length > 1 ? (
         <LessonPartsNav parts={lesson.parts} currentSlug={lesson.slug} />
       ) : null}
-      <h1 className="mt-6 font-display text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl dark:text-zinc-50">
+      <h1 className="mt-6 font-display text-3xl font-medium tracking-tight text-md-on-surface sm:text-4xl">
         {lesson.title}
       </h1>
-      <p className="mt-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+      <p className="mt-4 text-lg leading-relaxed text-md-on-surface-variant">
         {lesson.summary}
       </p>
       {lesson.notice ? (
-        <p className="mt-5 rounded-md border border-[#ff8a1f]/45 bg-[#ff8a1f]/10 px-4 py-3 text-base leading-relaxed text-zinc-800 dark:border-[#ff8a1f]/40 dark:bg-[#ff8a1f]/15 dark:text-zinc-100">
+        <p className="mt-5 rounded-xl bg-md-primary-container px-4 py-3 text-base leading-relaxed text-md-on-primary-container">
           {lesson.notice}
         </p>
       ) : null}
 
-      <div className="mt-5 space-y-1 text-sm text-zinc-500 dark:text-zinc-400">
+      <div className="mt-5 space-y-1 text-sm text-md-on-surface-variant">
         {lesson.publishedAt ? (
           <p>{formatLessonDate(lesson.publishedAt)}</p>
         ) : null}
         {lesson.updatedAt && lesson.updatedAt !== lesson.publishedAt ? (
-          <p className="text-[#ff8a1f]">
+          <p className="text-md-primary">
             Last updated on {formatLessonDate(lesson.updatedAt)}
           </p>
         ) : null}
         <p>
           Author:{" "}
-          <span className="text-zinc-700 dark:text-zinc-300">
-            {SITE_AUTHOR_FULL}
-          </span>
+          <span className="text-md-on-surface">{SITE_AUTHOR_FULL}</span>
         </p>
       </div>
     </>
@@ -158,8 +163,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
     <div
       className={
         lesson.coverTight
-          ? "lesson-cover mt-6 -mx-4 overflow-hidden sm:mx-0 dark:rounded-md dark:bg-[#f4f0e6] dark:px-3 dark:py-3 sm:dark:px-5"
-          : "lesson-cover mt-8 -mx-4 sm:mx-0 dark:rounded-md dark:bg-[#f4f0e6] dark:px-3 dark:py-5 sm:dark:px-5"
+          ? "lesson-cover mt-6 -mx-4 overflow-hidden sm:mx-0 sm:rounded-xl dark:rounded-xl dark:bg-[#f4f0e6] dark:px-3 dark:py-3 sm:dark:px-5"
+          : "lesson-cover mt-8 -mx-4 overflow-hidden sm:mx-0 sm:rounded-xl dark:rounded-xl dark:bg-[#f4f0e6] dark:px-3 dark:py-5 sm:dark:px-5"
       }
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -184,7 +189,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
       <LegacyComments comments={comments} />
       <GiscusComments />
 
-      <div className="mt-10 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+      <div className="mt-10 border-t border-md-outline-variant pt-8">
         {nextLesson ? (
           <Link
             href={`/lessons/${nextLesson.slug}`}
@@ -201,8 +206,10 @@ export default async function LessonPage({ params }: LessonPageProps) {
             </span>
           </Link>
         ) : (
-          <Link href="/challenge/1" className="hero-cta-primary">
-            Try a related challenge
+          <Link href={challengePath(challengeCta)} className="hero-cta-primary">
+            {relatedChallenge
+              ? "Try a related challenge"
+              : "Try a challenge"}
           </Link>
         )}
       </div>

@@ -44,8 +44,8 @@ export function YoutubeEmbed({ id }: YoutubeEmbedProps) {
   }
 
   return (
-    <div className="my-4 overflow-hidden rounded-lg">
-      <div className="relative aspect-[4/3] w-full bg-zinc-950">
+    <div className="my-4 overflow-hidden rounded-xl">
+      <div className="relative aspect-[4/3] w-full bg-md-code-surface">
         {playing ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${id}?${EMBED_PARAMS}`}
@@ -79,11 +79,11 @@ export function YoutubeEmbed({ id }: YoutubeEmbedProps) {
               onLoad={(event) => considerThumb(event.currentTarget)}
             />
             <span
-              className="absolute inset-0 bg-zinc-950/25 transition-colors group-hover:bg-zinc-950/35"
+              className="absolute inset-0 bg-md-code-surface/25 transition-colors group-hover:bg-md-code-surface/35"
               aria-hidden
             />
             <span
-              className="absolute top-1/2 left-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#ff8a1f] text-zinc-950 shadow-lg transition-transform group-hover:scale-105"
+              className="absolute top-1/2 left-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-md-primary text-md-on-primary shadow-lg transition-transform group-hover:scale-105"
               aria-hidden
             >
               <svg

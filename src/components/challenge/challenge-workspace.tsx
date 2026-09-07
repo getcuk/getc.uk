@@ -1,7 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ChallengePager } from "@/components/challenge/challenge-pager";
 import { InstructionsPanel } from "@/components/challenge/instructions-panel";
 import {
   defineGetcEditorTheme,
@@ -9,7 +11,17 @@ import {
 } from "@/components/challenge/monaco-theme";
 import { OutputDrawer } from "@/components/challenge/output-drawer";
 import { gradeStdout } from "@/lib/challenges/grade";
-import type { Challenge } from "@/lib/content/challenges";
+import {
+  hasPassedChallenge,
+  markChallengePassed,
+  readPassedChallengeIds,
+} from "@/lib/challenges/progress";
+import {
+  challengePath,
+  getFirstIncompleteChallenge,
+  isChallengeUnlocked,
+  type Challenge,
+} from "@/lib/content/challenges";
 import type { RunResult } from "@/lib/jdoodle/types";
 
 const MonacoEditor = dynamic(() => import("@monaco-editor/react"), {
@@ -36,7 +48,7 @@ function formatRunOutput(
   result: RunResult,
   expectedStdout: string,
   source: string,
-): { text: string; tone: RunTone } {
+): { text: string; tone: RunTone; passed: boolean } {
   const lines = [
     `$ gcc main.c -o main && ./main`,
     `compiler: ${result.status.description} (${result.status.id})`,
@@ -68,7 +80,7 @@ function formatRunOutput(
 
   if (!ranOk) {
     lines.push("", "RESULT: FAILED", "Program did not run successfully.");
-    return { text: lines.join("\n"), tone: "error" };
+    return { text: lines.join("\n"), tone: "error", passed: false };
   }
 
   const grade = gradeStdout(result.stdout, expectedStdout, source);
@@ -86,10 +98,12 @@ function formatRunOutput(
   return {
     text: lines.join("\n"),
     tone: grade.passed ? "success" : "error",
+    passed: grade.passed,
   };
 }
 
 export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
+  const router = useRouter();
   const [code, setCode] = useState(challenge.starterCode);
   const codeRef = useRef(challenge.starterCode);
   const abortRef = useRef<AbortController | null>(null);
@@ -98,6 +112,12 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
   const [tone, setTone] = useState<RunTone>("default");
   const [drawerOpen, setDrawerOpen] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
+  const [passedIds, setPassedIds] = useState<string[]>([]);
+  const [progressReady, setProgressReady] = useState(false);
+
+  const unlocked = isChallengeUnlocked(challenge.id, passedIds);
+  const nextEnabled = hasPassedChallenge(challenge.id, passedIds);
+  const openBeforeProgress = isChallengeUnlocked(challenge.id, []);
 
   const updateCode = useCallback((value: string) => {
     codeRef.current = value;
@@ -147,6 +167,9 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
       );
       setTone(formatted.tone);
       setOutput(formatted.text);
+      if (formatted.passed) {
+        setPassedIds(markChallengePassed(challenge.id));
+      }
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") {
         return;
@@ -164,13 +187,22 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
         setIsRunning(false);
       }
     }
-  }, [challenge.expectedStdout]);
+  }, [challenge.expectedStdout, challenge.id]);
 
   useEffect(() => {
     return () => {
       abortRef.current?.abort();
     };
   }, []);
+
+  useEffect(() => {
+    const ids = readPassedChallengeIds();
+    setPassedIds(ids);
+    setProgressReady(true);
+    if (!isChallengeUnlocked(challenge.id, ids)) {
+      router.replace(challengePath(getFirstIncompleteChallenge(ids)));
+    }
+  }, [challenge.id, router]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -185,10 +217,21 @@ export function ChallengeWorkspace({ challenge }: ChallengeWorkspaceProps) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isRunning, runCode]);
 
+  if ((!progressReady && !openBeforeProgress) || (progressReady && !unlocked)) {
+    return (
+      <div className="h-full bg-md-surface" aria-busy={!progressReady} />
+    );
+  }
+
   return (
     <div className="flex h-full min-h-0 flex-col md:flex-row">
       <div className="h-[32%] min-h-0 shrink-0 md:h-full md:w-[42%] md:max-w-xl md:shrink">
-        <InstructionsPanel markdown={challenge.instructionsMarkdown} />
+        <InstructionsPanel markdown={challenge.instructionsMarkdown}>
+          <ChallengePager
+            challengeId={challenge.id}
+            nextEnabled={nextEnabled}
+          />
+        </InstructionsPanel>
       </div>
 
       <div className="challenge-code-pane flex min-h-[40vh] flex-1 flex-col md:min-h-0">

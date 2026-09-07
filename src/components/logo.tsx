@@ -32,7 +32,7 @@ export function Logo({ href = "/", className, size = 1.85 }: LogoProps) {
         priority
       />
       <span
-        className="font-display font-bold tracking-tight whitespace-pre text-[#ff8a1f]"
+        className="font-display font-bold tracking-tight whitespace-pre text-md-primary"
         style={{ fontSize: `${size}rem`, lineHeight: 0.95 }}
       >
         {" get c"}

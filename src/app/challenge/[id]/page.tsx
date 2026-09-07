@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ChallengeShell } from "@/components/challenge/challenge-shell";
 import { ChallengeWorkspace } from "@/components/challenge/challenge-workspace";
-import { getChallengeById } from "@/lib/content/challenges";
+import { getChallengeById, getChallengeParamIds } from "@/lib/content/challenges";
 import { SITE_NAME } from "@/lib/constants";
 import { absoluteUrl } from "@/lib/seo/json-ld";
 
 type ChallengePageProps = {
   params: Promise<{ id: string }>;
 };
+
+export function generateStaticParams() {
+  return getChallengeParamIds().map((id) => ({ id }));
+}
 
 export async function generateMetadata({
   params,
@@ -64,7 +68,7 @@ export default async function ChallengePage({ params }: ChallengePageProps) {
 
   return (
     <ChallengeShell title={challenge.title} challengeId={challenge.id}>
-      <ChallengeWorkspace challenge={challenge} />
+      <ChallengeWorkspace key={challenge.id} challenge={challenge} />
     </ChallengeShell>
   );
 }

@@ -69,13 +69,13 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
   return (
     <div>
       <search className="mb-6 block">
-        <div className="flex items-stretch gap-2">
+        <div className="flex items-stretch gap-3">
           <label htmlFor={inputId} className="sr-only">
             Search lessons
           </label>
           <div className="relative min-w-0 flex-1">
             <span
-              className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-zinc-400 dark:text-zinc-500"
+              className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-md-on-surface-variant"
               aria-hidden="true"
             >
               <SearchIcon />
@@ -91,7 +91,7 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
               enterKeyHint="search"
               aria-controls={listId}
               className={cn(
-                "h-11 w-full appearance-none rounded-lg border border-zinc-200 bg-transparent py-2.5 pl-10 text-sm text-zinc-950 outline-none placeholder:text-zinc-400 focus:border-[#ff8a1f]/60 dark:border-zinc-800 dark:text-zinc-50 dark:placeholder:text-zinc-500 dark:focus:border-[#ff8a1f]/50 [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none",
+                "h-14 w-full appearance-none rounded-xl bg-md-surface-container-highest py-2.5 pl-12 text-base text-md-on-surface outline-none ring-1 ring-md-outline-variant ring-inset placeholder:text-md-on-surface-variant focus:ring-2 focus:ring-md-primary [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none",
                 query ? "pr-16" : "pr-4",
               )}
             />
@@ -99,7 +99,7 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
               <button
                 type="button"
                 onClick={() => setQuery("")}
-                className="absolute inset-y-0 right-2 my-auto h-7 rounded-md px-2 text-xs text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50"
+                className="md-interactive absolute inset-y-0 right-2 my-auto h-8 rounded-full px-3 text-xs font-medium text-md-primary"
                 aria-label="Clear search"
               >
                 Clear
@@ -120,10 +120,10 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
               aria-controls={filterPanelId}
               onClick={() => setFilterOpen((open) => !open)}
               className={cn(
-                "inline-flex size-11 items-center justify-center rounded-lg border outline-none transition-colors",
+                "md-interactive inline-flex size-14 items-center justify-center rounded-full outline-none",
                 filterOpen || filtering
-                  ? "border-[#ff8a1f]/60 bg-[#ff8a1f]/10 text-[#ff8a1f]"
-                  : "border-zinc-200 text-zinc-500 hover:border-[#ff8a1f]/40 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-50",
+                  ? "bg-md-primary-container text-md-on-primary-container"
+                  : "bg-md-surface-container-high text-md-on-surface-variant",
               )}
             >
               <FilterIcon />
@@ -134,30 +134,31 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
                 id={filterPanelId}
                 role="group"
                 aria-label="Difficulty"
-                className="absolute right-0 z-30 mt-2 w-52 rounded-lg border border-zinc-200 bg-white p-2 shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                className="absolute right-0 z-30 mt-2 w-56 rounded-xl bg-md-surface-container-lowest p-3 shadow-lg outline outline-1 outline-md-outline-variant"
               >
-                <p className="px-2 pt-1 pb-2 font-mono text-[0.65rem] tracking-[0.16em] text-[#ff8a1f] uppercase">
+                <p className="px-2 pt-1 pb-3 font-mono text-[0.65rem] tracking-[0.16em] text-md-primary uppercase">
                   Difficulty
                 </p>
-                <ul className="space-y-0.5">
+                <ul className="space-y-2">
                   {DIFFICULTY_OPTIONS.map((option) => {
                     const optionId = `${filterPanelId}-${option.value}`;
                     const checked = difficulties.includes(option.value);
                     return (
                       <li key={option.value}>
-                        <label
-                          htmlFor={optionId}
-                          className="flex items-center gap-2.5 rounded-md px-2 py-1.5 text-sm text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-900"
+                        <button
+                          id={optionId}
+                          type="button"
+                          aria-pressed={checked}
+                          onClick={() => toggleDifficulty(option.value)}
+                          className={cn(
+                            "md-interactive w-full rounded-full px-4 py-2.5 text-left text-sm font-medium",
+                            checked
+                              ? "bg-md-primary-container text-md-on-primary-container"
+                              : "bg-md-surface-container-low text-md-on-surface-variant",
+                          )}
                         >
-                          <input
-                            id={optionId}
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() => toggleDifficulty(option.value)}
-                            className="size-4 accent-[#ff8a1f]"
-                          />
                           {option.label}
-                        </label>
+                        </button>
                       </li>
                     );
                   })}
@@ -168,7 +169,7 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
         </div>
         {narrowed && filtered.length > 0 ? (
           <p
-            className="mt-2 text-sm text-zinc-500 dark:text-zinc-400"
+            className="mt-3 text-sm text-md-on-surface-variant"
             aria-live="polite"
           >
             {filtered.length === 1 ? "1 lesson" : `${filtered.length} lessons`}
@@ -179,20 +180,20 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
       {lessons.length === 0 ? (
         <p
           id={listId}
-          className="rounded-lg border border-dashed border-zinc-300 p-8 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
+          className="rounded-xl bg-md-surface-container p-8 text-sm text-md-on-surface-variant"
         >
           No lessons yet.
         </p>
       ) : filtered.length === 0 ? (
         <p
           id={listId}
-          className="rounded-lg border border-dashed border-zinc-300 p-8 text-sm text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
+          className="rounded-xl bg-md-surface-container p-8 text-sm text-md-on-surface-variant"
         >
           {emptyMessage(query, filtering)}{" "}
           <button
             type="button"
             onClick={clearFilters}
-            className="text-[#ff8a1f] underline decoration-[#ff8a1f]/35 underline-offset-2 hover:decoration-[#ff8a1f]"
+            className="font-medium text-md-primary underline decoration-md-primary/35 underline-offset-2 hover:decoration-md-primary"
           >
             {searching && filtering
               ? "Clear search and filters"

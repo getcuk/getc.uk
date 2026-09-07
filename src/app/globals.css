@@ -275,15 +275,6 @@ body {
     margin-top: 0.65em;
   }
 
-  .hero-copy-actions .hero-cta-primary,
-  .hero-copy-actions .hero-cta-secondary,
-  .hero-copy-actions .setup-read-btn {
-    min-height: 2.2em;
-    padding-block: 0.45em;
-    padding-inline: 1.15em;
-    font-size: 0.78em;
-  }
-
   .hero-bulb {
     position: absolute;
     inset: 0;
@@ -343,14 +334,14 @@ body {
 .md-interactive:hover::after,
 .hero-cta-primary:hover::after,
 .hero-cta-secondary:hover::after,
-.setup-next-btn:hover::after,
+.setup-next-btn:hover:not(:disabled)::after,
 .setup-read-btn:hover::after,
 .carousel-nav-btn:hover:not(:disabled)::after,
 .challenge-run-btn:hover:not(:disabled)::after,
 .md-interactive:focus-visible::after,
 .hero-cta-primary:focus-visible::after,
 .hero-cta-secondary:focus-visible::after,
-.setup-next-btn:focus-visible::after,
+.setup-next-btn:focus-visible:not(:disabled)::after,
 .setup-read-btn:focus-visible::after,
 .carousel-nav-btn:focus-visible:not(:disabled)::after,
 .challenge-run-btn:focus-visible:not(:disabled)::after {
@@ -360,7 +351,7 @@ body {
 .md-interactive:active::after,
 .hero-cta-primary:active::after,
 .hero-cta-secondary:active::after,
-.setup-next-btn:active::after,
+.setup-next-btn:active:not(:disabled)::after,
 .setup-read-btn:active::after,
 .carousel-nav-btn:active:not(:disabled)::after,
 .challenge-run-btn:active:not(:disabled)::after {
@@ -370,7 +361,7 @@ body {
 .md-interactive:active,
 .hero-cta-primary:active,
 .hero-cta-secondary:active,
-.setup-next-btn:active,
+.setup-next-btn:active:not(:disabled),
 .setup-read-btn:active,
 .carousel-nav-btn:active:not(:disabled),
 .challenge-run-btn:active:not(:disabled) {
@@ -407,7 +398,8 @@ body {
   color: var(--md-on-primary);
 }
 
-.md-btn-tonal {
+.md-btn-tonal,
+.setup-read-btn {
   border: 0;
   background: var(--md-primary-container);
   color: var(--md-on-primary-container);
@@ -641,6 +633,16 @@ body {
   white-space: nowrap;
 }
 
+.setup-next-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+}
+
+.setup-next-btn:disabled::after {
+  opacity: 0;
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   .setup-step-panel {
@@ -681,20 +683,19 @@ body {
   flex-direction: column;
   overflow: hidden;
   isolation: isolate;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--md-outline-variant);
   border-radius: 1.25rem;
   background: var(--md-code-surface);
   color: var(--md-code-on-surface);
-  box-shadow: 0 1px 2px rgba(15, 18, 24, 0.06);
+  box-shadow: none;
   transition:
     transform 0.12s cubic-bezier(0.2, 0, 0, 1),
     border-color 0.15s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .dark .exercise-tile {
-  background: rgb(24 24 27 / 0.92);
-  border-color: rgb(120 53 15 / 0.4);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  background: var(--md-code-surface);
+  border-color: var(--md-outline-variant);
 }
 
 .exercise-tile::after {
@@ -709,7 +710,7 @@ body {
 
 .exercise-tile:hover,
 .exercise-tile:focus-visible {
-  border-color: color-mix(in srgb, #ff8a1f 50%, transparent);
+  border-color: color-mix(in srgb, var(--md-primary) 50%, transparent);
 }
 
 .exercise-tile:hover::after,
@@ -740,37 +741,22 @@ body {
   width: 2.75rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e4e4e7;
+  border: 0;
   border-radius: 999px;
-  background: #ffffff;
-  color: #27272a;
+  background: var(--md-surface-container-high);
+  color: var(--md-on-surface-variant);
   font-size: 1.15rem;
   font-weight: 600;
-  box-shadow: 0 1px 2px rgba(15, 18, 24, 0.06);
+  box-shadow: none;
   transition:
     background-color 0.15s cubic-bezier(0.2, 0, 0, 1),
-    border-color 0.15s cubic-bezier(0.2, 0, 0, 1),
     color 0.15s cubic-bezier(0.2, 0, 0, 1),
     transform 0.12s cubic-bezier(0.2, 0, 0, 1);
 }
 
-.dark .carousel-nav-btn {
-  border-color: #3f3f46;
-  background: #27272a;
-  color: #e4e4e7;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-}
-
 .carousel-nav-btn:hover:not(:disabled) {
-  border-color: #ff8a1f;
-  background: #fff7ed;
-  color: #ff8a1f;
-}
-
-.dark .carousel-nav-btn:hover:not(:disabled) {
-  border-color: #ff8a1f;
-  background: #431407;
-  color: #ff8a1f;
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
 }
 
 .carousel-nav-btn:disabled {
@@ -854,8 +840,8 @@ body {
 
 .lesson-code::selection,
 .lesson-code *::selection {
-  background-color: #ff8a1f;
-  color: #1a1208;
+  background-color: var(--md-primary);
+  color: var(--md-on-primary);
 }
 
 /* —— Challenge workspace (homepage terminal treatment) —— */
@@ -962,15 +948,19 @@ body {
 }
 
 .dark .challenge-instruction-card {
-  border-color: color-mix(in srgb, #34d399 22%, transparent);
-  background: color-mix(in srgb, black 42%, transparent);
+  border-color: var(--md-outline-variant);
+  background: var(--md-surface-container);
 }
 
 .dark .challenge-instruction-card--spec {
-  background: color-mix(in srgb, #064e3b 22%, black);
+  background: var(--md-surface-container-high);
 }
 
 .dark .challenge-instruction-card--hint {
-  border-color: color-mix(in srgb, #fbbf24 30%, transparent);
-  background: color-mix(in srgb, #78350f 28%, black);
+  border-color: color-mix(
+    in srgb,
+    var(--md-primary) 40%,
+    var(--md-outline-variant)
+  );
+  background: var(--md-primary-container);
 }

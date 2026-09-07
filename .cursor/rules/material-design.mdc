@@ -1,0 +1,35 @@
+---
+description: Rule 5 — Material Design 3 for the whole site, including new pages
+alwaysApply: true
+---
+
+# Rule 5: Material Design 3 everywhere
+
+**Apply this rule automatically** on every UI change — existing pages, new pages, new components, and new content that ships with layout or chrome. Do not wait for the user to remind you.
+
+This site uses **Google Material Design 3** (MD3), with the orange seed palette already in `src/app/globals.css`. That is the design system for the whole product, not an optional theme for a few screens.
+
+## Do this
+
+- Colour, type, surfaces, and controls must come from MD3 tokens: Tailwind `md-*` classes (`bg-md-surface`, `text-md-on-surface`, `bg-md-primary-container`, `outline-md-outline-variant`, …) or the `--md-*` CSS variables.
+- Interactive controls get `.md-interactive` (state layer). Buttons use `.md-btn` plus a variant (`.md-btn-filled`, `.md-btn-tonal`, `.md-btn-outlined`, `.md-btn-text`) or `src/components/ui/button.tsx`. Icon-only controls use `.md-icon-btn`.
+- Prefer MD3 shapes: pill buttons (`rounded-full`), cards/panels around `rounded-xl` / `rounded-3xl`, 1px outline with `outline-md-outline-variant`.
+- Support light and dark through the existing tokens (they already remap under `.dark`). Do not hard-code a second palette.
+- New routes, layouts, lesson chrome, challenges, dialogs, menus, forms, empty states, and marketing sections must match this language.
+
+```tsx
+// ✅ GOOD — MD3 tokens + existing primitives
+<button className="md-interactive md-btn md-btn-filled">Start</button>
+<div className="rounded-xl bg-md-surface-container-lowest outline outline-1 outline-md-outline-variant">
+  <p className="text-md-on-surface">…</p>
+</div>
+
+// ❌ BAD — parallel look (raw hex, ad-hoc radii, non-MD buttons)
+<button className="rounded-md bg-[#ff8a1f] px-4 py-2 text-white">Start</button>
+```
+
+## Do not
+
+- Introduce a different design system (Bootstrap, shadcn defaults, MUI, Material Web, ad-hoc “clean SaaS”) unless the user explicitly asks to replace MD3.
+- Add one-off colours, shadows, or button styles that bypass the MD3 tokens and `.md-*` helpers.
+- Style a new page as a one-off that “doesn’t need to match.”

@@ -89,15 +89,15 @@ export function SetupPath({
   }
 
   return (
-    <div className="setup-wizard rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10 lg:p-12 dark:border-amber-900/40 dark:bg-zinc-900/90 dark:shadow-[0_24px_64px_rgba(0,0,0,0.55)]">
+    <div className="setup-wizard rounded-3xl bg-md-surface-container-lowest p-6 outline outline-1 outline-md-outline-variant sm:p-10 lg:p-12">
       <div className="max-w-2xl">
-        <p className="text-xs font-semibold tracking-[0.08em] text-[#ff8a1f] uppercase">
+        <p className="text-xs font-semibold tracking-[0.08em] text-md-primary uppercase">
           {eyebrow}
         </p>
-        <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl dark:text-zinc-100">
+        <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-md-on-surface sm:text-4xl">
           {title}
         </h2>
-        <p className="mt-3 text-base font-medium leading-relaxed text-slate-600 dark:text-zinc-400">
+        <p className="mt-3 text-base font-medium leading-relaxed text-md-on-surface-variant">
           {description}
         </p>
       </div>
@@ -110,9 +110,9 @@ export function SetupPath({
               className="pointer-events-none absolute top-0 -z-10 hidden h-10 md:block"
               style={{ left: trackInset, right: trackInset }}
             >
-              <div className="absolute top-1/2 h-[3px] w-full -translate-y-1/2 rounded-full bg-slate-200 dark:bg-zinc-600" />
+              <div className="absolute top-1/2 h-[3px] w-full -translate-y-1/2 rounded-full bg-md-outline-variant" />
               <div
-                className="absolute top-1/2 h-1 -translate-y-1/2 rounded-full bg-[#ff8a1f] transition-[width] duration-300 ease-out motion-reduce:transition-none"
+                className="absolute top-1/2 h-1 -translate-y-1/2 rounded-full bg-md-primary transition-[width] duration-300 ease-out motion-reduce:transition-none"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -149,10 +149,10 @@ export function SetupPath({
                       className={cn(
                         "md-interactive relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-sm font-medium",
                         isComplete
-                          ? "bg-[#ff8a1f] text-white"
+                          ? "bg-md-primary text-md-on-primary"
                           : isNext
-                            ? "border-2 border-orange-300 bg-orange-100 text-[#ff8a1f] dark:border-[#ff8a1f] dark:bg-orange-950 dark:text-[#ff8a1f]"
-                            : "border-2 border-slate-300 bg-slate-100 text-slate-600 dark:border-zinc-500 dark:bg-zinc-800 dark:text-zinc-400",
+                            ? "bg-md-primary-container text-md-on-primary-container"
+                            : "bg-md-surface-container-high text-md-on-surface-variant",
                       )}
                     >
                       {index + 1}
@@ -161,10 +161,10 @@ export function SetupPath({
                       className={cn(
                         "mt-2 max-w-[7.5rem] text-center text-xs font-semibold leading-tight",
                         isComplete
-                          ? "text-slate-900 dark:text-zinc-100"
+                          ? "text-md-on-surface"
                           : isNext
-                            ? "text-slate-600 dark:text-zinc-200"
-                            : "text-slate-500 dark:text-zinc-500",
+                            ? "text-md-on-surface"
+                            : "text-md-on-surface-variant",
                       )}
                     >
                       {label}
@@ -179,7 +179,7 @@ export function SetupPath({
             role="tabpanel"
             id={`${reactId}-panel`}
             aria-labelledby={`${reactId}-tab-${safeIndex}`}
-            className="relative mt-8 rounded-2xl border border-slate-200 bg-slate-100/80 p-6 sm:p-8 dark:border-amber-900/40 dark:bg-stone-900/85"
+            className="relative mt-8 rounded-2xl bg-md-surface-container-low p-6 sm:p-8"
           >
             <div className="min-w-0 overflow-hidden">
               <div
@@ -187,10 +187,10 @@ export function SetupPath({
                 className="setup-step-panel"
                 data-direction={direction}
               >
-                <h3 className="font-display text-xl font-medium tracking-tight text-slate-900 sm:text-2xl dark:text-zinc-100">
+                <h3 className="font-display text-xl font-medium tracking-tight text-md-on-surface sm:text-2xl">
                   {lesson.title}
                 </h3>
-                <p className="mt-4 max-w-3xl text-base font-medium leading-relaxed text-slate-600 dark:text-zinc-400">
+                <p className="mt-4 max-w-3xl text-base font-medium leading-relaxed text-md-on-surface-variant">
                   {lesson.summary}
                 </p>
               </div>
@@ -198,19 +198,19 @@ export function SetupPath({
             <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
               <Link
                 href={`/lessons/${lesson.slug}`}
-                className="setup-read-btn border-2 border-orange-300 bg-orange-100 text-[#ff8a1f] dark:border-[#ff8a1f] dark:bg-orange-950 dark:text-[#ff8a1f]"
+                className="setup-read-btn md-interactive"
               >
                 Read lesson
               </Link>
               {isLast ? (
-                <Link href="/lessons/hello-world" className="setup-next-btn">
+                <Link href="/lessons/hello-world" className="setup-next-btn md-interactive">
                   Start K&R
                 </Link>
               ) : (
                 <button
                   type="button"
                   onClick={() => selectStep(safeIndex + 1)}
-                  className="setup-next-btn"
+                  className="setup-next-btn md-interactive"
                 >
                   Next Step
                 </button>

@@ -61,14 +61,14 @@ export function GistEmbed({ user, id }: GistEmbedProps) {
   }, [id]);
 
   return (
-    <div className="my-6 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
+    <div className="my-6 overflow-hidden rounded-xl outline outline-1 outline-md-outline-variant">
       {files ? (
         files.map((file) => (
-          <div key={file.filename} className="border-b border-zinc-200 last:border-b-0 dark:border-zinc-800">
-            <div className="border-b border-zinc-200 bg-zinc-50 px-3 py-1.5 font-mono text-[0.7rem] text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
+          <div key={file.filename} className="border-b border-md-outline-variant last:border-b-0">
+            <div className="border-b border-md-outline-variant bg-md-surface-container-high px-3 py-1.5 font-mono text-[0.7rem] text-md-on-surface-variant">
               {file.filename}
             </div>
-            <pre className="lesson-code bg-zinc-950 p-4 text-zinc-100">
+            <pre className="lesson-code bg-md-code-surface p-4 text-md-code-on-surface">
               <code className={`font-mono text-[0.85rem] leading-relaxed ${languageClass(file.filename, file.language)}`}>
                 {file.content}
               </code>
@@ -76,14 +76,14 @@ export function GistEmbed({ user, id }: GistEmbedProps) {
           </div>
         ))
       ) : (
-        <div className="bg-zinc-50 px-4 py-6 font-mono text-sm text-zinc-400 dark:bg-zinc-950 dark:text-zinc-500">
+        <div className="bg-md-surface-container px-4 py-6 font-mono text-sm text-md-on-surface-variant">
           {failed ? "Could not load code sample." : "Loading code…"}
         </div>
       )}
-      <p className="border-t border-zinc-100 px-3 py-2 font-mono text-[0.65rem] text-zinc-400 dark:border-zinc-900">
+      <p className="border-t border-md-outline-variant px-3 py-2 font-mono text-[0.65rem] text-md-on-surface-variant">
         <a
           href={`https://gist.github.com/${user}/${id}`}
-          className="hover:text-[#ff8a1f]"
+          className="hover:text-md-primary"
           target="_blank"
           rel="noreferrer"
         >

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HeroTerminal } from "@/components/home/hero-terminal";
 import { LessonsCarousel } from "@/components/home/lessons-carousel";
 import { SetupPath } from "@/components/home/setup-path";
+import { getFirstChallengePath } from "@/lib/content/challenges";
 import { getKrLessons, getSetupLessons } from "@/lib/content/lessons";
 import { SITE_TAGLINE } from "@/lib/constants";
 
@@ -51,14 +52,14 @@ export default function Home() {
                 </p>
                 <div className="hero-copy-actions mt-5 flex flex-wrap justify-center gap-3 lg:justify-start">
                   <Link
-                    href="/challenge/1"
+                    href={getFirstChallengePath()}
                     className="hero-cta-primary md-interactive"
                   >
                     Try a challenge
                   </Link>
                   <Link
                     href="/lessons"
-                    className="setup-read-btn border-2 border-orange-300 bg-orange-100 text-[#ff8a1f] dark:border-[#ff8a1f] dark:bg-orange-950 dark:text-[#ff8a1f]"
+                    className="setup-read-btn md-interactive"
                   >
                     Browse lessons
                   </Link>
@@ -83,10 +84,7 @@ export default function Home() {
         <div className="site-shell">
           <LessonsCarousel lessons={krLessons} />
           <div className="mt-8">
-            <Link
-              href="/lessons"
-              className="setup-read-btn border-2 border-orange-300 bg-orange-100 text-[#ff8a1f] dark:border-[#ff8a1f] dark:bg-orange-950 dark:text-[#ff8a1f]"
-            >
+            <Link href="/lessons" className="setup-read-btn md-interactive">
               View all lessons
             </Link>
           </div>

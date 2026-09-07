@@ -58,4 +58,16 @@ describe("gradeStdout", () => {
       reasons: ["stdout matches the expected output."],
     });
   });
+
+  it("passes multi-line output when the runner strips the last newline", () => {
+    const expectedTable = "0 -17\n20 -6\n40 4\n";
+    const source = `
+      printf("%d %d\\n", 0, -17);
+      printf("%d %d\\n", 20, -6);
+      printf("%d %d\\n", 40, 4);
+    `;
+    const result = gradeStdout("0 -17\n20 -6\n40 4", expectedTable, source);
+    expect(result.passed).toBe(true);
+    expect(result.label).toBe("PASSED");
+  });
 });

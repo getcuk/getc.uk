@@ -29,10 +29,10 @@ export function ChallengeShell({
         <div className="flex shrink-0 items-center gap-1">
           <ThemeToggle />
           <Link
-            href="/lessons"
+            href="/"
             className="md-interactive shrink-0 rounded-full px-3 py-2 font-mono text-xs text-md-on-surface-variant"
           >
-            Exit
+            Home
           </Link>
         </div>
       </header>

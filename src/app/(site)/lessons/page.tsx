@@ -39,20 +39,20 @@ export default function LessonsPage() {
         <div className="mb-8">
           <Link
             href="/"
-            className="text-sm text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+            className="md-interactive -ml-3 inline-flex rounded-full px-3 py-2 text-sm font-medium text-md-primary"
           >
             ← Home
           </Link>
-          <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+          <h1 className="mt-2 font-display text-3xl font-medium tracking-tight text-md-on-surface">
             Lessons
           </h1>
-          <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-2 text-md-on-surface-variant">
             Setup guides, then Chapter 1 exercises from Kernighan and
             Ritchie&apos;s <em>The C Programming Language</em> (Second Edition).
             Read{" "}
             <Link
               href="/lessons/k-and-r"
-              className="text-[#ff8a1f] underline decoration-[#ff8a1f]/35 underline-offset-2 hover:decoration-[#ff8a1f]"
+              className="font-medium text-md-primary underline decoration-md-primary/35 underline-offset-2 hover:decoration-md-primary"
             >
               why we teach from K&amp;R
             </Link>

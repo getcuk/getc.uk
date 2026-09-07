@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllChallenges } from "@/lib/content/challenges";
 import { getAllLessons } from "@/lib/content/lessons";
 import { SITE_URL } from "@/lib/constants";
 
@@ -24,13 +25,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    {
-      url: `${SITE_URL}/challenge/1`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
   ];
+
+  const challengeEntries: MetadataRoute.Sitemap = getAllChallenges().map(
+    (challenge, index) => ({
+      url: `${SITE_URL}/challenge/${challenge.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: index === 0 ? 0.9 : 0.8,
+    }),
+  );
 
   const lessonEntries: MetadataRoute.Sitemap = lessons.map((lesson) => ({
     url: `${SITE_URL}/lessons/${lesson.slug}`,
@@ -40,5 +44,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...lessonEntries];
+  return [...staticEntries, ...challengeEntries, ...lessonEntries];
 }

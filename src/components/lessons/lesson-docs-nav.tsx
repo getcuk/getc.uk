@@ -74,7 +74,7 @@ export function LessonDocsNav({
   if (variant === "mobile") {
     return (
       <nav aria-label="Lesson sections" className="lesson-docs-nav">
-        <p className="mb-3 font-mono text-[0.65rem] tracking-[0.16em] text-[#ff8a1f] uppercase">
+        <p className="mb-3 font-mono text-[0.65rem] tracking-[0.16em] text-md-primary uppercase">
           {title}
         </p>
         <ul className="flex gap-2 overflow-x-auto pb-2">
@@ -83,10 +83,10 @@ export function LessonDocsNav({
               <a
                 href={`#${item.id}`}
                 onClick={() => setActiveId(item.id)}
-                className={`inline-flex rounded-md border px-2.5 py-1.5 font-mono text-xs transition-colors ${
+                className={`md-interactive inline-flex rounded-full px-3 py-1.5 font-mono text-xs ${
                   activeId === item.id
-                    ? "border-[#ff8a1f]/50 bg-[#ff8a1f]/10 text-[#ff8a1f]"
-                    : "border-zinc-200 text-zinc-600 dark:border-zinc-700 dark:text-zinc-400"
+                    ? "bg-md-primary-container text-md-on-primary-container"
+                    : "bg-md-surface-container-high text-md-on-surface-variant"
                 }`}
               >
                 {item.label}
@@ -100,10 +100,10 @@ export function LessonDocsNav({
 
   return (
     <nav aria-label="Lesson sections" className="lesson-docs-nav">
-      <p className="mb-3 font-mono text-[0.65rem] tracking-[0.16em] text-[#ff8a1f] uppercase">
+      <p className="mb-3 font-mono text-[0.65rem] tracking-[0.16em] text-md-primary uppercase">
         {title}
       </p>
-      <ul className="space-y-0.5 border-l border-zinc-200 dark:border-zinc-800">
+      <ul className="space-y-0.5">
         {items.map((item) => {
           const active = activeId === item.id;
           return (
@@ -112,14 +112,14 @@ export function LessonDocsNav({
                 href={`#${item.id}`}
                 onClick={() => setActiveId(item.id)}
                 aria-current={active ? "location" : undefined}
-                className={`-ml-px block border-l-2 py-1.5 pl-3 text-sm transition-colors ${
+                className={`md-interactive block rounded-lg px-2.5 py-1.5 ${
                   item.command
                     ? "font-mono text-[0.8rem]"
                     : "font-sans text-[0.85rem]"
                 } ${
                   active
-                    ? "border-[#ff8a1f] text-[#ff8a1f]"
-                    : "border-transparent text-zinc-500 hover:border-zinc-300 hover:text-zinc-900 dark:text-zinc-400 dark:hover:border-zinc-600 dark:hover:text-zinc-100"
+                    ? "bg-md-primary-container text-md-on-primary-container"
+                    : "text-md-on-surface-variant hover:bg-md-surface-container-high hover:text-md-on-surface"
                 }`}
               >
                 {item.label}

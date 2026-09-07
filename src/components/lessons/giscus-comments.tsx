@@ -53,14 +53,14 @@ export function GiscusComments() {
   }, [giscusTheme]);
 
   return (
-    <section className="mt-12 border-t border-zinc-200 pt-10 dark:border-zinc-800">
-      <h2 className="font-display text-xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+    <section className="mt-12 border-t border-md-outline-variant pt-10">
+      <h2 className="font-display text-xl font-medium tracking-tight text-md-on-surface">
         Leave a comment
       </h2>
       {!configured ? (
-        <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
+        <p className="mt-4 text-sm text-md-on-surface-variant">
           Comments coming soon — set the{" "}
-          <code className="font-mono text-xs text-zinc-600 dark:text-zinc-300">
+          <code className="font-mono text-xs text-md-on-surface">
             NEXT_PUBLIC_GISCUS_*
           </code>{" "}
           env vars after enabling GitHub Discussions and Giscus.

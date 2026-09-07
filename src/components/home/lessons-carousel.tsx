@@ -128,7 +128,7 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
               className="exercise-tile group"
             >
               <div className="exercise-tile-bar">
-                <span className="font-mono text-[0.65rem] text-[#ffb77a]">
+                <span className="font-mono text-[0.65rem] text-md-primary">
                   ex_{lesson.exercise?.replace("-", "_") ?? "x"}.c
                 </span>
                 <span className="font-mono text-[0.6rem] text-md-code-on-surface/70">
@@ -136,7 +136,7 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
                 </span>
               </div>
               <div className="flex flex-1 flex-col px-4 py-4">
-                <p className="font-mono text-[0.65rem] tracking-wide text-[#ffb77a]">
+                <p className="font-mono text-[0.65rem] tracking-wide text-md-primary">
                   Exercise {lesson.exercise}
                 </p>
                 <h3 className="mt-2 font-display text-base leading-snug font-medium text-md-code-on-surface">

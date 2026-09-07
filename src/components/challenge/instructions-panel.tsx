@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -10,47 +11,46 @@ import {
 
 type InstructionsPanelProps = {
   markdown: string;
+  children?: ReactNode;
 };
 
 const markdownComponents: Components = {
   h1: ({ children }) => (
-    <h1 className="mb-4 text-lg font-semibold tracking-wide text-zinc-950 dark:text-emerald-200">
+    <h1 className="mb-4 text-lg font-semibold tracking-wide text-md-on-surface">
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="mt-0 mb-2 font-mono text-[0.7rem] font-semibold tracking-[0.14em] text-amber-700 uppercase dark:text-amber-300">
+    <h2 className="mt-0 mb-2 font-mono text-[0.7rem] font-semibold tracking-[0.14em] text-md-primary uppercase">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="mt-4 mb-2 text-sm font-semibold text-amber-800 dark:text-amber-200/90">
+    <h3 className="mt-4 mb-2 text-sm font-semibold text-md-on-surface">
       {children}
     </h3>
   ),
   p: ({ children }) => (
-    <p className="mb-3 text-zinc-700 dark:text-emerald-300/85">{children}</p>
+    <p className="mb-3 text-md-on-surface-variant">{children}</p>
   ),
   ul: ({ children }) => (
-    <ul className="mb-3 list-disc space-y-1 pl-5 text-zinc-700 dark:text-emerald-300/85">
+    <ul className="mb-3 list-disc space-y-1 pl-5 text-md-on-surface-variant">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="mb-3 list-decimal space-y-1 pl-5 text-zinc-700 dark:text-emerald-300/85">
+    <ol className="mb-3 list-decimal space-y-1 pl-5 text-md-on-surface-variant">
       {children}
     </ol>
   ),
   li: ({ children }) => <li>{children}</li>,
   strong: ({ children }) => (
-    <strong className="font-semibold text-zinc-950 dark:text-emerald-100">
-      {children}
-    </strong>
+    <strong className="font-semibold text-md-on-surface">{children}</strong>
   ),
   a: ({ href, children }) => (
     <a
       href={href}
-      className="text-teal-700 underline underline-offset-2 hover:text-teal-800 dark:text-cyan-300 dark:hover:text-cyan-200"
+      className="font-medium text-md-primary underline decoration-md-primary/35 underline-offset-2 hover:decoration-md-primary"
     >
       {children}
     </a>
@@ -59,19 +59,19 @@ const markdownComponents: Components = {
     const isBlock = Boolean(className);
     if (isBlock) {
       return (
-        <code className="block whitespace-pre font-mono text-[0.8rem] text-emerald-800 dark:text-lime-300">
+        <code className="block whitespace-pre font-mono text-[0.8rem] text-md-on-surface">
           {children}
         </code>
       );
     }
     return (
-      <code className="rounded bg-zinc-200/80 px-1.5 py-0.5 text-[0.8rem] text-emerald-800 dark:bg-emerald-950/80 dark:text-lime-300">
+      <code className="rounded bg-md-surface-container-high px-1.5 py-0.5 text-[0.8rem] text-md-on-surface">
         {children}
       </code>
     );
   },
   pre: ({ children }) => (
-    <pre className="mb-3 overflow-x-auto rounded border border-zinc-200 bg-white p-3 dark:border-emerald-900/60 dark:bg-black/50">
+    <pre className="mb-3 overflow-x-auto rounded-xl bg-md-surface-container-lowest p-3 outline outline-1 outline-md-outline-variant">
       {children}
     </pre>
   ),
@@ -90,24 +90,19 @@ function sectionClassName(variant: InstructionSectionVariant) {
   return "challenge-instruction-card";
 }
 
-export function InstructionsPanel({ markdown }: InstructionsPanelProps) {
+export function InstructionsPanel({
+  markdown,
+  children,
+}: InstructionsPanelProps) {
   const sections = splitInstructionSections(markdown);
 
   return (
-    <section className="relative flex h-full min-h-0 flex-col border-b border-zinc-200 bg-zinc-50 md:border-b-0 md:border-r dark:border-emerald-900/40 dark:bg-[#050805]">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 dark:opacity-[0.07]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.35) 3px)",
-        }}
-      />
-      <div className="relative z-10 flex items-center gap-2 border-b border-zinc-200 px-4 py-2.5 font-mono text-[0.7rem] tracking-wide text-zinc-500 dark:border-emerald-900/50 dark:text-emerald-500/80">
-        <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400 dark:shadow-[0_0_8px_#34d399]" />
+    <section className="relative flex h-full min-h-0 flex-col border-b border-md-outline-variant bg-md-surface-container-low md:border-r md:border-b-0">
+      <div className="relative z-10 flex items-center gap-2 border-b border-md-outline-variant px-4 py-2.5 font-mono text-[0.7rem] tracking-wide text-md-on-surface-variant">
+        <span className="inline-block h-2 w-2 rounded-full bg-md-primary" />
         instructions.md
       </div>
-      <div className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 py-5 font-mono text-sm leading-relaxed text-zinc-700 dark:text-emerald-300/90">
+      <div className="relative z-10 min-h-0 flex-1 overflow-y-auto px-4 py-5 font-mono text-sm leading-relaxed text-md-on-surface">
         <div className="flex flex-col gap-4">
           {sections.map((section, index) => (
             <div
@@ -123,6 +118,7 @@ export function InstructionsPanel({ markdown }: InstructionsPanelProps) {
             </div>
           ))}
         </div>
+        {children}
       </div>
     </section>
   );

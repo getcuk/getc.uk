@@ -14,7 +14,7 @@ export function LessonPartsNav({ parts, currentSlug }: LessonPartsNavProps) {
 
   return (
     <div className="mt-4">
-      <p className="font-mono text-xs tracking-[0.14em] text-zinc-500 uppercase dark:text-zinc-400">
+      <p className="font-mono text-xs tracking-[0.14em] text-md-on-surface-variant uppercase">
         Part {partNumber} of {parts.length}
       </p>
       <ul className="mt-2 flex flex-wrap gap-2">
@@ -26,14 +26,14 @@ export function LessonPartsNav({ parts, currentSlug }: LessonPartsNavProps) {
               {active ? (
                 <span
                   aria-current="page"
-                  className="inline-flex rounded-md border border-[#ff8a1f]/50 bg-[#ff8a1f]/10 px-2.5 py-1.5 font-mono text-xs text-[#ff8a1f]"
+                  className="inline-flex rounded-full bg-md-primary-container px-3 py-1.5 font-mono text-xs text-md-on-primary-container"
                 >
                   {label}
                 </span>
               ) : (
                 <Link
                   href={`/lessons/${part.slug}`}
-                  className="inline-flex rounded-md border border-zinc-200 px-2.5 py-1.5 font-mono text-xs text-zinc-600 transition-colors hover:border-[#ff8a1f]/40 hover:text-[#ff8a1f] dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-[#ff8a1f]/40 dark:hover:text-[#ff8a1f]"
+                  className="md-interactive inline-flex rounded-full bg-md-surface-container-high px-3 py-1.5 font-mono text-xs text-md-on-surface-variant"
                 >
                   {label}
                 </Link>

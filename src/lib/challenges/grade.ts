@@ -9,6 +9,11 @@ export type GradeResult = {
  * inside a string (e.g. printf("hello, world\\n")).
  */
 function sourceHasNewlineEscape(source: string, expectedCore: string): boolean {
+  // Multi-line expected output is built from several printf calls, not one
+  // string that contains the whole table plus a trailing \\n.
+  if (expectedCore.includes("\n")) {
+    return source.includes("\\n");
+  }
   const escaped = expectedCore.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   return new RegExp(`${escaped}\\\\n`).test(source);
 }

@@ -282,7 +282,7 @@ export function HeroTerminal() {
       <div className="hero-terminal-scan" />
       <div className="relative z-10 flex flex-col">
         <div className="hero-terminal-chrome flex min-w-0 items-center gap-2 px-5 py-3">
-          <span className="size-2.5 shrink-0 rounded-sm bg-[#ff8a1f]/60" />
+          <span className="size-2.5 shrink-0 rounded-sm bg-md-primary/60" />
           <span className="min-w-0 truncate font-mono text-[0.7rem] tracking-wide text-white/50">
             <span className="sm:hidden">getc.c</span>
             <span className="hidden sm:inline">
@@ -292,7 +292,7 @@ export function HeroTerminal() {
           <span
             className={`ml-auto shrink-0 font-mono text-[0.65rem] transition-opacity duration-300 ${
               runDone
-                ? "text-[#ff8a1f]/90 opacity-100"
+                ? "text-md-primary opacity-100"
                 : statusLabel
                   ? "text-white/40 opacity-100"
                   : "opacity-0"
@@ -327,7 +327,7 @@ export function HeroTerminal() {
                   )
                 )}
                 {line.isCursorLine ? (
-                  <span className="hero-cursor ml-0.5 inline-block h-[1.05em] w-2 translate-y-0.5 bg-[#ff8a1f] align-text-bottom" />
+                  <span className="hero-cursor ml-0.5 inline-block h-[1.05em] w-2 translate-y-0.5 bg-md-primary align-text-bottom" />
                 ) : null}
               </code>
             </div>
@@ -336,7 +336,7 @@ export function HeroTerminal() {
             className={`mt-1 flex min-h-6 gap-4 sm:min-h-7 ${codeDone ? "" : "invisible"}`}
           >
             <span className="w-5 shrink-0" />
-            <span className="hero-cursor inline-block h-5 w-2 translate-y-0.5 bg-[#ff8a1f]" />
+            <span className="hero-cursor inline-block h-5 w-2 translate-y-0.5 bg-md-primary" />
           </div>
         </pre>
         <div className="hero-terminal-out px-5 py-3 font-mono text-[0.7rem] text-md-code-on-surface/50">
@@ -344,7 +344,7 @@ export function HeroTerminal() {
             Terminal
           </p>
           <div className="flex min-h-5 items-center gap-2">
-            <span className="text-[#ff8a1f]">$</span>
+            <span className="text-md-primary">$</span>
             <span className="text-white/70">
               {COMMAND.slice(0, commandChars)}
             </span>

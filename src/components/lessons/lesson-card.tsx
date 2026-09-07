@@ -22,9 +22,9 @@ export function LessonCard({ lesson, priority = false }: LessonCardProps) {
   return (
     <Link
       href={`/lessons/${lesson.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition-colors hover:border-[#ff8a1f]/60 dark:border-amber-900/40 dark:bg-zinc-900/90 dark:shadow-[0_24px_64px_rgba(0,0,0,0.55)] dark:hover:border-[#ff8a1f]/50"
+      className="md-interactive group flex h-full flex-col overflow-hidden rounded-xl bg-md-surface-container-lowest text-md-on-surface outline outline-1 outline-md-outline-variant hover:outline-md-primary/45"
     >
-      <div className="relative aspect-[1200/630] overflow-hidden bg-md-surface-container-lowest dark:bg-[#f4f0e6]">
+      <div className="relative aspect-[1200/630] overflow-hidden border-b border-md-outline-variant bg-md-surface-container-lowest dark:bg-[#f4f0e6]">
         {coverSrc ? (
           <Image
             src={coverSrc}
@@ -35,26 +35,24 @@ export function LessonCard({ lesson, priority = false }: LessonCardProps) {
             priority={priority}
           />
         ) : (
-          <div className="flex h-full items-center justify-center bg-md-surface-container-low dark:bg-md-surface-container">
-            <span className="font-mono text-sm tracking-wide text-[#ff8a1f]">
+          <div className="flex h-full items-center justify-center bg-md-surface-container-low">
+            <span className="font-mono text-sm tracking-wide text-md-primary">
               {lessonLabel(lesson)}
             </span>
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col p-4">
+      <div className="flex flex-1 flex-col bg-md-surface-container-low/50 p-4">
         <div className="flex items-center justify-between gap-3">
-          <p className="font-mono text-[0.7rem] tracking-wide text-[#ff8a1f]">
+          <p className="font-mono text-[0.7rem] tracking-wide text-md-primary">
             {lessonLabel(lesson)}
           </p>
-          <p className="text-xs tracking-wide text-zinc-400 uppercase dark:text-zinc-500">
+          <p className="rounded-full bg-md-surface-container-high px-2 py-0.5 text-[0.65rem] tracking-wide text-md-on-surface-variant uppercase">
             {lesson.difficulty}
           </p>
         </div>
-        <h2 className="mt-3 font-medium text-zinc-950 dark:text-zinc-50">
-          {lesson.title}
-        </h2>
-        <p className="mt-1 line-clamp-3 text-sm text-zinc-600 dark:text-zinc-400">
+        <h2 className="mt-3 font-medium text-md-on-surface">{lesson.title}</h2>
+        <p className="mt-1 line-clamp-3 text-sm text-md-on-surface-variant">
           {lesson.summary}
         </p>
       </div>
