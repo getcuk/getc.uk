@@ -116,6 +116,14 @@
   --font-display: var(--font-syne);
 }
 
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -223,6 +231,80 @@ body {
 
 .dark .hero-grid {
   opacity: 0.22;
+}
+
+/* —— 404 —— */
+.not-found-copy-inner {
+  padding-block: clamp(1rem, 4vh, 3rem);
+}
+
+.not-found-bulb {
+  margin-block: clamp(0.5rem, 2.5vh, 2rem);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.not-found-bulb img {
+  display: block;
+  width: min(9rem, 42vw, 22vh);
+  max-width: 100%;
+  height: auto;
+  max-height: 22vh;
+  object-fit: contain;
+}
+
+@media (min-width: 640px) {
+  .not-found-bulb img {
+    width: min(14rem, 28vw, 32vh);
+    max-height: 32vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .not-found-bulb img {
+    width: min(18rem, 24vw, 38vh);
+    max-height: 38vh;
+  }
+}
+
+@media (max-height: 720px) {
+  .not-found-kicker {
+    margin-top: 0.5rem;
+  }
+
+  .not-found-lede {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .not-found-actions {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-height: 560px) {
+  .not-found-copy-inner {
+    padding-block: 0.75rem;
+  }
+
+  .not-found-bulb {
+    margin-block: 0.5rem;
+  }
+
+  .not-found-bulb img {
+    width: min(10rem, 22vh);
+    max-height: 22vh;
+  }
+
+  .not-found-copy h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-height: 430px) {
+  .not-found-bulb {
+    display: none;
+  }
 }
 
 .hero-copy {

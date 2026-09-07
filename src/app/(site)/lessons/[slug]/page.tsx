@@ -28,6 +28,8 @@ type LessonPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getAllLessons().map((lesson) => ({ slug: lesson.slug }));
 }

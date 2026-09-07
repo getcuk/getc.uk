@@ -1,15 +1,19 @@
-import type { ReactNode } from "react";
-import { BackToTop } from "@/components/layout/back-to-top";
+import type { Metadata } from "next";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { NotFoundView } from "@/components/not-found-view";
 
-export default function SiteLayout({ children }: { children: ReactNode }) {
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: false },
+};
+
+export default function NotFound() {
   return (
     <div className="flex min-h-dvh flex-col bg-md-surface text-md-on-surface">
       <SiteHeader />
-      <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+      <NotFoundView />
       <SiteFooter />
-      <BackToTop />
     </div>
   );
 }

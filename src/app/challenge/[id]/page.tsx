@@ -10,6 +10,8 @@ type ChallengePageProps = {
   params: Promise<{ id: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getChallengeParamIds().map((id) => ({ id }));
 }
