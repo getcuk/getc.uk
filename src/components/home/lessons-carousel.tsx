@@ -95,7 +95,7 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
           <button
             type="button"
             onClick={() => scrollByCard(-1)}
-            className="carousel-nav-btn md-interactive"
+            className="md-interactive md-icon-btn carousel-nav-btn"
             aria-label="Scroll exercises left"
             disabled={atStart}
           >
@@ -104,7 +104,7 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
           <button
             type="button"
             onClick={() => scrollByCard(1)}
-            className="carousel-nav-btn md-interactive"
+            className="md-interactive md-icon-btn carousel-nav-btn"
             aria-label="Scroll exercises right"
             disabled={atEnd}
           >
@@ -170,7 +170,7 @@ export function LessonsCarousel({ lessons }: LessonsCarouselProps) {
                 aria-current={isActive ? "true" : undefined}
                 onClick={() => scrollToIndex(index)}
                 className={cn(
-                  "h-2 rounded-full transition-all",
+                  "h-2 rounded-full p-0",
                   isActive
                     ? "w-6 bg-md-primary"
                     : "w-2 bg-md-outline-variant hover:bg-md-outline",

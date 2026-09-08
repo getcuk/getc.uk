@@ -5,11 +5,10 @@
 :root {
   --background: #fff8f4;
   --foreground: #221a15;
-  --brand: #ff8a1f;
-  --hero-ink: #0c0d10;
-  --hero-panel: #1c1814;
   --page-gutter: 2rem;
   --site-max: 72rem;
+  /* Cream plate behind keyed lesson covers in dark mode (does not remap). */
+  --md-cover-plate: #f4f0e6;
 
   /* Material Design 3 tonal palette (orange seed) */
   --md-primary: #ff8a1f;
@@ -17,6 +16,8 @@
   --md-primary-container: #ffe0c2;
   --md-on-primary-container: #9a4500;
   --md-surface: #fff8f4;
+  /* Lesson catalogue + article pages: white reading canvas in light mode. */
+  --md-lesson-canvas: #ffffff;
   --md-surface-container-lowest: #ffffff;
   --md-surface-container-low: #fff1e7;
   --md-surface-container: #fcebe0;
@@ -70,6 +71,7 @@
 .dark {
   --background: #18120d;
   --foreground: #f0dfd4;
+  --md-lesson-canvas: #18120d;
   --md-primary: #ff8a1f;
   --md-on-primary: #ffffff;
   --md-primary-container: color-mix(in srgb, #ff8a1f 22%, #211a15);
@@ -98,6 +100,7 @@
   --color-md-primary-container: var(--md-primary-container);
   --color-md-on-primary-container: var(--md-on-primary-container);
   --color-md-surface: var(--md-surface);
+  --color-md-lesson-canvas: var(--md-lesson-canvas);
   --color-md-surface-container-lowest: var(--md-surface-container-lowest);
   --color-md-surface-container-low: var(--md-surface-container-low);
   --color-md-surface-container: var(--md-surface-container);
@@ -111,6 +114,7 @@
   --color-md-inverse-on-surface: var(--md-inverse-on-surface);
   --color-md-code-surface: var(--md-code-surface);
   --color-md-code-on-surface: var(--md-code-on-surface);
+  --color-md-cover-plate: var(--md-cover-plate);
   --font-sans: var(--font-ibm-plex-sans);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-syne);
@@ -130,8 +134,24 @@ body {
   font-family: var(--font-ibm-plex-sans), system-ui, sans-serif;
 }
 
+/* Lesson catalogue + article pages: white canvas in light mode (dark keeps surface). */
+.site-root:has(.lesson-canvas),
+body:has(.lesson-canvas) {
+  background-color: var(--md-lesson-canvas);
+}
+
 .font-display {
   font-family: var(--font-syne), var(--font-ibm-plex-sans), system-ui, sans-serif;
+}
+
+/*
+  Tailwind preflight restores `appearance: button`, which on macOS paints a
+  square native hover chrome over custom rounded controls.
+*/
+button,
+input:where([type="button"], [type="reset"], [type="submit"]) {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* Hand cursor on clickable controls (desktop / fine pointers only) */
@@ -162,7 +182,7 @@ body {
   background:
     radial-gradient(
       130% 90% at 0% -10%,
-      color-mix(in srgb, var(--brand) 28%, transparent),
+      color-mix(in srgb, var(--md-primary) 28%, transparent),
       transparent 52%
     ),
     radial-gradient(
@@ -172,7 +192,7 @@ body {
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--brand) 6%, var(--background)) 0%,
+      color-mix(in srgb, var(--md-primary) 6%, var(--background)) 0%,
       var(--background) 55%
     );
 }
@@ -181,7 +201,7 @@ body {
   background:
     radial-gradient(
       120% 85% at 0% -10%,
-      color-mix(in srgb, var(--brand) 32%, transparent),
+      color-mix(in srgb, var(--md-primary) 32%, transparent),
       transparent 52%
     ),
     radial-gradient(
@@ -191,7 +211,7 @@ body {
     ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--brand) 8%, #0c0d10) 0%,
+      color-mix(in srgb, var(--md-primary) 8%, var(--md-surface)) 0%,
       var(--background) 60%
     );
 }
@@ -390,11 +410,24 @@ body {
 .setup-next-btn,
 .setup-read-btn,
 .carousel-nav-btn,
-.challenge-run-btn {
-  position: relative;
+.challenge-run-btn,
+.md-btn,
+.md-icon-btn,
+.md-fab {
+  appearance: none;
   overflow: hidden;
   isolation: isolate;
   transition: transform 0.12s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.md-interactive:not(.fixed):not(.absolute):not(.sticky),
+.hero-cta-primary,
+.hero-cta-secondary,
+.setup-next-btn,
+.setup-read-btn,
+.carousel-nav-btn,
+.challenge-run-btn {
+  position: relative;
 }
 
 .md-interactive::after,
@@ -510,6 +543,7 @@ body {
   justify-content: center;
   border: 0;
   border-radius: 999px;
+  padding: 0;
   background: var(--md-surface-container-high);
   color: var(--md-primary);
   font-size: 1.05rem;
@@ -520,6 +554,30 @@ body {
   opacity: 0.38;
 }
 
+.md-fab {
+  display: inline-flex;
+  height: 3.5rem;
+  width: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 0;
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+}
+
+.md-fab.back-to-top {
+  position: fixed;
+  inset-inline-end: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 50;
+}
+
+.dark .lesson-cover {
+  background: var(--md-cover-plate);
+}
+
 .hero-terminal {
   background: var(--md-code-surface);
   color: var(--md-code-on-surface);
@@ -528,7 +586,7 @@ body {
 }
 
 .dark .hero-terminal {
-  border: 1px solid rgb(120 53 15 / 0.4);
+  border: 1px solid color-mix(in srgb, var(--md-primary) 40%, transparent);
 }
 
 .dark .hero-visual {
@@ -827,6 +885,7 @@ body {
   justify-content: center;
   border: 0;
   border-radius: 999px;
+  padding: 0;
   background: var(--md-surface-container-high);
   color: var(--md-on-surface-variant);
   font-size: 1.15rem;
@@ -836,6 +895,12 @@ body {
     background-color 0.15s cubic-bezier(0.2, 0, 0, 1),
     color 0.15s cubic-bezier(0.2, 0, 0, 1),
     transform 0.12s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.md-icon-btn::after,
+.md-fab::after,
+.carousel-nav-btn::after {
+  border-radius: 999px;
 }
 
 .carousel-nav-btn:hover:not(:disabled) {

@@ -118,7 +118,7 @@ const challengeList: Challenge[] = [
     instructionsMarkdown: fahrenheitInstructions,
     starterCode: fahrenheitStarter,
     expectedStdout: "0 -17\n20 -6\n40 4\n",
-    relatedLessonSlug: "fahrenheit-to-celsius-in-c",
+    relatedLessonSlug: "fahrenheit-to-celsius",
   },
 ];
 

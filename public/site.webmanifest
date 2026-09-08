@@ -4,7 +4,7 @@
   "description": "Tutorials and games for learning C — built from scratch.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0c0d10",
+  "background_color": "#18120d",
   "theme_color": "#ff8a1f",
   "icons": [
     {

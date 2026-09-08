@@ -71,7 +71,7 @@ describe("challenges", () => {
 
   it("maps lessons onto their related challenge", () => {
     expect(getChallengeForLessonSlug("hello-world")?.id).toBe("1");
-    expect(getChallengeForLessonSlug("fahrenheit-to-celsius-in-c")?.id).toBe(
+    expect(getChallengeForLessonSlug("fahrenheit-to-celsius")?.id).toBe(
       "2",
     );
     expect(getChallengeForLessonSlug("command-line")).toBeUndefined();

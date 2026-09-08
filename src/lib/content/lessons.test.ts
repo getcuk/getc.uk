@@ -67,9 +67,15 @@ describe("lesson catalogue", () => {
       );
       if (lesson.coverImage) {
         expect(existsSync(path.join(imageDir, lesson.coverImage))).toBe(true);
-      }
-      if (lesson.coverImageOg) {
-        expect(existsSync(path.join(imageDir, lesson.coverImageOg))).toBe(true);
+        expect(
+          lesson.coverImageOg,
+          `${lesson.slug} is missing coverImageOg`,
+        ).toBeTruthy();
+        expect(existsSync(path.join(imageDir, lesson.coverImageOg!))).toBe(true);
+        expect(
+          lesson.coverImageAlt,
+          `${lesson.slug} is missing coverImageAlt`,
+        ).toMatch(/getc\.uk/i);
       }
     }
   });

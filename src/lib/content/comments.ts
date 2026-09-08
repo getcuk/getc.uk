@@ -26,6 +26,24 @@ export const COMMENT_FILE_ALIASES: Record<string, string[]> = {
   "command-line": ["learn-your-tools-solid-foundation-in-command-line"],
   "why-learn-basics": ["why-learn-basics-of-coding"],
   "hello-world": ["how-to-compile-hello-world-program-in-c"],
+  "unknown-escape-sequences": ["unknown-escape-sequence-in-c"],
+  "fahrenheit-to-celsius": ["fahrenheit-to-celsius-in-c"],
+  "celsius-to-fahrenheit": ["celsius-to-fahrenheit-in-c"],
+  "reverse-temperature-table": [
+    "fahrenheit-to-celsius-using-for-loop-in-c",
+  ],
+  "getchar-and-eof": ["getchar-and-eof-in-c"],
+  "value-of-eof": ["value-of-eof-in-c"],
+  "count-blanks": ["how-to-count-blanks-tabs-and-newlines-in-c"],
+  "collapse-blanks": [
+    "replace-string-of-one-or-more-blanks-by-one-blank-while-copying-input-to-output",
+  ],
+  "make-escapes-visible": [
+    "c-program-that-replaces-escape-sequence-in-input",
+  ],
+  "test-word-count": [
+    "how-would-you-test-the-word-count-program-what-kinds-of-input-are-most-likely-to-uncover-the-bugs-if-there-are-any",
+  ],
 };
 
 async function readCommentsFile(fileSlug: string): Promise<LegacyComment[] | null> {

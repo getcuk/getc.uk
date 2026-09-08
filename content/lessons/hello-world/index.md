@@ -109,4 +109,4 @@ You can write, compile, and run a tiny C program. You have also seen *why* `#inc
 
 ## Next
 
-→ [Unknown escape sequences — Exercise 1-2](/lessons/unknown-escape-sequence-in-c)
+→ [Unknown escape sequences — Exercise 1-2](/lessons/unknown-escape-sequences)

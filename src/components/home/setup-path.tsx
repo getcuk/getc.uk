@@ -179,7 +179,7 @@ export function SetupPath({
             role="tabpanel"
             id={`${reactId}-panel`}
             aria-labelledby={`${reactId}-tab-${safeIndex}`}
-            className="relative mt-8 rounded-2xl bg-md-surface-container-low p-6 sm:p-8"
+            className="relative mt-8 rounded-xl bg-md-surface-container-low p-6 sm:p-8"
           >
             <div className="min-w-0 overflow-hidden">
               <div

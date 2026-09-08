@@ -9,6 +9,8 @@ Apply whenever adding or replacing lesson covers or inline lesson images. Prefer
 
 ## Cover images (featured)
 
+**Keep the current featured image.** On a lesson refresh, process the existing cover (`coverImage` in `lessons.ts` / the hero already on the page). Do not swap in a different unused photo from the folder (e.g. tea mug instead of the street painting). Extra unused files may still be deleted; the subject of the cover must stay the same.
+
 For each lesson cover, produce **two** assets under `public/lessons/<slug>/images/`:
 
 1. **Page WebP** — subject on a **transparent** 1200×630 canvas (spot illustration that sits on the page background).
@@ -39,15 +41,15 @@ Use descriptive SEO filenames (e.g. `why-learn-basics-camel-rider.webp`), not `c
 | Inline diagrams / screenshots | intrinsic size as needed; compress | JPEG/WebP | keep lean; descriptive filenames + alt |
 
 - Strip metadata; avoid huge source dumps in `public/`.
-- Covers must not stretch wider than the article column (`max-w-3xl`).
-- Delete superseded cover files when replacing.
+- Covers must not stretch wider than the article column (`max-w-4xl`).
+- Delete superseded *exports* of the same cover (old jpg/png after the WebP + OG pair ships). Do not delete the featured subject in favour of a different picture.
 
 ## Dark mode
 
 Transparent covers keyed from cream/white paper leave light fringes that look broken on black.
 
 - Do **not** rely on the naked transparent WebP against a dark page background.
-- Lesson covers sit on a soft paper plate in dark mode (see `.lesson-cover` on the lesson page) so edges read as intended.
+- Lesson covers sit on a soft paper plate in dark mode (`.lesson-cover` in `globals.css`, `--md-cover-plate`) so edges read as intended.
 - OG JPGs already use a white canvas — fine for social cards.
 
 ## Checklist before finishing

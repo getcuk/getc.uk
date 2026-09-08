@@ -27,11 +27,12 @@ Touch these areas together for each page:
 - Headings should be scannable and keyword-honest (what the section actually teaches).
 
 ## 5. Images
+- Keep the existing featured image; optimize that subject (do not substitute a different unused asset).
 - Featured cover: descriptive SEO filename, `coverImage` + `coverImageOg` + `coverImageAlt` in `lessons.ts`.
 - Page WebP: subject on **transparent** 1200×630 canvas (spot illustration style, like camel / landscape).
 - OG JPG: same composition on **white**, 1200×630.
 - Inline images: descriptive filenames + useful alt text; drop unused assets.
-- Match article column width (`max-w-3xl`); covers should not stretch wider than the title column.
+- Match article column width (`max-w-4xl`); covers should not stretch wider than the title column.
 
 ## 6. Overall SEO pass
 Before finishing the page, verify together:

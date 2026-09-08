@@ -112,7 +112,7 @@ export function LessonDocsNav({
                 href={`#${item.id}`}
                 onClick={() => setActiveId(item.id)}
                 aria-current={active ? "location" : undefined}
-                className={`md-interactive block rounded-lg px-2.5 py-1.5 ${
+                className={`md-interactive block rounded-xl px-2.5 py-1.5 ${
                   item.command
                     ? "font-mono text-[0.8rem]"
                     : "font-sans text-[0.85rem]"

@@ -15,6 +15,7 @@ This site uses **Google Material Design 3** (MD3), with the orange seed palette 
 - Interactive controls get `.md-interactive` (state layer). Buttons use `.md-btn` plus a variant (`.md-btn-filled`, `.md-btn-tonal`, `.md-btn-outlined`, `.md-btn-text`) or `src/components/ui/button.tsx`. Icon-only controls use `.md-icon-btn`.
 - Prefer MD3 shapes: pill buttons (`rounded-full`), cards/panels around `rounded-xl` / `rounded-3xl`, 1px outline with `outline-md-outline-variant`.
 - Support light and dark through the existing tokens (they already remap under `.dark`). Do not hard-code a second palette.
+- Lesson catalogue and article pages use `--md-lesson-canvas` (white in light mode), not cream `--md-surface`. See Rule 6.
 - New routes, layouts, lesson chrome, challenges, dialogs, menus, forms, empty states, and marketing sections must match this language.
 
 ```tsx

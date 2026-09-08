@@ -24,7 +24,7 @@ export function LessonCard({ lesson, priority = false }: LessonCardProps) {
       href={`/lessons/${lesson.slug}`}
       className="md-interactive group flex h-full flex-col overflow-hidden rounded-xl bg-md-surface-container-lowest text-md-on-surface outline outline-1 outline-md-outline-variant hover:outline-md-primary/45"
     >
-      <div className="relative aspect-[1200/630] overflow-hidden border-b border-md-outline-variant bg-md-surface-container-lowest dark:bg-[#f4f0e6]">
+      <div className="relative aspect-[1200/630] overflow-hidden border-b border-md-outline-variant bg-md-surface-container-lowest dark:bg-md-cover-plate">
         {coverSrc ? (
           <Image
             src={coverSrc}

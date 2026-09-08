@@ -134,7 +134,7 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
                 id={filterPanelId}
                 role="group"
                 aria-label="Difficulty"
-                className="absolute right-0 z-30 mt-2 w-56 rounded-xl bg-md-surface-container-lowest p-3 shadow-lg outline outline-1 outline-md-outline-variant"
+                className="absolute right-0 z-30 mt-2 w-56 rounded-xl bg-md-surface-container-lowest p-3 outline outline-1 outline-md-outline-variant"
               >
                 <p className="px-2 pt-1 pb-3 font-mono text-[0.65rem] tracking-[0.16em] text-md-primary uppercase">
                   Difficulty
@@ -193,7 +193,7 @@ export function LessonsLibrary({ lessons }: LessonsLibraryProps) {
           <button
             type="button"
             onClick={clearFilters}
-            className="font-medium text-md-primary underline decoration-md-primary/35 underline-offset-2 hover:decoration-md-primary"
+            className="md-interactive font-medium text-md-primary underline decoration-md-primary/35 underline-offset-2 hover:decoration-md-primary"
           >
             {searching && filtering
               ? "Clear search and filters"

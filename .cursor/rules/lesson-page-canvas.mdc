@@ -1,0 +1,31 @@
+---
+description: Rule 6 — lesson pages use a white canvas in light mode
+alwaysApply: true
+---
+
+# Rule 6: Lesson page canvas is white in light mode
+
+**Apply this rule automatically** when editing lesson routes, lesson layout, or page backgrounds. Do not wait for the user to remind you.
+
+The **all lessons** page (`/lessons`) and **individual lesson** pages (`/lessons/[slug]`) use a **white** reading canvas in light mode. Dark mode stays on the MD3 surface token.
+
+## Do this
+
+- Keep the canvas on `src/app/(site)/lessons/layout.tsx` via `.lesson-canvas` and `bg-md-lesson-canvas`. That layout wraps both the catalogue and every lesson article.
+- Token: `--md-lesson-canvas` is `#ffffff` in light mode and matches `--md-surface` in dark mode (`src/app/globals.css`).
+- The site shell (`.site-root`) picks up the same canvas with `:has(.lesson-canvas)` so cream `--md-surface` does not show behind the header on lesson routes.
+- Cards, chips, code blocks, and other nested surfaces may still use container tokens. Only the **page background** is white.
+
+```tsx
+// ✅ GOOD — lesson routes
+<div className="lesson-canvas flex flex-1 flex-col bg-md-lesson-canvas text-md-on-surface">
+
+// ❌ BAD — cream page background on lesson routes
+<div className="flex flex-1 flex-col bg-md-surface text-md-on-surface">
+```
+
+## Do not
+
+- Use `bg-md-surface` (cream `#fff8f4`) as the page background on `/lessons` or `/lessons/[slug]`.
+- Change the home page, challenges, header, or footer to white unless asked.
+- Hard-code a one-off `bg-white` on nested lesson components instead of the layout token.

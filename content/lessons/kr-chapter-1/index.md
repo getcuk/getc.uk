@@ -3,33 +3,33 @@ title: "Chapter 1: A Tutorial Introduction"
 date: 2026-08-15
 ---
 
-Chapter 1 is the on-ramp. You write small programs, compile them, and watch what the machine does with characters, numbers, and loops. Open the textbook beside this page. We do not reprint the problems.
+Chapter 1 is the on-ramp. You write small programs, compile them, and watch what the machine does with characters, numbers, and loops. You do not need to buy the textbook to follow along. Each exercise page states the task in our own words. If you have K&R (Second Edition) open beside you, the numbering matches so you can walk the same ladder.
 
 ## What this chapter covers
 
-Hello, world. A temperature table. `getchar` and `EOF`. Counting characters. Arrays. A first look at functions. By the end of the chapter in the book you have used most of the language you need for the rest of the course — not as a catalogue, as programs you typed.
+Hello, world. A temperature table. `getchar` and `EOF`. Counting characters. Arrays. A first look at functions. By the end of this stretch you have used most of the language you need for the rest of the course — not as a catalogue, as programs you typed.
 
-getc.uk follows that same ladder. Read a few pages, write the exercise, then open the lesson here if you want a worked walk.
+Work each exercise here, in order. If you have the book, read the surrounding prose as a companion. If you do not, these lessons still stand on their own.
 
 ## Exercises on this site
 
 These are Exercises **1-1** through **1-11**, in order:
 
 1. [Hello, world](/lessons/hello-world) — 1-1
-2. [Unknown escape sequences](/lessons/unknown-escape-sequence-in-c) — 1-2
-3. [Fahrenheit to Celsius table](/lessons/fahrenheit-to-celsius-in-c) — 1-3
-4. [Celsius to Fahrenheit table](/lessons/celsius-to-fahrenheit-in-c) — 1-4
-5. [Reverse temperature table](/lessons/fahrenheit-to-celsius-using-for-loop-in-c) — 1-5
-6. [getchar() and EOF](/lessons/getchar-and-eof-in-c) — 1-6
-7. [The value of EOF](/lessons/value-of-eof-in-c) — 1-7
-8. [Count blanks, tabs, newlines](/lessons/how-to-count-blanks-tabs-and-newlines-in-c) — 1-8
-9. [Collapse runs of blanks](/lessons/replace-string-of-one-or-more-blanks-by-one-blank-while-copying-input-to-output) — 1-9
-10. [Make escapes visible](/lessons/c-program-that-replaces-escape-sequence-in-input) — 1-10
-11. [Testing word count](/lessons/how-would-you-test-the-word-count-program-what-kinds-of-input-are-most-likely-to-uncover-the-bugs-if-there-are-any) — 1-11
+2. [Unknown escape sequences](/lessons/unknown-escape-sequences) — 1-2
+3. [Fahrenheit to Celsius table](/lessons/fahrenheit-to-celsius) — 1-3
+4. [Celsius to Fahrenheit table](/lessons/celsius-to-fahrenheit) — 1-4
+5. [Reverse temperature table](/lessons/reverse-temperature-table) — 1-5
+6. [getchar() and EOF](/lessons/getchar-and-eof) — 1-6
+7. [The value of EOF](/lessons/value-of-eof) — 1-7
+8. [Count blanks, tabs, and newlines](/lessons/count-blanks) — 1-8
+9. [Collapse runs of blanks](/lessons/collapse-blanks) — 1-9
+10. [Make escapes visible](/lessons/make-escapes-visible) — 1-10
+11. [Test the word count program](/lessons/test-word-count) — 1-11
 
 ## Later in Chapter 1
 
-The textbook continues through exercise **1-24**. Those walkthroughs are next, one at a time. Until they are here, work them from the book.
+The book continues through exercise **1-24**. Those walkthroughs will join this site one at a time. Until they are here, stay with the eleven exercises above — they are enough to finish this stretch of Chapter 1.
 
 ## Next
 

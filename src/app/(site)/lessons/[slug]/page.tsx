@@ -165,8 +165,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
     <div
       className={
         lesson.coverTight
-          ? "lesson-cover mt-6 -mx-4 overflow-hidden sm:mx-0 sm:rounded-xl dark:rounded-xl dark:bg-[#f4f0e6] dark:px-3 dark:py-3 sm:dark:px-5"
-          : "lesson-cover mt-8 -mx-4 overflow-hidden sm:mx-0 sm:rounded-xl dark:rounded-xl dark:bg-[#f4f0e6] dark:px-3 dark:py-5 sm:dark:px-5"
+          ? "lesson-cover mt-6 -mx-4 overflow-hidden sm:mx-0 sm:rounded-xl dark:rounded-xl dark:px-3 dark:py-3 sm:dark:px-5"
+          : "lesson-cover mt-8 -mx-4 overflow-hidden sm:mx-0 sm:rounded-xl dark:rounded-xl dark:px-3 dark:py-5 sm:dark:px-5"
       }
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -195,7 +195,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
         {nextLesson ? (
           <Link
             href={`/lessons/${nextLesson.slug}`}
-            className="hero-cta-primary max-w-full"
+            className="hero-cta-primary md-interactive max-w-full"
           >
             <span className="min-w-0">
               Continue
@@ -208,7 +208,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
             </span>
           </Link>
         ) : (
-          <Link href={challengePath(challengeCta)} className="hero-cta-primary">
+          <Link href={challengePath(challengeCta)} className="hero-cta-primary md-interactive">
             {relatedChallenge
               ? "Try a related challenge"
               : "Try a challenge"}

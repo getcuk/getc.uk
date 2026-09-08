@@ -59,7 +59,7 @@ export function YoutubeEmbed({ id }: YoutubeEmbedProps) {
           <button
             type="button"
             onClick={() => setPlaying(true)}
-            className="group absolute inset-0 block w-full"
+            className="md-interactive group absolute inset-0 block w-full"
             aria-label="Play video"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -83,7 +83,7 @@ export function YoutubeEmbed({ id }: YoutubeEmbedProps) {
               aria-hidden
             />
             <span
-              className="absolute top-1/2 left-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-md-primary text-md-on-primary shadow-lg transition-transform group-hover:scale-105"
+              className="absolute top-1/2 left-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-md-primary text-md-on-primary transition-transform group-hover:scale-105"
               aria-hidden
             >
               <svg
